@@ -12,6 +12,10 @@ To setup this project, you'll want to clone and run the setup script for the rep
 
 ## Run Tests
 
-Run the following command to run the test suite while you're inside the project directory:
+Use the following command to run the test suite while you're inside the project directory:
 
     rspec
+
+or
+
+    rake
