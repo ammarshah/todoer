@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "todos#index"
+  root to: "homepage#index"
 
   resources :todos, only: :create
 end

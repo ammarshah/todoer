@@ -1,0 +1,28 @@
+header .logo {
+  flex: 1; /* Distribute equal space among children */
+  text-align: left; /* Align content to the left */
+}
+
+header .logo img {
+  max-height: 100%; /* Ensure the logo stays within the header */
+}
+
+header .tagline {
+  flex: 1; /* Distribute equal space among children */
+  text-align: center; /* Center the text horizontally */
+  font-size: 1.2em;
+}
+
+header .nav-links {
+  flex: 1; /* Distribute equal space among children */
+  text-align: right; /* Align content to the right */
+  display: flex;
+  gap: 20px; /* Add some spacing between the links */
+  justify-content: flex-end; /* Align links to the right within .nav-links */
+  padding-right: 10px;
+}
+
+header .nav-links a {
+  text-decoration: none; /* Remove underlines from links */
+  font-weight: bold;
+}
