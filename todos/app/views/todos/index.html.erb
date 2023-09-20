@@ -1,0 +1,11 @@
+<div>
+  <ul class="todos">
+    <% @todos.each do |todo| %>
+      <li>
+        <%= todo.title %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= render partial: 'form', locals: { todo: @new_todo } %>
+</div>
