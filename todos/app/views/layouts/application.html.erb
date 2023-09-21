@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div class="master-container">
+    <div class="master-container" data-controller="tagline-scroll" tabindex="0" autofocus data-action="wheel->tagline-scroll#changeTagline keydown->tagline-scroll#changeTagline touchstart->tagline-scroll#changeTagline touchend->tagline-scroll#changeTagline">
       <%= render 'header' %>
       
       <div class="main-content">

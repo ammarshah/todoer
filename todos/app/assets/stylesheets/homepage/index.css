@@ -1,4 +1,5 @@
 .homepage h1.tagline {
+  display: none; /* Hide all taglines by default */
   text-align: center; /* Center text horizontally */
   font-size: 4em;
 }
