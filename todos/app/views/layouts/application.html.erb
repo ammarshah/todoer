@@ -10,10 +10,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="master-container" data-controller="tagline-scroll" tabindex="0" autofocus data-action="wheel->tagline-scroll#changeTagline keydown->tagline-scroll#changeTagline touchstart->tagline-scroll#changeTagline touchend->tagline-scroll#changeTagline">
+  <body <%= scrollable_tagline_attributes %>>
+    <div class="master-container">
       <%= render 'header' %>
-      
+
       <div class="main-content">
         <%= yield %>
       </div>
