@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_21_122035) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_21_185540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_21_122035) do
     t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lang", null: false
+    t.string "lang_code", null: false
+    t.index ["lang"], name: "index_taglines_on_lang"
+    t.index ["lang_code"], name: "index_taglines_on_lang_code"
   end
 
   create_table "todos", force: :cascade do |t|
