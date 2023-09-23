@@ -1,24 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Todo, type: :model do
-  describe "validations" do
-    context "with title" do
-      it "saves successfully" do
-        todos_count = Todo.count
-        create(:todo)
+  it "saves with valid attributes" do
+    todos_count = Todo.count
+    todo = build(:todo)
 
-        expect(Todo.count).to eq(todos_count + 1)
-      end
-    end
+    expect(todo.save!).to be_truthy
+    expect(Todo.count).to eq(todos_count + 1)
+  end
 
-    context "without title" do
-      it "does not save successfully" do
-        todos_count = Todo.count
-        invalid_todo = build(:todo, title: "")
+  it "does not save without a title" do
+    todos_count = Todo.count
+    invalid_todo = build(:todo, title: "")
 
-        expect{ invalid_todo.save! }.to raise_error(ActiveRecord::RecordInvalid)
-        expect(Todo.count).to eq(todos_count)
-      end
-    end
+    expect{ invalid_todo.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title can't be blank")
+    expect(Todo.count).to eq(todos_count)
   end
 end
