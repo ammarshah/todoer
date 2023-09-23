@@ -5,9 +5,13 @@
     <% end %>
   </div>
 
-  <div class="tagline">Let's get things TODOed</div>
+  <%# <div class="tagline">
+    <p>Let's get things TODOed</p>
+  </div> %>
 
   <div class="nav-links">
-    <a href="#">Sign in</a>
+    <%= link_to root_path, id: "login" do %>
+      <%= image_tag "login.svg", size: "28x28" %>
+    <% end %>
   </div>
 </header>
