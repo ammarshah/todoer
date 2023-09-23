@@ -1,5 +1,5 @@
 <header>
-  <div class="logo">
+  <div id="logo">
     <%= link_to root_path do %>
       <%= image_tag "logo", alt: "Logo", size: "80x80" %>
     <% end %>
@@ -9,7 +9,7 @@
     <p>Let's get things TODOed</p>
   </div> %>
 
-  <div class="nav-links">
+  <div id="nav-links">
     <%= link_to root_path, id: "login" do %>
       <%= image_tag "login.svg", size: "28x28" %>
     <% end %>

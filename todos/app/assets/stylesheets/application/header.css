@@ -1,9 +1,9 @@
-header .logo {
+header #logo {
   flex: 1; /* Distribute equal space among children */
   text-align: left; /* Align content to the left */
 }
 
-header .logo img {
+header #logo img {
   max-height: 100%; /* Ensure the logo stays within the header */
 }
 
@@ -13,7 +13,7 @@ header .tagline {
   font-size: 1.2em;
 }
 
-header .nav-links {
+header #nav-links {
   flex: 1; /* Distribute equal space among children */
   text-align: right; /* Align content to the right */
   display: flex;
@@ -22,7 +22,7 @@ header .nav-links {
   padding-right: 10px;
 }
 
-header .nav-links a {
+header #nav-links a {
   text-decoration: none; /* Remove underlines from links */
   font-weight: bold;
 }

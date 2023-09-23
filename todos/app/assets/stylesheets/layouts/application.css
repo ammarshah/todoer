@@ -14,7 +14,7 @@ body, a {
 }
 
 /* Create a flex container for the master-container */
-.master-container {
+#master-container {
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -33,7 +33,7 @@ header {
 }
 
 /* Allow the .main-content to take up the remaining space */
-.main-content {
+#main-content {
   background-color: #333;
   flex-grow: 1;
   padding: 20px;

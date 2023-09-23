@@ -1,4 +1,4 @@
-.homepage h1.tagline {
+#homepage h1.tagline {
   text-align: center; /* Center text horizontally */
   font-size: 4em;
 }
