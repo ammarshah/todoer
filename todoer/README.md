@@ -12,10 +12,14 @@ To setup this project, you'll want to clone and run the setup script for the rep
 
 ## Run Tests
 
-Use the following command to run the test suite while you're inside the project directory:
+Run RSpec tests:
 
     rspec
 
-or
+Run Cucumber tests:
+
+    cucumber
+
+Run all tests:
 
     rake
