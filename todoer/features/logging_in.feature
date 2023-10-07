@@ -5,13 +5,13 @@ Feature: Logging in
 
   Rule: User with unconfirmed email cannot login
 
-    Example: User can login with a confirmed email
+    Example: User tries to log in with a confirmed email
       Given a registered user with a confirmed email
       And the user is on the login page
       When the user tries to log in
       Then the user should be logged in
 
-    Example: User cannot login with an unconfirmed email
+    Example: User tries to log in with an unconfirmed email
       Given a registered user with an unconfirmed email
       And the user is on the login page
       When the user tries to log in

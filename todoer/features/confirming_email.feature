@@ -18,12 +18,12 @@ Feature: Confirming email
 
   Rule: Auto-login only happens after confirming an unconfirmed email
 
-    Example: User is auto logged in
+    Example: User confirms an unconfirmed email
       Given a registered user with an unconfirmed email
       When the user successfully confirms their email
       Then the user should be automatically logged in
 
-    Example: User is not auto logged in
+    Example: User confirms an already confirmed email
       Given a registered user with a confirmed email
       And the user is not logged in
       When the user tries to confirm their email again

@@ -5,13 +5,13 @@ Feature: Resend confirmation email
 
   Rule: Confirmation email will only be sent for unconfirmed email
 
-    Example: User with an unconfirmed email can resend confirmation email
+    Example: User with an unconfirmed email tries to resend confirmation email
       Given a registered user with an unconfirmed email
       And the user is on the resend confirmation page
       When the user tries to resend the confirmation email
       Then the user should see a message indicating that the resend confirmation email has been sent
 
-    Example: User with a confirmed email cannot resend confirmation email
+    Example: User with a confirmed email tries to resend confirmation email
       Given a registered user with a confirmed email
       And the user is on the resend confirmation page
       When the user tries to resend the confirmation email
