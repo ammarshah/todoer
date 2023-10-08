@@ -1,4 +1,4 @@
-Feature: Visiting homepage
+Feature: Visit homepage
   As an anonymous user
   I want to see the homepage
   So that I gain an understanding of the services that the product offers

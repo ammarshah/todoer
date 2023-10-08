@@ -1,4 +1,4 @@
-Feature: Creating account
+Feature: Create account
   As an anonymous user
   I want to create an account
   So that I can use the services

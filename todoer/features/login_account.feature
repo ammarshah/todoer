@@ -1,4 +1,4 @@
-Feature: Logging in
+Feature: Login account
   As a registered user
   I want to log in to my account
   So that I can use the services

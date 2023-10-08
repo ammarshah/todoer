@@ -1,4 +1,4 @@
-Feature: Confirming email
+Feature: Confirm email
   As a registered user
   I want to confirm my email
   So that I can log in to my account
