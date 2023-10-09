@@ -61,4 +61,7 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # For Devise mailer
+  config.action_mailer.default_url_options = { host: ENV['HOST'], port: ENV['PORT'] }
 end
