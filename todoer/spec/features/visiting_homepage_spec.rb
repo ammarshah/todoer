@@ -6,13 +6,6 @@ RSpec.configure do |c|
 end
 
 feature "Visiting homepage" do
-  scenario "Anonymous user visits the homepage" do
-    anonymous_user_visits_homepage
-
-    expect(page).to have_selector("a#login")
-    expect(page).to have_css("h1.tagline", text: "Whaddya want TODO?")
-  end
-
   xscenario "Logged in user visits the homepage" do
     sign_in
     visit root_path

@@ -1,11 +1,7 @@
 class TaglinesController < ApplicationController
-  def random
-    tagline = Tagline.random(exclude_id: params[:exclude_id])
+  def index
+    taglines = Tagline.pluck(:text)
 
-    respond_to do |format|
-      format.json do
-        render json: tagline.to_json
-      end
-    end
+    render json: taglines
   end
 end

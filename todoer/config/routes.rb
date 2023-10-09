@@ -3,7 +3,5 @@ Rails.application.routes.draw do
 
   resources :todos, only: :create
 
-  resources :taglines, only: [] do
-    get 'random', on: :collection
-  end
+  resources :taglines, only: [:index]
 end

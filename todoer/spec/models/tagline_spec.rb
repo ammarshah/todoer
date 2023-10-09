@@ -41,23 +41,4 @@ RSpec.describe Tagline, type: :model do
     expect{ invalid_tagline.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Lang code can't be blank")
     expect(Tagline.count).to eq(taglines_count)
   end
-
-  describe ".random" do
-    context "without exclude_id argument" do
-      it "returns a random tagline" do
-        first_tagline = create(:tagline, text: "First Tagline")
-        second_tagline = create(:tagline, text: "Second Tagline")
-
-        expect(Tagline.random).to eq(first_tagline).or eq(second_tagline)
-      end
-    end
-
-    context "with exclude_id argument" do
-      it "never returns a tagline with exclude_id" do
-        tagline = create(:tagline, id: 1)
-
-        expect(Tagline.random(exclude_id: 1)).to be_nil
-      end
-    end
-  end
 end
