@@ -1,16 +1,16 @@
-Feature: Visit homepage
+Feature: Visit home page
   As an anonymous user
-  I want to see the homepage
+  I want to see the home page
   So that I gain an understanding of the services that the product offers
 
-  Rule: Only anonymous user can see the homepage
+  Rule: Only anonymous user can see the home page
 
-    Example: Anonymous user visits the homepage
-      Given the user is not logged in
-      When the user visits the homepage
-      Then the user should be able to see the homepage content
+    Example: Anonymous user visits the home page
+      Given I am not logged in
+      When I go to the home page
+      Then I should be able to see the home page content
 
-    Example: Logged in user visits the homepage
-      Given the user is logged in
-      When the user visits the homepage
-      Then the user should not be able to see the homepage content
+    Example: Logged in user visits the home page
+      Given I am logged in
+      When I go to the home page
+      Then I should not be able to see the home page content
