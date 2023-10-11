@@ -6,26 +6,29 @@ Feature: Confirm email
   Rule: Email will only be confirmed using a confirmation link with a valid confirmation token
   
     Example: User uses a confirmation link with a valid confirmation token
-      Given a registered user with an unconfirmed email
-      When the user opens the confirmation link with a valid confirmation token
-      Then the user email should be confirmed
-      And the user should see a confirmation message that their email has been confirmed
+      Given I registered my account
+      And I received a confirmation link
+      When I open the confirmation link
+      Then I should see a success message indicating that the email has been confirmed
 
     Example: User uses a confirmation link with an invalid confirmation token
-      Given a registered user with an unconfirmed email
-      When the user opens the confirmation link with an invalid confirmation token
-      Then the confirmation should fail with an error message indicating that the confirmation token is invalid
+      Given I registered my account
+      And I received a confirmation link
+      But I altered the confirmation token
+      When I open the confirmation link
+      Then I should see an error message indicating that the confirmation token is invalid
 
   Rule: Auto-login only happens after confirming an unconfirmed email
 
     Example: User confirms an unconfirmed email
-      Given a registered user with an unconfirmed email
-      When the user successfully confirms their email
-      Then the user should be automatically logged in
+      Given I registered my account
+      When I confirm my email
+      Then I should be automatically logged in
 
     Example: User confirms an already confirmed email
-      Given a registered user with a confirmed email
-      And the user is not logged in
-      When the user tries to confirm their email again
-      Then the user should not be automatically logged in
-      And the user should see a message indicating that their email has already been confirmed
+      Given I registered my account
+      And I confirmed my email
+      But I am not logged in
+      When I confirm my email again
+      Then I should not be automatically logged in
+      And I should see an error message indicating that the email has already been confirmed
