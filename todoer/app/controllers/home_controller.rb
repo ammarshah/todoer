@@ -1,4 +1,4 @@
-class HomepageController < ApplicationController
+class HomeController < ApplicationController
   def index
     @tagline = Tagline::DEFAULT_TAGLINE
   end

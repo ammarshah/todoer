@@ -1,8 +1,8 @@
 module ApplicationHelper
   # These attributes are used by stimulus tagline_controller
-  # which makes the tagline on the homepage scrollable 
+  # which makes the tagline on the homepage scrollable
   def scrollable_tagline_attributes
-    if controller_name == "homepage"
+    if controller_name == "home"
       ("tabindex='0'
         autofocus
         data-controller='tagline'
