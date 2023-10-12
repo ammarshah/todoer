@@ -1,6 +1,7 @@
 # GIVEN
 Given('I am not logged in') do
-  # logout_user
+  logout
+  expect(page).to have_content('Signed out successfully.')
 end
 
 Given('I am logged in') do
