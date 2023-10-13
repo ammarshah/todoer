@@ -10,8 +10,14 @@
   </div> %>
 
   <div id="nav-links">
-    <%= link_to root_path, id: "login" do %>
-      <%= image_tag "login.svg", size: "28x28" %>
+    <% if user_signed_in? %>
+      <%= link_to logout_path, id: "logout", data: { turbo_method: :delete } do %>
+        <%= image_tag "logout.svg", size: "28x28" %>
+      <% end %>
+    <% else %>
+      <%= link_to login_path, id: "login" do %>
+        <%= image_tag "login.svg", size: "28x28" %>
+      <% end %>
     <% end %>
   </div>
 </header>
