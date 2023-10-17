@@ -1,9 +1,16 @@
 module AuthenticationHelper
-  def login(user)
-    login_with(user.email, user.password)
+  def register_with(email:, password:)
+    visit path_for('register')
+    fill_in "Email", with: email
+    fill_in "Password", with: password
+    click_button "Continue"
   end
 
-  def login_with(email, password)
+  def login(user)
+    login_with(email: user.email, password: user.password)
+  end
+
+  def login_with(email:, password:)
     visit path_for('login')
     fill_in "Email", with: email
     fill_in "Password", with: password
