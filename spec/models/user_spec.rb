@@ -16,4 +16,12 @@ RSpec.describe User, type: :model do
     expect{ invalid_user.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Password can't be blank")
     expect(User.count).to eq(users_count)
   end
+
+  it "does not save without an email" do
+    users_count = User.count
+    invalid_user = build(:user, email: nil)
+
+    expect{ invalid_user.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Email can't be blank")
+    expect(User.count).to eq(users_count)
+  end
 end

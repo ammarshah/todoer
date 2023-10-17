@@ -26,6 +26,10 @@ When('I register without a password') do
   register_with(email: 'user@example.com')
 end
 
+When('I register without an email') do
+  register_with(password: '12345678')
+end
+
 # THEN
 Then('I should be able to see the home page content') do
   expect(page).to have_css("h1.tagline", text: Tagline::DEFAULT_TAGLINE)
