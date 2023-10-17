@@ -11,7 +11,7 @@ RSpec.describe Todo, type: :model do
 
   it "does not save without a title" do
     todos_count = Todo.count
-    invalid_todo = build(:todo, title: "")
+    invalid_todo = build(:todo, title: nil)
 
     expect{ invalid_todo.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title can't be blank")
     expect(Todo.count).to eq(todos_count)

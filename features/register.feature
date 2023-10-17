@@ -8,14 +8,14 @@ Feature: Register
     Example: User registers with both email and password
       Given I am on the register page
       When I register with both email and password
-      Then I should see a success message indicating that the account is successfully created
+      Then I should see a success message indicating that I have to confirm my email to activate the account
 
-    Example: User registers without password
+    Example: User registers without a password
       Given I am on the register page
       When I register without a password
       Then I should see an error message indicating that a password is required
 
-    Example: User registers without email
+    Example: User registers without an email
       Given I am on the register page
       When I register without an email
       Then I should see an error message indicating that an email is required
@@ -25,7 +25,7 @@ Feature: Register
     Example: User registers with a valid email
       Given I am on the register page
       When I register with a valid email like "valid@email.com"
-      Then I should see a success message indicating that the account is successfully created
+      Then I should see a success message indicating that I have to confirm my email to activate the account
 
     Example: User registers with an invalid email
       Given I am on the register page
@@ -42,12 +42,12 @@ Feature: Register
     Example: User registers with a 8-character password
       Given I am on the register page
       When I register with a 8-character password
-      Then I should see a success message indicating that the account is successfully created
+      Then I should see a success message indicating that I have to confirm my email to activate the account
 
     Example: User registers with a 128-character password
       Given I am on the register page
       When I register with a 128-character password
-      Then I should see a success message indicating that the account is successfully created
+      Then I should see a success message indicating that I have to confirm my email to activate the account
 
     Example: User registers with a 129-character password
       Given I am on the register page

@@ -1,5 +1,5 @@
 module AuthenticationHelper
-  def register_with(email:, password:)
+  def register_with(email: nil, password: nil)
     visit path_for('register')
     fill_in "Email", with: email
     fill_in "Password", with: password
