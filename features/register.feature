@@ -37,11 +37,11 @@ Feature: Register
     Example: User registers with a 7-character password
       Given I am on the register page
       When I register with a 7-character password
-      Then I should see an error message indicating that the password must be 8 to 128 characters long
+      Then I should see an error message indicating that the password must be minimun 8 characters long
 
-    Example: User registers with a 8-character password
+    Example: User registers with an 8-character password
       Given I am on the register page
-      When I register with a 8-character password
+      When I register with an 8-character password
       Then I should see a success message indicating that I have to confirm my email to activate the account
 
     Example: User registers with a 128-character password
@@ -52,7 +52,7 @@ Feature: Register
     Example: User registers with a 129-character password
       Given I am on the register page
       When I register with a 129-character password
-      Then I should see an error message indicating that the password must be 8 to 128 characters long
+      Then I should see an error message indicating that the password must be maximum 128 characters long
 
 
   Rule: Email must be unique

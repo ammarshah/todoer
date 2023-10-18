@@ -19,23 +19,57 @@ When('I go to the {page} page') do |path|
 end
 
 When('I register with both email and password') do
-  register_with(email: 'user@example.com', password: '12345678')
+  user = build(:user)
+
+  register(user)
 end
 
 When('I register without a password') do
-  register_with(email: 'user@example.com')
+  user = build(:user, password: nil)
+
+  register(user)
 end
 
 When('I register without an email') do
-  register_with(password: '12345678')
+  user = build(:user, email: nil)
+
+  register(user)
 end
 
 When('I register with a valid email like {string}') do |valid_email|
-  register_with(email: valid_email, password: '12345678')
+  user = build(:user, email: valid_email)
+
+  register(user)
 end
 
 When('I register with an invalid email like {string}') do |invalid_email|
-  register_with(email: invalid_email, password: '12345678')
+  user = build(:user, email: invalid_email)
+
+  register(user)
+end
+
+When('I register with a 7-character password') do
+  user = build(:user, password: '1234567')
+
+  register(user)
+end
+
+When('I register with an 8-character password') do
+  user = build(:user, password: '12345678')
+
+  register(user)
+end
+
+When('I register with a 128-character password') do
+  user = build(:user, password: 'a' * 128)
+
+  register(user)
+end
+
+When('I register with a 129-character password') do
+  user = build(:user, password: 'a' * 129)
+
+  register(user)
 end
 
 # THEN

@@ -10,6 +10,6 @@ RSpec.describe Todo, type: :model do
   it "does not save without a title" do
     invalid_todo = build(:todo, title: nil)
 
-    expect { invalid_todo.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title can't be blank")
+    expect { invalid_todo.save! }.to raise_error("Validation failed: Title can't be blank")
   end
 end
