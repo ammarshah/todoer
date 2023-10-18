@@ -30,8 +30,12 @@ When('I register without an email') do
   register_with(password: '12345678')
 end
 
-When('I register with a valid email like {string}') do |email|
-  register_with(email: email, password: '12345678')
+When('I register with a valid email like {string}') do |valid_email|
+  register_with(email: valid_email, password: '12345678')
+end
+
+When('I register with an invalid email like {string}') do |invalid_email|
+  register_with(email: invalid_email, password: '12345678')
 end
 
 # THEN

@@ -24,4 +24,20 @@ RSpec.describe User, type: :model do
     expect{ invalid_user.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Email can't be blank")
     expect(User.count).to eq(users_count)
   end
+
+  it "does not save with an invalid email" do
+    users_count = User.count
+    invalid_emails = [
+      'invalid_email', 'invalid_email@', 'invalid_email@domain', 'invalid_email@domain.',
+      'invalid_email.', 'invalid_email.com', 'invalid_email@.', 'invalid_email@.com',
+      '@domain', '@domain.', '@domain.com', '@.com', '.com',
+      'invalid_email@domain@anotherdomain.com'
+    ]
+
+    invalid_emails.each do |invalid_email|
+      invalid_user = build(:user, email: invalid_email)
+      expect{ invalid_user.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Email is invalid")
+    end
+    expect(User.count).to eq(users_count)
+  end
 end
