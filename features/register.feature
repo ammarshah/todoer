@@ -54,10 +54,9 @@ Feature: Register
       When I register with a 129-character password
       Then I should see an error message indicating that the password must be maximum 128 characters long
 
-
   Rule: Email must be unique
 
     Example: User registers using an existing email
-      Given a user exists with the email "existing@email.com"
+      Given I exist with the email "existing@email.com"
       When I register with the email "existing@email.com"
       Then I should see an error message indicating that the email already exists

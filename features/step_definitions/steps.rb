@@ -13,6 +13,12 @@ Given('I am on the {page} page') do |path|
   visit path
 end
 
+Given('I exist with the email {string}') do |email|
+  user = build(:user, email: email)
+
+  register(user)
+end
+
 # WHEN
 When('I go to the {page} page') do |path|
   visit path
@@ -32,6 +38,12 @@ end
 
 When('I register without an email') do
   user = build(:user, email: nil)
+
+  register(user)
+end
+
+When('I register with the email {string}') do |email|
+  user = build(:user, email: email)
 
   register(user)
 end
