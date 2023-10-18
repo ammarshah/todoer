@@ -24,12 +24,12 @@ Feature: Register
 
     Example: User registers with a valid email
       Given I am on the register page
-      When I register with a valid email like "valid@email.com"
+      When I register with a valid email "valid@email.com"
       Then I should see a success message indicating that I have to confirm my email to activate the account
 
     Example: User registers with an invalid email
       Given I am on the register page
-      When I register with an invalid email like "invalid_email.com"
+      When I register with an invalid email "invalid_email.com"
       Then I should see an error message indicating that the email format is invalid
 
   Rule: Password length must be within 8 to 128 characters
@@ -57,6 +57,6 @@ Feature: Register
   Rule: Email must be unique
 
     Example: User registers using an existing email
-      Given I exist with the email "existing@email.com"
-      When I register with the email "existing@email.com"
+      Given a user exists with the email "existing@email.com"
+      When I register with the same email "existing@email.com"
       Then I should see an error message indicating that the email already exists
