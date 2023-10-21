@@ -1,5 +1,5 @@
 Dotenv.require_keys(
-  "APP_DOMAIN",
+  "APP_HOST",
   "APP_PORT",
   "POSTGRES_USERNAME",
   "POSTGRES_PASSWORD",
