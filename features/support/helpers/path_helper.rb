@@ -1,18 +1,18 @@
-module NavigationHelper
+module PathHelper
   include Rails.application.routes.url_helpers
 
   PAGE_TO_PATH_MAPPINGS = {
     'home' => :root_path
   }
 
-  def path_for(page_name)
-    path_helper_method = PAGE_TO_PATH_MAPPINGS[page_name] ||
-      path_helper_method_for(page_name)
+  def path_for(page)
+    path_helper_method = PAGE_TO_PATH_MAPPINGS[page] ||
+      path_helper_method_for(page)
 
     begin
       send(path_helper_method)
     rescue
-      raise "Can't find mapping from \"#{page_name}\" page to a path.\n" +
+      raise "Can't find mapping from \"#{page}\" page to a path.\n" +
         "Add this mapping at #{__FILE__}:in `PAGE_TO_PATH_MAPPINGS`"
     end
   end
@@ -23,12 +23,12 @@ module NavigationHelper
   #
   #   path_helper_method_for('edit user') => :edit_user_path
   #
-  def path_helper_method_for(page_name)
-    page_name.split(' ')
+  def path_helper_method_for(page)
+    page.split(' ')
       .push('path')
       .join('_')
       .to_sym
   end
 end
 
-World(NavigationHelper)
+World(PathHelper)

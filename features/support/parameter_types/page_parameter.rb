@@ -1,5 +1,5 @@
 ParameterType(
   name:        'page',
-  regexp:      /(.+)/,
-  transformer: -> (name) { path_for(name) }
+  regexp:      /the (.+) page/,
+  transformer: ->(page) { path_for(page) }
 )

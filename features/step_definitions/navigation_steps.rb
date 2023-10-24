@@ -4,7 +4,7 @@ visit_page = lambda do |path|
 end
 
 # GIVEN
-Given('I am on the {page} page', visit_page)
+Given('I am on {page}', visit_page)
 
 # WHEN
-When('I go to the {page} page', visit_page)
+When('I go to {page}', visit_page)
