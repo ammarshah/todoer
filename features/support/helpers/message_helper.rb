@@ -8,7 +8,8 @@ module MessageHelper
     "the password must be minimun 8 characters long"     => "Password is too short (minimum is 8 characters)",
     "the password must be maximum 128 characters long"   => "Password is too long (maximum is 128 characters)",
     "the email has been confirmed"                       => I18n.t("devise.confirmations.confirmed"),
-    "the confirmation token is invalid"                  => "Confirmation token is invalid"
+    "the confirmation token is invalid"                  => "Confirmation token is invalid",
+    "the email has already been confirmed"               => I18n.t("errors.messages.already_confirmed")
   }
 
   def message_for(text)

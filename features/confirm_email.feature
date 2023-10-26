@@ -24,6 +24,7 @@ Feature: Confirm email
       Given I registered my account
       When I confirm my email
       Then I should be automatically logged in
+      And I should see a success message indicating that the email has been confirmed
 
     Example: User confirms an already confirmed email
       Given I registered my account

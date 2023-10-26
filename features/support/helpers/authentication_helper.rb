@@ -19,6 +19,11 @@ module AuthenticationHelper
     end
   end
 
+  def confirm_email
+    deliver_enqueued_emails
+    visit confirmation_link
+  end
+
   private
 
   def register_with(email:, password:)

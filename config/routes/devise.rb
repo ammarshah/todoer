@@ -41,6 +41,6 @@ devise_scope :user do
   # Confirmation routes for Confirmable
   get  'confirm',      to: 'devise/confirmations#new',    as: :new_user_confirmation
   get  'confirm',      to: 'devise/confirmations#new',    as: :confirm # Optional: provides `confirm_path` helper
-  get  'confirmation', to: 'devise/confirmations#show',   as: :user_confirmation
+  get  'confirmation', to: 'users/confirmations#show',    as: :user_confirmation
   post 'confirmation', to: 'devise/confirmations#create', as: nil
 end

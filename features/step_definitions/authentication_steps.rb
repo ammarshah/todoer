@@ -48,3 +48,7 @@ When('I register with a/an {int}-character password') do |password_length|
 
   register(user)
 end
+
+When('I confirm(ed) my email( again)') do
+  confirm_email
+end
