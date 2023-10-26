@@ -1,4 +1,10 @@
 # SHARED BLOCKS
+register = lambda do
+  user = build(:user)
+
+  register(user)
+end
+
 register_with_email = lambda do |email|
   user = build(:user, email: email)
 
@@ -18,12 +24,10 @@ end
 
 Given('a user exists with the email {string}', register_with_email)
 
-# WHEN
-When('I register with both email and password') do
-  user = build(:user)
+Given('I registered my account', register)
 
-  register(user)
-end
+# WHEN
+When('I register with both email and password', register)
 
 When('I register without a password') do
   user = build(:user, password: nil)

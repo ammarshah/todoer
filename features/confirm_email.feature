@@ -4,18 +4,18 @@ Feature: Confirm email
   So that I can log in to my account
 
   Rule: Email will only be confirmed using a confirmation link with a valid confirmation token
-  
+
     Example: User uses a confirmation link with a valid confirmation token
       Given I registered my account
-      And I received a confirmation link
-      When I open the confirmation link
+      And I received the confirmation email
+      When I follow the confirmation link in the email
       Then I should see a success message indicating that the email has been confirmed
 
     Example: User uses a confirmation link with an invalid confirmation token
       Given I registered my account
-      And I received a confirmation link
+      And I received the confirmation email
       But I altered the confirmation token
-      When I open the confirmation link
+      When I follow the confirmation link in the email
       Then I should see an error message indicating that the confirmation token is invalid
 
   Rule: Auto-login only happens after confirming an unconfirmed email
