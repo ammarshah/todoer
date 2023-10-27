@@ -1,7 +1,7 @@
-<div class="flash-messages">
-  <% flash.each do |type, message| %>
-    <p class=<%= type %>>
-      <%= message %>
-    </p>
-  <% end %>
+<div id="flash-messages">
+  <div data-controller="toast">
+    <% flash.each do |type, message| %>
+      <input type="hidden" data-toast-target="message" data-message-type="<%= type %>" value="<%= message %>">
+    <% end %>
+  </div>
 </div>
