@@ -5,6 +5,7 @@ Feature: Register
 
   Rule: Email and password are required
 
+    @javascript
     Example: User registers with both email and password
       Given I am on the register page
       When I register with both email and password
@@ -22,6 +23,7 @@ Feature: Register
 
   Rule: Email must have a valid format
 
+    @javascript
     Example: User registers with a valid email
       Given I am on the register page
       When I register with a valid email "valid@email.com"
@@ -39,11 +41,13 @@ Feature: Register
       When I register with a 7-character password
       Then I should see an error message indicating that the password must be minimun 8 characters long
 
+    @javascript
     Example: User registers with an 8-character password
       Given I am on the register page
       When I register with an 8-character password
       Then I should see a success message indicating that I have to confirm my email to activate the account
 
+    @javascript
     Example: User registers with a 128-character password
       Given I am on the register page
       When I register with a 128-character password

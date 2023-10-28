@@ -5,6 +5,7 @@ Feature: Confirm email
 
   Rule: Email will only be confirmed using a confirmation link with a valid confirmation token
 
+    @javascript
     Example: User uses a confirmation link with a valid confirmation token
       Given I registered my account
       And I received the confirmation email
@@ -20,6 +21,7 @@ Feature: Confirm email
 
   Rule: Auto-login only happens after confirming an unconfirmed email
 
+    @javascript
     Example: User confirms an unconfirmed email
       Given I registered my account
       When I confirm my email
