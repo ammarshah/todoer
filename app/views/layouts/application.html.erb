@@ -14,9 +14,9 @@
     <div id="master-container">
       <%= render 'header' %>
 
-      <%= render 'flash_messages' %>
-
       <div id="main-content">
+        <%= render 'flashes' %>
+
         <%= yield %>
       </div>
 
