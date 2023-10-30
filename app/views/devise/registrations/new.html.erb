@@ -1,24 +1,18 @@
-<h2>Register</h2>
+<div class="form-container">
+  <h1 class="center">Register</h1>
 
-<%= form_with(model: resource, url: registration_path(resource_name)) do |form| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_with(model: resource, url: registration_path(resource_name)) do |form| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= form.label :email %><br />
-    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
 
-  <div class="field">
-    <%= form.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= form.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
 
-  <div class="actions">
     <%= form.submit "Continue" %>
-  </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="link">
+    Already registered?
+    <%= link_to "Login", new_session_path(resource_name) %>
+  </div>
+</div>

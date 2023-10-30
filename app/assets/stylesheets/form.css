@@ -1,0 +1,84 @@
+.form-container {
+  width: 30%;
+}
+
+.form-container h1 {
+  font-size: 3em;
+}
+
+.form-container #error {
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 7px;
+  background-color: #9f4c4c;
+  text-align: center;
+}
+
+.form-container form input {
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  padding: 10px;
+  margin-bottom: 7px;
+  background-color: transparent;
+  border: 1px solid #f0f0f8;
+  color: #f0f0f8;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+/* Prevent browser autofill to change background and text color of the input field */
+.form-container form input:autofill,
+.form-container form input:-webkit-autofill,
+.form-container form input:-webkit-autofill:hover, 
+.form-container form input:-webkit-autofill:focus, 
+.form-container form input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #f0f0f8;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-container form input[type="submit"] {
+  cursor: pointer;
+  background-color: #f0f0f8;
+  color: #222;
+}
+
+.form-container form input[type="submit"]:hover {
+  background-color: #dddddd;
+}
+
+.form-container .link {
+  text-align: center;
+  margin-top: 20px;
+  color: grey;
+}
+
+.form-container .link a {
+  text-decoration: none;
+}
+
+/*Any Mobile Device*/
+@media only screen and (max-width: 767px) {
+  .form-container h1 {
+    font-size: 2em;
+  }
+
+  .form-container {
+    width: 70%;
+  }
+
+  .form-container form input {
+    font-size: 16px;
+  }
+}
+
+/* Medium devices (landscape tablets) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .form-container h1 {
+    font-size: 2.5em;
+  }
+
+  .form-container {
+    width: 40%;
+  }
+}

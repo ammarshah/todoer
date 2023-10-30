@@ -32,15 +32,14 @@ header {
   justify-content: space-between; /* Distribute space evenly between children */
 }
 
-/* Allow the .main-content to take up the remaining space */
 #main-content {
   background-color: #333;
-  flex-grow: 1;
   padding: 20px;
+  flex-grow: 1; /* Allow the #main-content to take up the remaining space */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
 /* Make the footer stick to the bottom */
