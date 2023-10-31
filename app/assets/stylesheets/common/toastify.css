@@ -74,8 +74,7 @@
 }
 
 .toastify.alert {
-  border-color: var(--red);
-  background-color: var(--red);
+  color: var(--alert-red);
 }
 
 @media only screen and (max-width: 360px) {
@@ -85,5 +84,12 @@
     left: 0;
     right: 0;
     max-width: fit-content;
+  }
+}
+
+/* Any Mobile Device */
+@media only screen and (max-width: 767px) {
+  .toastify {
+    width: 45%;
   }
 }

@@ -5,7 +5,8 @@
   --black: #222;
   --grey: #333;
   --light-grey: #a5a5a5;
-  --red: #9b4f4f;
+  --alert-red: #d8504a;
+  --error-red: #9b4f4f;
 
   /* Properties */
   --default-border-radius: 6px;

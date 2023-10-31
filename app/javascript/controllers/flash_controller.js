@@ -26,7 +26,8 @@ export default class extends Controller {
       gravity:   "top",
       position:  "center",
       duration:  8000,
-      close:     true
+      close:     true,
+      escapeMarkup: false
     }
 
     if (type === "alert") {

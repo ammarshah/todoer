@@ -1,0 +1,19 @@
+<div class="form-container">
+  <h1 id="title" class="center">Resend Confirmation Instructions</h1>
+
+  <p class="subtitle center mr-bottom">
+    Enter your email address below and we will resend you confirmation instructions.
+  </p>
+
+  <%= form_with(model: resource, url: confirmation_path(resource_name), method: :post) do |form| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= form.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Continue" %>
+    </div>
+  <% end %>
+</div>
