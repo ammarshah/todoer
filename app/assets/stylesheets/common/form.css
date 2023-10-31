@@ -7,14 +7,14 @@
 }
 
 .form-container #error {
-  border-radius: var(--main-border-radius);
-  padding: 10px;
-  margin-bottom: 7px;
+  border-radius: var(--default-border-radius);
+  padding: 14px;
+  margin-bottom: 10px;
   background-color: var(--red);
 }
 
 .form-container form .field {
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 
 .form-container form input[type="email"],
@@ -22,11 +22,11 @@
 .form-container form input[type="submit"] {
   width: 100%;
   box-sizing: border-box; /* Include padding and border in the width calculation */
-  padding: 10px;
+  padding: 14px;
   background-color: transparent;
   border: 1px solid var(--white);
   color: var(--white);
-  border-radius: var(--main-border-radius);
+  border-radius: var(--default-border-radius);
   font-size: 18px;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .form-container .link {
-  margin-top: 20px;
+  margin-top: 30px;
   color: var(--light-grey);
 }
 

@@ -5,11 +5,11 @@
     <% end %>
   </div>
 
-  <%# <div class="tagline">
+  <%# <div class="tagline center">
     <p>Let's get things TODOed</p>
   </div> %>
 
-  <div id="nav-links">
+  <div id="nav-link">
     <% if user_signed_in? %>
       <%= link_to logout_path, id: "logout", data: { turbo_method: :delete } do %>
         <%= image_tag "logout.svg", size: "28x28" %>
