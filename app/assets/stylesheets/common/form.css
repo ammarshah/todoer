@@ -6,10 +6,6 @@
   font-size: 3em;
 }
 
-.form-container .subtitle {
-  color: var(--light-grey);
-}
-
 .form-container .mr-top {
   margin-top: 30px;
 }
@@ -31,7 +27,8 @@
 
 .form-container form input[type="email"],
 .form-container form input[type="password"],
-.form-container form input[type="submit"] {
+.form-container form input[type="submit"],
+.form-container form button {
   width: 100%;
   box-sizing: border-box; /* Include padding and border in the width calculation */
   padding: 14px;
@@ -52,6 +49,18 @@
   background-color: var(--off-white);
 }
 
+.form-container form button.delete {
+  cursor: pointer;
+  border-color: var(--error-red);
+  background-color: var(--error-red);
+  color: var(--white);
+}
+
+.form-container form button.delete:hover {
+  border-color: var(--delete-red);
+  background-color: var(--delete-red);
+}
+
 /* Prevent browser autofill from changing background color of the input field */
 .form-container form input:autofill,
 .form-container form input:-webkit-autofill,
@@ -61,6 +70,16 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: var(--white);
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-container form input:disabled {
+  background-color: var(--light-grey);
+}
+
+#danger-zone {
+  border: 1px solid var(--alert-red);
+  border-radius: var(--default-border-radius);
+  padding: 15px;
 }
 
 /* Any Mobile Device */
@@ -75,7 +94,8 @@
 
   .form-container form input[type="email"],
   .form-container form input[type="password"],
-  .form-container form input[type="submit"] {
+  .form-container form input[type="submit"],
+  .form-container form button {
     font-size: 16px;
   }
 }

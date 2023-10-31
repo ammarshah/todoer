@@ -1,7 +1,9 @@
-<footer class="center">
-  <p>
-    © <%= Date.today.year %>
-    <%= link_to "Todoer.", root_path %>
-    Did we TODO it right?
-  </p>
-</footer>
+<% unless user_signed_in? %>
+  <footer>
+    <p class="subtitle center">
+      © <%= Date.today.year %>
+      <%= link_to "Todoer.", root_path %>
+      Did we TODO it right?
+    </p>
+  </footer>
+<% end %>

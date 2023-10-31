@@ -13,3 +13,7 @@
 .float-right {
   float: right;
 }
+
+.subtitle {
+  color: var(--light-grey);
+}
