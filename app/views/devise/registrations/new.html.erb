@@ -1,5 +1,9 @@
 <div class="form-container">
-  <h1 class="center">Register</h1>
+  <h1 id="title" class="center">Register</h1>
+
+  <p class="subtitle center mr-bottom">
+    Before they call you a doer, you gotta become a Todoer.
+  </p>
 
   <%= form_with(model: resource, url: registration_path(resource_name)) do |form| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -17,8 +21,8 @@
     </div>
   <% end %>
 
-  <div class="link center">
+  <div class="subtitle center mr-top">
     Already registered?
-    <%= link_to "Login", new_session_path(resource_name) %>
+    <%= link_to "Login", login_path %>
   </div>
 </div>
