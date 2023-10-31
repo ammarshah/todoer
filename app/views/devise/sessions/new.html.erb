@@ -1,0 +1,33 @@
+<div class="form-container">
+  <h1 class="center">Login</h1>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+    <div class="field">
+      <%= form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <div class="field">
+      <%= form.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+    </div>
+
+    <div class="field float-right">
+      <%= link_to "Forgot password?", new_password_path(resource_name) %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field hide">
+        <%= form.check_box :remember_me, checked: true %>
+        <%= form.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit "Continue" %>
+    </div>
+  <% end %>
+
+  <div class="link center">
+    Don't have an account?
+    <%= link_to "Register", new_registration_path(resource_name) %>
+  </div>
+</div>

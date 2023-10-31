@@ -37,7 +37,7 @@ module AuthenticationHelper
     visit path_for('login')
     fill_in "Email", with: email
     fill_in "Password", with: password
-    click_button "Log in"
+    click_button "Continue"
   end
 end
 

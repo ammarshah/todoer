@@ -1,3 +1,15 @@
+.hide {
+  display: none;
+}
+
 .center {
   text-align: center;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
 }
