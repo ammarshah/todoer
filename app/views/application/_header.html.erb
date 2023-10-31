@@ -1,7 +1,13 @@
 <header>
   <div id="logo">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.png", alt: "Logo", size: "80x80" %>
+    <% if user_signed_in? %>
+      <%= link_to edit_user_registration_path do %>
+        <%= image_tag "account.svg", alt: "Account", size: "28x28" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", alt: "Logo", size: "80x80" %>
+      <% end %>
     <% end %>
   </div>
 
@@ -11,11 +17,11 @@
 
   <div id="nav-link">
     <% if user_signed_in? %>
-      <%= link_to logout_path, id: "logout", data: { turbo_method: :delete } do %>
+      <%= link_to logout_path, data: { turbo_method: :delete } do %>
         <%= image_tag "logout.svg", size: "28x28" %>
       <% end %>
     <% else %>
-      <%= link_to login_path, id: "login" do %>
+      <%= link_to login_path do %>
         <%= image_tag "login.svg", size: "28x28" %>
       <% end %>
     <% end %>
