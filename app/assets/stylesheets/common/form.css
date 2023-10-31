@@ -7,10 +7,10 @@
 }
 
 .form-container #error {
-  border-radius: 6px;
+  border-radius: var(--main-border-radius);
   padding: 10px;
   margin-bottom: 7px;
-  background-color: #9f4c4c;
+  background-color: var(--red);
   text-align: center;
 }
 
@@ -20,44 +20,44 @@
   padding: 10px;
   margin-bottom: 7px;
   background-color: transparent;
-  border: 1px solid #f0f0f8;
-  color: #f0f0f8;
-  border-radius: 6px;
+  border: 1px solid var(--white);
+  color: var(--white);
+  border-radius: var(--main-border-radius);
   font-size: 18px;
 }
 
-/* Prevent browser autofill to change background and text color of the input field */
+/* Prevent browser autofill from changing background color of the input field */
 .form-container form input:autofill,
 .form-container form input:-webkit-autofill,
 .form-container form input:-webkit-autofill:hover, 
 .form-container form input:-webkit-autofill:focus, 
 .form-container form input:-webkit-autofill:active {
   -webkit-background-clip: text;
-  -webkit-text-fill-color: #f0f0f8;
+  -webkit-text-fill-color: var(--white);
   transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-container form input[type="submit"] {
   cursor: pointer;
-  background-color: #f0f0f8;
-  color: #222;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .form-container form input[type="submit"]:hover {
-  background-color: #dddddd;
+  background-color: var(--off-white);
 }
 
 .form-container .link {
   text-align: center;
   margin-top: 20px;
-  color: grey;
+  color: var(--light-grey);
 }
 
 .form-container .link a {
   text-decoration: none;
 }
 
-/*Any Mobile Device*/
+/* Any Mobile Device */
 @media only screen and (max-width: 767px) {
   .form-container h1 {
     font-size: 2em;
@@ -72,7 +72,7 @@
   }
 }
 
-/* Medium devices (landscape tablets) */
+/* Any Tablet Device */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .form-container h1 {
     font-size: 2.5em;

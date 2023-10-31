@@ -1,0 +1,12 @@
+:root {
+  /* Colors */
+  --white: #f0f0f8;
+  --off-white: #d1d1d1;
+  --black: #222;
+  --grey: #333;
+  --light-grey: #a5a5a5;
+  --red: #9b4f4f;
+
+  /* Properties */
+  --main-border-radius: 6px;
+}

@@ -10,7 +10,7 @@ html, body {
 
 /* Set a global color */
 body, a {
-  color: #f0f0f8;
+  color: var(--white);
 }
 
 /* Create a flex container for the master-container */
@@ -22,7 +22,7 @@ body, a {
 
 /* Make the header stick to the top */
 header {  
-  background-color: #222;
+  background-color: var(--black);
   padding: 10px;
   position: sticky;
   top: 0;
@@ -33,7 +33,7 @@ header {
 }
 
 #main-content {
-  background-color: #333;
+  background-color: var(--grey);
   padding: 20px;
   flex-grow: 1; /* Allow the #main-content to take up the remaining space */
   display: flex;
@@ -44,7 +44,7 @@ header {
 
 /* Make the footer stick to the bottom */
 footer {
-  background-color: #333;
+  background-color: var(--grey);
   padding: 20px;
   margin-top: auto; /* Push the footer to the bottom */
   text-align: center;

@@ -15,7 +15,7 @@
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   border: 1px solid;
-  border-radius: 6px;
+  border-radius: var(--main-border-radius);
   text-decoration: none;
   max-width: calc(50% - 20px);
   z-index: 2147483647;
@@ -29,7 +29,7 @@
 .toast-close {
   background: transparent;
   border: 0;
-  color: #f0f0f8;
+  color: var(--white);
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
@@ -74,12 +74,8 @@
 }
 
 .toastify.alert {
-  border-color: #d8504a;
-  color: #d8504a;
-}
-
-.toastify.alert .toast-close {
-  color: #d8504a;
+  border-color: var(--red);
+  background-color: var(--red);
 }
 
 @media only screen and (max-width: 360px) {
