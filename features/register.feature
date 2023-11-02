@@ -3,23 +3,41 @@ Feature: Register
   I want to register my account
   So that I can use the services
 
-  Rule: Email and password are required
+  Rule: Full name, email and password are required
 
     @javascript
-    Example: User registers with both email and password
+    Example: User registers with full name, email and password
       Given I am on the register page
-      When I register with both email and password
+      When I register with full name, email and password
       Then I should see a success message indicating that I have to confirm my email to activate the account
+
+    Example: User registers without a full name
+      Given I am on the register page
+      When I register without a full name
+      Then I should see an error message indicating that a full name is required
+
+    Example: User registers without an email
+      Given I am on the register page
+      When I register without an email
+      Then I should see an error message indicating that an email is required
 
     Example: User registers without a password
       Given I am on the register page
       When I register without a password
       Then I should see an error message indicating that a password is required
 
-    Example: User registers without an email
+  Rule: Full name length must be maximum 80 characters
+
+    # @javascript
+    Example: User registers with an 80-character full name
       Given I am on the register page
-      When I register without an email
-      Then I should see an error message indicating that an email is required
+      When I register with an 80-character full name
+      Then I should see a success message indicating that I have to confirm my email to activate the account
+
+    Example: User registers with an 81-character full name
+      Given I am on the register page
+      When I register with an 81-character full name
+      Then I should see an error message indicating that the full name must be maximum 81 characters long
 
   Rule: Email must have a valid format
 

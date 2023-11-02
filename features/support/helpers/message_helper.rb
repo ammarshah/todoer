@@ -1,6 +1,8 @@
 module MessageHelper
   TEXT_TO_MESSAGE_MAPPINGS = {
     "I have to confirm my email to activate the account" => I18n.t("devise.registrations.signed_up_but_unconfirmed"),
+    "a full name is required"                            => "Full name can't be blank",
+    "the full name must be maximum 81 characters long"   => "Full name is too long (maximum is 80 characters)",
     "an email is required"                               => "Email can't be blank",
     "the email format is invalid"                        => "Email is invalid",
     "the email already exists"                           => "Email has already been taken",

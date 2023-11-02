@@ -27,7 +27,19 @@ Given('a user exists with the email {string}', register_with_email)
 Given('I registered my account', register)
 
 # WHEN
-When('I register with both email and password', register)
+When('I register with full name, email and password', register)
+
+When('I register without a full name') do
+  user = build(:user, full_name: nil)
+
+  register(user)
+end
+
+When('I register without an email') do
+  user = build(:user, email: nil)
+
+  register(user)
+end
 
 When('I register without a password') do
   user = build(:user, password: nil)
@@ -35,8 +47,8 @@ When('I register without a password') do
   register(user)
 end
 
-When('I register without an email') do
-  user = build(:user, email: nil)
+When('I register with an {int}-character full name') do |full_name_length|
+  user = build(:user, full_name: 'a' * full_name_length)
 
   register(user)
 end

@@ -8,6 +8,22 @@ RSpec.describe User, type: :model do
       expect { user.save! }.to change(User, :count).by(1)
     end
 
+    context "for full_name attribute" do
+      it "does not save without a full_name" do
+        invalid_user = build(:user, full_name: nil)
+
+        expect { invalid_user.save! }.to raise_error("Validation failed: Full name can't be blank")
+      end
+
+      it "does not save if full_name has more than 80 characters" do
+        user_with_valid_full_name = build(:user, full_name: "Full Name with 80 Characters#{'s' * 52}")
+        user_with_invalid_full_name = build(:user, full_name: "Full Name with 81 Characters#{'s' * 53}")
+
+        expect { user_with_valid_full_name.save! }.not_to raise_error
+        expect { user_with_invalid_full_name.save! }.to raise_error("Validation failed: Full name is too long (maximum is 80 characters)")
+      end
+    end
+
     context "for email attribute" do
       it "does not save without an email" do
         invalid_user = build(:user, email: nil)
