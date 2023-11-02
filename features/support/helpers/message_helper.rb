@@ -11,7 +11,9 @@ module MessageHelper
     "the password must be maximum 128 characters long"   => "Password is too long (maximum is 128 characters)",
     "the email has been confirmed"                       => I18n.t("devise.confirmations.confirmed"),
     "the confirmation token is invalid"                  => "Confirmation token is invalid",
-    "the email has already been confirmed"               => I18n.t("errors.messages.already_confirmed")
+    "the email has already been confirmed"               => I18n.t("errors.messages.already_confirmed"),
+    "I am logged in"                                     => I18n.t("devise.sessions.signed_in"),
+    "the email is not confirmed"                         => "You have to confirm your email address before continuing. Resend me confirmation instructions."
   }
 
   def message_for(text)
