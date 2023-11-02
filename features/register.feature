@@ -28,7 +28,7 @@ Feature: Register
 
   Rule: Full name length must be maximum 80 characters
 
-    # @javascript
+    @javascript
     Example: User registers with an 80-character full name
       Given I am on the register page
       When I register with an 80-character full name

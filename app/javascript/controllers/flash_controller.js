@@ -12,7 +12,7 @@ export default class extends Controller {
 
   showFlash() {
     for(let flash of this.flashTargets) {
-      const message = flash.textContent
+      const message = flash.value
       const type = flash.dataset.type
 
       this.#showToast(message, type)
