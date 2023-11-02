@@ -9,7 +9,30 @@ RSpec.describe User, type: :model do
     end
 
     context "for email attribute" do
-      it "saves with a valid email" do
+      it "does not save without an email" do
+        invalid_user = build(:user, email: nil)
+
+        expect { invalid_user.save! }.to raise_error("Validation failed: Email can't be blank")
+      end
+
+      it "does not save if email already exists" do
+        user = create(:user, email: "existing_email@example.com")
+        user_with_existing_email = build(:user, email: "existing_email@example.com")
+        another_user_with_existing_email = build(:user, email: "EXISTING_EMAIL@EXAMPLE.COM")
+
+        expect { user_with_existing_email.save! }.to raise_error("Validation failed: Email has already been taken")
+        expect { another_user_with_existing_email.save! }.to raise_error("Validation failed: Email has already been taken")
+      end
+
+      it "does not save if email has more than 150 characters" do
+        user_with_valid_email = build(:user, email: "email_with_150_characters@example.com#{'m' * 113}")
+        user_with_invalid_email = build(:user, email: "email_with_151_characters@example.com#{'m' * 114}")
+
+        expect { user_with_valid_email.save! }.not_to raise_error
+        expect { user_with_invalid_email.save! }.to raise_error("Validation failed: Email is too long (maximum is 150 characters)")
+      end
+
+      it "saves with a valid email format" do
         valid_emails = [
           'valid@email.com', 'valid_email@domain.com', 'valid-email@domain.com', 'valid+email@domain.com',
           'valid.email@domain.com', 'valid_email123@domain.com', '123valid_email@domain.com', '_valid_email@domain.com',
@@ -23,13 +46,7 @@ RSpec.describe User, type: :model do
         end
       end
 
-      it "does not save without an email" do
-        invalid_user = build(:user, email: nil)
-
-        expect { invalid_user.save! }.to raise_error("Validation failed: Email can't be blank")
-      end
-
-      it "does not save with an invalid email" do
+      it "does not save with an invalid email format" do
         invalid_emails = [
           'invalid_email', 'invalid_email@', 'invalid_email@domain', 'invalid_email@domain.',
           'invalid_email.', 'invalid_email.com', 'invalid_email@.', 'invalid_email@.com',
@@ -50,6 +67,12 @@ RSpec.describe User, type: :model do
         invalid_user = build(:user, password: nil)
 
         expect { invalid_user.save! }.to raise_error("Validation failed: Password can't be blank")
+      end
+
+      it "does not save if password_confirmation does not match" do
+        user = build(:user, password: "password", password_confirmation: "PASSWORD")
+
+        expect { user.save! }.to raise_error("Validation failed: Password confirmation doesn't match Password")
       end
 
       it "saves with a minimum 8-character password" do
