@@ -13,7 +13,8 @@ module MessageHelper
     "the confirmation token is invalid"                  => "Confirmation token is invalid",
     "the email has already been confirmed"               => I18n.t("errors.messages.already_confirmed"),
     "I am logged in"                                     => I18n.t("devise.sessions.signed_in"),
-    "the email is not confirmed"                         => "You have to confirm your email address before continuing. Resend me confirmation instructions."
+    "the email is not confirmed"                         => "You have to confirm your email address before continuing. Resend me confirmation instructions.",
+    "the email or password is invalid"                   => "Invalid Email or Password"
   }
 
   def message_for(text)

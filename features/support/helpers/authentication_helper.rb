@@ -7,6 +7,13 @@ module AuthenticationHelper
     login_with(email: user.email, password: user.password)
   end
 
+  def login_with(email:, password:)
+    visit path_for('login')
+    fill_in "Email", with: email
+    fill_in "Password", with: password
+    click_button "Continue"
+  end
+
   # For details, see https://github.com/heartcombo/devise/wiki/How-To:-Test-with-Cucumber#cucumber-testing-for-sign-out
   def logout
     current_driver = Capybara.current_driver
@@ -29,13 +36,6 @@ module AuthenticationHelper
   def register_with(full_name:, email:, password:)
     visit path_for('register')
     fill_in "Full name", with: full_name
-    fill_in "Email", with: email
-    fill_in "Password", with: password
-    click_button "Continue"
-  end
-
-  def login_with(email:, password:)
-    visit path_for('login')
     fill_in "Email", with: email
     fill_in "Password", with: password
     click_button "Continue"

@@ -11,6 +11,14 @@ register_with_email = lambda do |email|
   register(@user)
 end
 
+user_exists_with_email_and_password = lambda do |email, password|
+  create(:user, :confirmed, email: email, password: password)
+end
+
+login_with_email_and_password = lambda do |email, password|
+  login_with(email: email, password: password)
+end
+
 # GIVEN
 Given('I am not logged in') do
   logout
@@ -31,6 +39,8 @@ Given('I have an account with a confirmed email') do
 end
 
 Given('I have an account with an unconfirmed email', register)
+
+Given('I exist with the email {string} and the password {string}', user_exists_with_email_and_password)
 
 # WHEN
 When('I register with full name, email and password', register)
@@ -74,3 +84,5 @@ end
 When('I log in') do
   login(@user)
 end
+
+When('I login with (in)valid email {string} and (in)valid password {string}', login_with_email_and_password)
