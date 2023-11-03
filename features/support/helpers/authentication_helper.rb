@@ -31,6 +31,10 @@ module AuthenticationHelper
     visit confirmation_link
   end
 
+  def resend_confirmation_instructions(user)
+    resend_confirmation_instructions_for(email: user.email)
+  end
+
   private
 
   def register_with(full_name:, email:, password:)
@@ -38,6 +42,12 @@ module AuthenticationHelper
     fill_in "Full name", with: full_name
     fill_in "Email", with: email
     fill_in "Password", with: password
+    click_button "Continue"
+  end
+
+  def resend_confirmation_instructions_for(email:)
+    visit path_for('resend confirmation instructions')
+    fill_in "Email", with: email
     click_button "Continue"
   end
 end

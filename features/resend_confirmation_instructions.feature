@@ -12,18 +12,17 @@ Feature: Resend confirmation email
       When I log in
       Then I should see an option to resend confirmation instructions
 
-  Rule: Confirmation email will only be sent for unconfirmed email
+  Rule: Confirmation instructions will only be sent for unconfirmed email
 
-    Example: User with an unconfirmed email resends confirmation email
-      Given I registered my account
-      But I did not confirm my email
-      And I am on the resend confirmation page
-      When I resend the confirmation email
-      Then I should see a success message indicating that the resend confirmation email has been sent
+    @javascript
+    Example: User with an unconfirmed email resends confirmation instructions
+      Given I have an account with an unconfirmed email
+      And I am on the resend confirmation instructions page
+      When I resend confirmation instructions
+      Then I should see a success message indicating that the confirmation instructions has been sent to my email
 
-    Example: User with a confirmed email resends confirmation email
-      Given I registered my account
-      And I confirmed my email
-      And I am on the resend confirmation page
-      When I resend the confirmation email
+    Example: User with a confirmed email resends confirmation instructions
+      Given I have an account with a confirmed email
+      And I am on the resend confirmation instructions page
+      When I resend confirmation instructions
       Then I should see an error message indicating that the email is already confirmed

@@ -86,3 +86,7 @@ When('I log in') do
 end
 
 When('I login with (in)valid email {string} and (in)valid password {string}', login_with_email_and_password)
+
+When('I resend confirmation instructions') do
+  resend_confirmation_instructions(@user)
+end

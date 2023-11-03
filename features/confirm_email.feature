@@ -34,4 +34,4 @@ Feature: Confirm email
       But I am not logged in
       When I confirm my email again
       Then I should not be automatically logged in
-      And I should see an error message indicating that the email has already been confirmed
+      And I should see an error message indicating that the email is already confirmed

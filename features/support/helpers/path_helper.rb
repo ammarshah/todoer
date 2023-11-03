@@ -2,7 +2,8 @@ module PathHelper
   include Rails.application.routes.url_helpers
 
   PAGE_TO_PATH_MAPPINGS = {
-    'home' => :root_path
+    'home'                             => :root_path,
+    "resend confirmation instructions" => :confirm_path
   }
 
   def path_for(page)

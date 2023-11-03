@@ -20,5 +20,5 @@ Then('I should not be automatically logged in') do
 end
 
 Then('I should see an option to resend confirmation instructions') do
-  expect(page).to have_link(text: 'Resend me confirmation instructions', href: path_for('confirm'))
+  expect(page).to have_link(text: 'Resend me confirmation instructions', href: path_for('resend confirmation instructions'))
 end
