@@ -1,5 +1,5 @@
 Feature: Reset password
-  As a registered user
+  As a registered user who has forgotten their password
   I want to reset my password
   So that I can regain access to my account
 

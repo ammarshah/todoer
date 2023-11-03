@@ -1,7 +1,16 @@
 Feature: Resend confirmation email
   As a registered user with an unconfirmed email
-  I want to resend confirmation email
-  So that I can confirm my email
+  I want to resend confirmation instructions
+  So that I can confirm my email and log in to my account
+
+  Rule: User with unconfirmed email should see an option to resend confirmation instructions when login
+
+    @javascript
+    Example: User with unconfirmed email gets an option to resend confirmation instructions
+      Given I have an account with an unconfirmed email
+      And I am on the login page
+      When I log in
+      Then I should see an option to resend confirmation instructions
 
   Rule: Confirmation email will only be sent for unconfirmed email
 
