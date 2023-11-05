@@ -26,7 +26,7 @@ Feature: Register
       When I register without a password
       Then I should see an error message indicating that a password is required
 
-  Rule: Full name length must be maximum 80 characters
+  Rule: Full name length must be of maximum 80 characters
 
     @javascript
     Example: User registers with an 80-character full name
@@ -37,7 +37,7 @@ Feature: Register
     Example: User registers with an 81-character full name
       Given I am on the register page
       When I register with an 81-character full name
-      Then I should see an error message indicating that the full name must be maximum 81 characters long
+      Then I should see an error message indicating that the full name must be maximum 80 characters long
 
   Rule: Email must have a valid format
 
