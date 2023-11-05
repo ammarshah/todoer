@@ -58,8 +58,8 @@
 }
 
 .form-container form button.delete:hover {
-  border-color: var(--delete-red);
-  background-color: var(--delete-red);
+  border-color: var(--danger-red);
+  background-color: var(--danger-red);
 }
 
 /* Prevent browser autofill from changing background color of the input field */
@@ -71,6 +71,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: var(--white);
   transition: background-color 5000s ease-in-out 0s;
+  caret-color: var(--white);
 }
 
 .form-container form input:disabled {
