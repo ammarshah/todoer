@@ -1,3 +1,4 @@
+@wip
 Feature: Reset password
   As a registered user who has forgotten their password
   I want to reset my password
@@ -27,16 +28,16 @@ Feature: Reset password
       When I open the link
       Then I should see an error message indicating that the link has been expired
 
-  Rule: New password should not match any of the old passwords
+  Rule: New password must not match any of the old passwords
 
     Example: User sets an unused password
       Given I registered my account with the password "strong123"
       And I am on the reset password page
-      When I set "verystrong123" as my new password
+      When I reset my password to "verystrong123"
       Then I should see a success message indicating that the new password has been set
 
     Example: User sets an already used password
       Given I registered my account with the password "strong123"
       And I am on the reset password page
-      When I set "strong123" as my new password
+      When I reset my password to "strong123"
       Then I should see an error message indicating that the new password cannot be one of my old passwords

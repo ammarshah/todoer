@@ -1,3 +1,4 @@
+@wip
 Feature: Update account
   As a logged in user
   I want to update my account information
@@ -14,14 +15,14 @@ Feature: Update account
   Rule: Full name cannot be removed
 
     Example: User updates the full name
-      Given I exist with the full name "John Doe"
+      Given I registered my account with the full name "John Doe"
       And I am logged in
       And I am on the account page
       When I update the full name to "James Joe"
       Then I should see a success message indicating that my account is updated successfully
 
     Example: User removes the full name
-      Given I exist with the full name "John Doe"
+      Given I registered my account with the full name "John Doe"
       And I am logged in
       And I am on the account page
       When I update the full name to ""

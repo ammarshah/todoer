@@ -34,13 +34,13 @@ Given('a user exists with the email {string}', register_with_email)
 
 Given('I registered my account', register)
 
+Given('I registered my account with the email {string} and the password {string}', user_exists_with_email_and_password)
+
 Given('I have an account with a confirmed email') do
   @user = create(:user, :confirmed)
 end
 
 Given('I have an account with an unconfirmed email', register)
-
-Given('I exist with the email {string} and the password {string}', user_exists_with_email_and_password)
 
 # WHEN
 When('I register with full name, email and password', register)
