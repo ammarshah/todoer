@@ -28,6 +28,12 @@ Given('I registered my account', register)
 
 Given('I have an account with the email {string}', register_with_email)
 
+Given('I have an account with the password {string}') do |password|
+  @user = build(:user, password: password)
+
+  register(@user)
+end
+
 Given('I have an account with the email {string} and the password {string}') do |email, password|
   create(:user, :confirmed, email: email, password: password)
 end
@@ -39,7 +45,7 @@ end
 Given('I have an account with an unconfirmed email', register)
 
 Given('I requested to reset my password') do
-  @user = create(:user)
+  @user ||= create(:user)
 
   request_reset_password_for(email: @user.email)
   
@@ -105,5 +111,11 @@ When('I request to reset the password of a/an (un)registered email {string}') do
 end
 
 When('I reset my password') do
-  reset_password(@user)
+  new_password = @user.password + "New"
+
+  reset_password_to(new_password: new_password)
+end
+
+When('I reset my password to {string}') do |password|
+  reset_password_to(new_password: password)
 end

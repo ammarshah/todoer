@@ -39,14 +39,20 @@ Feature: Reset password
 
   Rule: New password must not match any of the old passwords
 
+    @javascript
     Example: User sets an unused password
       Given I have an account with the password "strong123"
-      And I am on the reset password page
+      And I requested to reset my password
+      And I received the reset password email
+      And I followed the reset password link in the email
       When I reset my password to "verystrong123"
-      Then I should see a success message indicating that the new password has been set
+      Then I should see a success message indicating that my password has been changed successfully
 
+    @javascript
     Example: User sets an already used password
       Given I have an account with the password "strong123"
-      And I am on the reset password page
+      And I requested to reset my password
+      And I received the reset password email
+      And I followed the reset password link in the email
       When I reset my password to "strong123"
-      Then I should see an error message indicating that the new password cannot be one of my old passwords
+      Then I should see an error message indicating that the password was previously used

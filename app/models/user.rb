@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :confirmable
+  :recoverable, :rememberable, :confirmable,
+  :password_archivable
 
   # Email address compliant with RFC 2822 format
   # Matches a normal email address. Does not check the top-level domain.
