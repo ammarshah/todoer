@@ -16,7 +16,7 @@ Feature: Delete account
   Rule: User must not be able to login with the email address from which they deleted their account
 
     Example: User cannot login
-      Given I registered my account with the email "user@example.com" and the password "password"
+      Given I have an account with the email "user@example.com" and the password "password"
       And I am logged in
       And I am on the account page
       When I delete my account
@@ -27,7 +27,7 @@ Feature: Delete account
   Rule: User can register again with the same email address from which they deleted their account
 
     Example: User registers with the same email address
-      Given I registered my account with the email "user@example.com" and the password "password"
+      Given I have an account with the email "user@example.com" and the password "password"
       And I am logged in
       And I am on the account page
       When I delete my account

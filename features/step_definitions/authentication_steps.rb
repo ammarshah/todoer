@@ -11,14 +11,6 @@ register_with_email = lambda do |email|
   register(@user)
 end
 
-user_exists_with_email_and_password = lambda do |email, password|
-  create(:user, :confirmed, email: email, password: password)
-end
-
-login_with_email_and_password = lambda do |email, password|
-  login_with(email: email, password: password)
-end
-
 # GIVEN
 Given('I am not logged in') do
   logout
@@ -34,7 +26,11 @@ Given('a user exists with the email {string}', register_with_email)
 
 Given('I registered my account', register)
 
-Given('I registered my account with the email {string} and the password {string}', user_exists_with_email_and_password)
+Given('I have an account with the email {string}', register_with_email)
+
+Given('I have an account with the email {string} and the password {string}') do |email, password|
+  create(:user, :confirmed, email: email, password: password)
+end
 
 Given('I have an account with a confirmed email') do
   @user = create(:user, :confirmed)
@@ -85,8 +81,14 @@ When('I log in') do
   login(@user)
 end
 
-When('I login with (in)valid email {string} and (in)valid password {string}', login_with_email_and_password)
+When('I login with (in)valid email {string} and (in)valid password {string}') do |email, password|
+  login_with(email: email, password: password)
+end
 
 When('I resend confirmation instructions') do
-  resend_confirmation_instructions(@user)
+  resend_confirmation_instructions_for(email: @user.email)
+end
+
+When('I request to reset the password of a/an (un)registered email {string}') do |email|
+  request_reset_password_for(email: email)
 end

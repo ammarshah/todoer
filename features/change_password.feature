@@ -7,14 +7,14 @@ Feature: Change password
   Rule: User must provide current password, new password and retype new password
 
     Example: User provides current password, new password and retype new password
-      Given I registered my account with the password "password"
+      Given I have an account with the password "password"
       And I am logged in
       And I am on the account page
       When I change my password by providing current password "password", new password "newPassword" and retype new password "newPassword"
       Then I should see a success message indicating that my account is updated successfully
 
     Example: User provides new password and retype new password but not current password
-      Given I registered my account with the password "password"
+      Given I have an account with the password "password"
       And I am logged in
       And I am on the account page
       When I change my password by providing current password "", new password "newPassword" and retype new password "newPassword"
@@ -37,14 +37,14 @@ Feature: Change password
   Rule: New password must not match any of the old passwords
 
     Example: User sets an unused password
-      Given I registered my account with the password "strong123"
+      Given I have an account with the password "strong123"
       And I am logged in
       And I am on the account page
       When I change my password to "verystrong123"
       Then I should see a success message indicating my account is updated successfully
 
     Example: User sets an already used password
-      Given I registered my account with the password "strong123"
+      Given I have an account with the password "strong123"
       And I am logged in
       And I am on the account page
       When I change my password to "strong123"

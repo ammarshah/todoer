@@ -7,28 +7,28 @@ Feature: Login
 
     @javascript
     Example: User logs in with both valid email and password
-      Given I registered my account with the email "user@example.com" and the password "password"
+      Given I have an account with the email "user@example.com" and the password "password"
       And I am on the login page
       When I login with valid email "user@example.com" and valid password "password"
       Then I should see a success message indicating that I am logged in
 
     @javascript
     Example: User logs in with both invalid email and password
-      Given I registered my account with the email "user@example.com" and the password "password"
+      Given I have an account with the email "user@example.com" and the password "password"
       And I am on the login page
       When I login with invalid email "invalid@example.com" and invalid password "invalidPassword"
       Then I should see an error message indicating that the email or password is invalid
 
     @javascript
     Example: User logs in with valid email and invalid password
-      Given I registered my account with the email "user@example.com" and the password "password"
+      Given I have an account with the email "user@example.com" and the password "password"
       And I am on the login page
       When I login with valid email "user@example.com" and invalid password "invalidPassword"
       Then I should see an error message indicating that the email or password is invalid
 
     @javascript
     Example: User logs in with invalid email and valid password
-      Given I registered my account with the email "user@example.com" and the password "password"
+      Given I have an account with the email "user@example.com" and the password "password"
       And I am on the login page
       When I login with invalid email "invalid@example.com" and valid password "password"
       Then I should see an error message indicating that the email or password is invalid

@@ -3,7 +3,8 @@ module PathHelper
 
   PAGE_TO_PATH_MAPPINGS = {
     'home'                             => :root_path,
-    "resend confirmation instructions" => :confirm_path
+    "resend confirmation instructions" => :confirm_path,
+    "forgot password"                  => :forgot_path
   }
 
   def path_for(page)
