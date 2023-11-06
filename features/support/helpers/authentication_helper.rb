@@ -43,6 +43,14 @@ module AuthenticationHelper
     click_button "Continue"
   end
 
+  def reset_password(user)
+    new_password = user.password + "New"
+
+    fill_in "New password", with: new_password
+    fill_in "Retype new password", with: new_password
+    click_button "Continue"
+  end
+
   private
 
   def register_with(full_name:, email:, password:)

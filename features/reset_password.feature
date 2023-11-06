@@ -19,15 +19,23 @@ Feature: Reset password
 
   Rule: Reset password link can only be used once
 
-    Example: User opens an unused reset password link
-      Given I have an unused reset password link
-      When I open the link
-      Then I should see the reset password form
+    @javascript
+    Example: User uses an unused reset password link
+      Given I requested to reset my password
+      And I received the reset password email
+      When I follow the reset password link in the email
+      And I reset my password
+      Then I should see a success message indicating that my password has been changed successfully
 
-    Example: User opens an already used reset password link
-      Given I have an already used reset password link
-      When I open the link
-      Then I should see an error message indicating that the link has been expired
+    @javascript
+    Example: User uses an already used reset password link
+      Given I requested to reset my password
+      And I received the reset password email
+      And I followed the reset password link in the email
+      And I reset my password
+      When I follow the reset password link in the email again
+      And I reset my password
+      Then I should see an error message indicating that the reset password link is invalid
 
   Rule: New password must not match any of the old passwords
 

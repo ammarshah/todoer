@@ -17,7 +17,9 @@ module MessageHelper
     "the email or password is invalid"                          => "Invalid Email or Password",
     "the confirmation instructions has been sent to my email"   => I18n.t("devise.confirmations.send_instructions"),
     "the reset password instructions has been sent to my email" => I18n.t("devise.passwords.send_instructions"),
-    "the email is not found"                                    => "Email not found"
+    "the email is not found"                                    => "Email not found",
+    "my password has been changed successfully"                 => I18n.t("devise.passwords.updated_not_active"),
+    "the reset password link is invalid"                        => "Reset password token is invalid"
   }
 
   def message_for(text)

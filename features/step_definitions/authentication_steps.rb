@@ -38,6 +38,17 @@ end
 
 Given('I have an account with an unconfirmed email', register)
 
+Given('I requested to reset my password') do
+  @user = create(:user)
+
+  request_reset_password_for(email: @user.email)
+  
+  # We need this expectation here to make sure that the web request from the
+  # above `request_reset_password_for` method is finished completely which
+  # means we will have an ActiveJob enqueued for the reset password email
+  expect(page).to have_content(I18n.t("devise.passwords.send_instructions"))
+end
+
 # WHEN
 When('I register with full name, email and password', register)
 
@@ -91,4 +102,8 @@ end
 
 When('I request to reset the password of a/an (un)registered email {string}') do |email|
   request_reset_password_for(email: email)
+end
+
+When('I reset my password') do
+  reset_password(@user)
 end
