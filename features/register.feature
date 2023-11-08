@@ -52,7 +52,7 @@ Feature: Register
       When I register with an invalid email "invalid_email.com"
       Then I should see an error message indicating that the email format is invalid
 
-  Rule: Password length must be within 8 to 128 characters
+  Rule: Password length must be within 8 to 70 characters
 
     Example: User registers with a 7-character password
       Given I am on the register page
@@ -66,15 +66,15 @@ Feature: Register
       Then I should see a success message indicating that I have to confirm my email to activate the account
 
     @javascript
-    Example: User registers with a 128-character password
+    Example: User registers with a 70-character password
       Given I am on the register page
-      When I register with a 128-character password
+      When I register with a 70-character password
       Then I should see a success message indicating that I have to confirm my email to activate the account
 
     Example: User registers with a 129-character password
       Given I am on the register page
       When I register with a 129-character password
-      Then I should see an error message indicating that the password must be maximum 128 characters long
+      Then I should see an error message indicating that the password must be maximum 70 characters long
 
   Rule: Email must be unique
 

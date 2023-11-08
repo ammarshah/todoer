@@ -103,16 +103,16 @@ RSpec.describe User, type: :model do
         expect { user.save! }.to raise_error("Validation failed: Password is too short (minimum is 8 characters)")
       end
 
-      it "saves with a maximum 128-character password" do
-        user = build(:user, password: "a" * 128)
+      it "saves with a maximum 70-character password" do
+        user = build(:user, password: "a" * 70)
 
         expect { user.save! }.to change(User, :count).by(1)
       end
 
-      it "does not save with more than 128-character password" do
-        user = build(:user, password: "a" * 129)
+      it "does not save with more than 70-character password" do
+        user = build(:user, password: "a" * 71)
 
-        expect { user.save! }.to raise_error("Validation failed: Password is too long (maximum is 128 characters)")
+        expect { user.save! }.to raise_error("Validation failed: Password is too long (maximum is 70 characters)")
       end
     end
   end

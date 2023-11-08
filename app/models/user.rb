@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   validates :password,  presence:     true,
                         confirmation: true,
-                        length:       { within: 8..128, allow_blank: true }
+                        length:       { within: 8..70, allow_blank: true }
 
   protected
 

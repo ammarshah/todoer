@@ -111,9 +111,7 @@ When('I request to reset the password of a/an (un)registered email {string}') do
 end
 
 When('I reset my password') do
-  new_password = @user.password + "New"
-
-  reset_password_to(new_password: new_password)
+  reset_password_to(new_password: "NewPassword")
 end
 
 When('I reset my password to {string}') do |password|
