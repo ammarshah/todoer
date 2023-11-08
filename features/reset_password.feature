@@ -27,6 +27,17 @@ Feature: Reset password
       And I reset my password
       Then I should see a success message indicating that my password has been changed successfully
 
+  Rule: Password will only be reset using a reset password link with a valid reset password token
+
+    @javascript
+    Example: User uses a reset password link with an invalid reset password token
+      Given I requested to reset my password
+      And I received the reset password email
+      But I altered the reset password token
+      When I follow the reset password link in the email
+      And I reset my password
+      Then I should see an error message indicating that the reset password token is invalid
+
     @javascript
     Example: User uses an already used reset password link
       Given I requested to reset my password
