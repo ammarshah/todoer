@@ -2,7 +2,7 @@
   width: 30%;
 }
 
-.form-container #title {
+.form-container .title {
   font-size: 3em;
 }
 
@@ -50,18 +50,6 @@
   background-color: var(--off-white);
 }
 
-.form-container form button.delete {
-  cursor: pointer;
-  border-color: var(--error-red);
-  background-color: var(--error-red);
-  color: var(--white);
-}
-
-.form-container form button.delete:hover {
-  border-color: var(--danger-red);
-  background-color: var(--danger-red);
-}
-
 /* Prevent browser autofill from changing background color of the input field */
 .form-container form input:autofill,
 .form-container form input:-webkit-autofill,
@@ -78,10 +66,22 @@
   background-color: var(--light-grey);
 }
 
-#danger-zone {
+.form-container .danger-zone {
   border: 1px solid var(--alert-red);
   border-radius: var(--default-border-radius);
   padding: 15px;
+}
+
+.form-container .danger-zone button.danger {
+  cursor: pointer;
+  border-color: var(--error-red);
+  background-color: var(--error-red);
+  color: var(--white);
+}
+
+.form-container .danger-zone .danger:hover {
+  border-color: var(--danger-red);
+  background-color: var(--danger-red);
 }
 
 /* Any Mobile Device */
