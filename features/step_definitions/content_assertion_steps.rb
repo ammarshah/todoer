@@ -22,3 +22,7 @@ end
 Then('I should see an option to resend confirmation instructions') do
   expect(page).to have_link(text: 'Resend me confirmation instructions', href: path_for('resend confirmation instructions'))
 end
+
+Then('I should see my email address in a disabled input field') do
+  expect(page).to have_field("user[email]", with: @user.email, disabled: true)
+end

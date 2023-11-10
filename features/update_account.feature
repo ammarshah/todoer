@@ -1,4 +1,3 @@
-@wip
 Feature: Update account
   As a logged in user
   I want to update my account information
@@ -9,8 +8,7 @@ Feature: Update account
     Example: Logged in user visits the account page
       Given I am logged in
       When I go to the account page
-      Then I should see my email address
-      But I cannot update my email address
+      Then I should see my email address in a disabled input field
 
   Rule: Full name cannot be removed
 
