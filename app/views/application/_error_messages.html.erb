@@ -1,0 +1,13 @@
+<% if resource.errors.any? %>
+  <div id="error" class="center" data-turbo-cache="false">
+    <% if local_assigns.has_key?(:attributes) %>
+      <% errors = attributes.each_with_object([]) do |attribute, errors| %>
+        <% errors << resource.errors.full_messages_for(attribute) %>
+      <% end.flatten %>
+
+      <%= errors.first %>
+    <% else %>
+      <%= resource.errors.full_messages.first %>
+    <% end %>
+  </div>
+<% end %>
