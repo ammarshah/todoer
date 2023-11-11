@@ -29,12 +29,15 @@ Feature: Update account
 
   Rule: Full name length must be of maximum 80 characters
 
+    @javascript
     Example: User updates the account with an 80-character full name
-      Given I am on the account page
-      When I update the account with an 80-character full name
+      Given I am logged in
+      And I am on the account page
+      When I update my account with an 80-character full name
       Then I should see a success message indicating that my account is updated successfully
 
     Example: User updates the account with an 81-character full name
-      Given I am on the account page
-      When I update the account with an 81-character full name
+      Given I am logged in
+      And I am on the account page
+      When I update my account with an 81-character full name
       Then I should see an error message indicating that the full name must be maximum 80 characters long

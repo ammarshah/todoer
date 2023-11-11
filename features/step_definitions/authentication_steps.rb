@@ -123,8 +123,11 @@ When('I reset my password to {string}') do |password|
 end
 
 When('I update the full name to {string}') do |full_name|
-  within("#update_account") do
-    fill_in "Full name", with: full_name
-    click_button "Save"
-  end
+  update_account_with(full_name: full_name)
+end
+
+When('I update my account with an {int}-character full name') do |full_name_length|
+  full_name = 'A' * full_name_length
+
+  update_account_with(full_name: full_name)
 end

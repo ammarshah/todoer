@@ -43,6 +43,13 @@ module AuthenticationHelper
     click_button "Continue"
   end
 
+  def update_account_with(full_name:)
+    within("#update_account") do
+      fill_in "Full name", with: full_name
+      click_button "Save"
+    end
+  end
+
   private
 
   def register_with(full_name:, email:, password:)
