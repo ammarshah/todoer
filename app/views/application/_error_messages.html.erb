@@ -1,13 +1,13 @@
 <% if resource.errors.any? %>
-  <div id="error" class="center" data-turbo-cache="false">
-    <% if local_assigns.has_key?(:attributes) %>
-      <% errors = attributes.each_with_object([]) do |attribute, errors| %>
-        <% errors << resource.errors.full_messages_for(attribute) %>
-      <% end.flatten %>
+  <% errors = resource.errors %>
 
-      <%= errors.first %>
-    <% else %>
-      <%= resource.errors.full_messages.first %>
-    <% end %>
-  </div>
+  <% if local_assigns.has_key?(:attributes) %>
+    <% errors = filter_errors_for(attributes, errors) %>
+  <% end %>
+
+  <% if errors.any? %>
+    <div id="error" class="center" data-turbo-cache="false">
+      <%= errors.full_messages.first %>
+    </div>
+  <% end %>
 <% end %>

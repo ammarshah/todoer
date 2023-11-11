@@ -26,8 +26,8 @@ devise_scope :user do
   get    'account/delete', to: 'devise/registrations#cancel',  as: :cancel_user_registration
   get    'account',        to: 'devise/registrations#edit',    as: :edit_user_registration
   get    'account',        to: 'devise/registrations#edit',    as: :account # Optional: provides `account_path` helper
-  patch  'account',        to: 'devise/registrations#update',  as: :user_registration
-  put    'account',        to: 'devise/registrations#update',  as: nil
+  patch  'account',        to: 'users/registrations#update',   as: :user_registration
+  put    'account',        to: 'users/registrations#update',   as: nil
   delete 'account',        to: 'devise/registrations#destroy', as: nil
   post   'account',        to: 'devise/registrations#create',  as: nil
 

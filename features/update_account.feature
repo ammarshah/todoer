@@ -12,6 +12,7 @@ Feature: Update account
 
   Rule: Full name cannot be removed
 
+    @javascript
     Example: User updates the full name
       Given I have an account with the full name "John Doe"
       And I am logged in

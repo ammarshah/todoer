@@ -19,4 +19,21 @@ module ApplicationHelper
       ).html_safe
     end
   end
+
+  # Used by "error_messages" partial
+  #
+  # Returns errors for the given attributes
+  # but do not change the original errors object
+  #
+  # Usage:
+  #   <%= render "error_messages", resource: @user, attributes: [:email, :full_name] %>
+  def filter_errors_for(attributes, errors)
+    errors = errors.dup
+
+    errors.attribute_names.each do |attribute|
+      errors.delete(attribute) unless attributes.include?(attribute)
+    end
+
+    errors
+  end
 end

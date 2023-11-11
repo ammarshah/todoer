@@ -17,7 +17,7 @@ Given('I am not logged in') do
 end
 
 Given('I am logged in') do
-  @user = create(:user, :confirmed)
+  @user ||= create(:user, :confirmed)
 
   login(@user)
 end
@@ -25,6 +25,10 @@ end
 Given('a user exists with the email {string}', register_with_email)
 
 Given('I registered my account', register)
+
+Given('I have an account with the full name {string}') do |full_name|
+  @user = create(:user, :confirmed, full_name: full_name)
+end
 
 Given('I have an account with the email {string}', register_with_email)
 
@@ -116,4 +120,11 @@ end
 
 When('I reset my password to {string}') do |password|
   reset_password_to(new_password: password)
+end
+
+When('I update the full name to {string}') do |full_name|
+  within("#update_account") do
+    fill_in "Full name", with: full_name
+    click_button "Save"
+  end
 end

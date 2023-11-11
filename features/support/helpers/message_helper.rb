@@ -21,7 +21,8 @@ module MessageHelper
     "my password has been changed successfully"                 => I18n.t("devise.passwords.updated_not_active"),
     "the reset password link is invalid"                        => "Reset password token is invalid",
     "the password was previously used"                          => I18n.t("errors.messages.taken_in_past"),
-    "the reset password token is invalid"                       => "Reset password token is invalid"
+    "the reset password token is invalid"                       => "Reset password token is invalid",
+    "my account is updated successfully"                        => "Your account has been updated successfully"
   }
 
   def message_for(text)
