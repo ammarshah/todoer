@@ -1,8 +1,14 @@
 <header>
   <div id="logo">
     <% if user_signed_in? %>
-      <%= link_to account_path do %>
-        <%= image_tag "account.svg", alt: "Account", size: "28x28" %>
+      <% if controller_name == "app" %>
+        <%= link_to account_path do %>
+          <%= image_tag "account.svg", alt: "Account", size: "28x28" %>
+        <% end %>
+      <% else %>
+        <%= link_to app_path do %>
+          <%= image_tag "back.svg", alt: "Back", size: "28x28" %>
+        <% end %>
       <% end %>
     <% else %>
       <%= link_to root_path do %>
