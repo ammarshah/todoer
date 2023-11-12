@@ -37,7 +37,7 @@ Given('I have an account with the password {string}') do |password|
 end
 
 Given('I have an account with the email {string} and the password {string}') do |email, password|
-  create(:user, :confirmed, email: email, password: password)
+  @user = create(:user, :confirmed, email: email, password: password)
 end
 
 Given('I have an account with a confirmed email') do
@@ -103,6 +103,10 @@ When('I log in') do
 end
 
 When('I login with (in)valid email {string} and (in)valid password {string}') do |email, password|
+  login_with(email: email, password: password)
+end
+
+When('I login with with the email {string} and the password {string}') do |email, password|
   login_with(email: email, password: password)
 end
 
