@@ -122,6 +122,26 @@ RSpec.describe User, type: :model do
 
         expect { user.save! }.to raise_error("Validation failed: Password is too long (maximum is 70 characters)")
       end
+
+      it "allows to set a new password other than any of the old passwords" do
+        user = create(:user, password: "password")
+        user.password = "strong123"
+        user.save!
+
+        user.password = "verystrong123"
+
+        expect(user.save!).to be_truthy
+      end
+
+      it "does not allow to set a new password to one of the old passwords" do
+        user = create(:user, password: "password")
+        user.password = "strong123"
+        user.save!
+
+        user.password = "password"
+
+        expect { user.save! }.to raise_error("Validation failed: Password was used previously.")
+      end
     end
   end
 end

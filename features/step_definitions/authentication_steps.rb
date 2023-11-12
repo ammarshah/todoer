@@ -134,8 +134,16 @@ end
 
 When('I change my password by providing current password {string}, new password {string} and retype new password {string}') do |current_password, new_password, retype_new_password|
   change_password_with(
-    current_password: current_password,
-    new_password: new_password,
+    current_password:    current_password,
+    new_password:        new_password,
     retype_new_password: retype_new_password
+  )
+end
+
+When('I change my password to {string}') do |new_password|
+  change_password_with(
+    current_password:    @user.password,
+    new_password:        new_password,
+    retype_new_password: new_password
   )
 end
