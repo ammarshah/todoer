@@ -76,6 +76,14 @@ RSpec.describe User, type: :model do
           expect { user.save! }.to raise_error("Validation failed: Email is invalid")
         end
       end
+
+      it "does not allow to change the email of a persisted user" do
+        user = create(:user, email: "user@example.com")
+
+        user.email = "new_email@example.com"
+
+        expect { user.save! }.to raise_error("Validation failed: Email can't be changed")
+      end
     end
 
     context "for password attribute" do
