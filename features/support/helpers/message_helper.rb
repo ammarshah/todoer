@@ -22,7 +22,8 @@ module MessageHelper
     "the reset password link is invalid"                        => "Reset password token is invalid",
     "the password was previously used"                          => I18n.t("errors.messages.taken_in_past"),
     "the reset password token is invalid"                       => "Reset password token is invalid",
-    "my account is updated successfully"                        => "Your account has been updated successfully"
+    "my account is updated successfully"                        => "Your account has been updated successfully",
+    "the current password is required"                          => "Current password can't be blank"
   }
 
   def message_for(text)

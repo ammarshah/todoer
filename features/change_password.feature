@@ -1,4 +1,3 @@
-@wip
 Feature: Change password
   As a logged in user
   I want to change my password
@@ -6,6 +5,7 @@ Feature: Change password
 
   Rule: User must provide current password, new password and retype new password
 
+    @javascript
     Example: User provides current password, new password and retype new password
       Given I have an account with the password "password"
       And I am logged in

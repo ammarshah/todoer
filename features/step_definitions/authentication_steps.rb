@@ -33,9 +33,7 @@ end
 Given('I have an account with the email {string}', register_with_email)
 
 Given('I have an account with the password {string}') do |password|
-  @user = build(:user, password: password)
-
-  register(@user)
+  @user = create(:user, :confirmed, password: password)
 end
 
 Given('I have an account with the email {string} and the password {string}') do |email, password|
@@ -130,4 +128,13 @@ When('I update my account with an {int}-character full name') do |full_name_leng
   full_name = 'A' * full_name_length
 
   update_account_with(full_name: full_name)
+end
+
+When('I change my password by providing current password {string}, new password {string} and retype new password {string}') do |current_password, new_password, retype_new_password|
+  within("#change_password") do
+    fill_in "Current password", with: current_password
+    fill_in "New password", with: new_password
+    fill_in "Retype new password", with: retype_new_password
+    click_button "Save"
+  end
 end
