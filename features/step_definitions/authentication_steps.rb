@@ -60,6 +60,12 @@ end
 # WHEN
 When('I register with full name, email and password', register)
 
+When('I register with the email {string} and the password {string}') do |email, password|
+  @user = build(:user, email: email, password: password)
+
+  register(@user)
+end
+
 When('I register without a full name') do
   @user = build(:user, full_name: nil)
 
