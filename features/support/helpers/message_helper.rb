@@ -24,7 +24,8 @@ module MessageHelper
     "the reset password token is invalid"                       => "Reset password token is invalid",
     "my account is updated successfully"                        => "Your account has been updated successfully",
     "the current password is required"                          => "Current password can't be blank",
-    "the new passwords do not match"                            => "Password confirmation doesn't match Password"
+    "the new passwords do not match"                            => "Password confirmation doesn't match Password",
+    "I am no longer considered a Todoer"                        => "Your account has been successfully deleted. Please don't call yourself a Todoer anymore until you Register again!"
   }
 
   def message_for(text)

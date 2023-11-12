@@ -147,3 +147,8 @@ When('I change my password to {string}') do |new_password|
     retype_new_password: new_password
   )
 end
+
+When('I delete my account') do
+  click_button 'Delete my account'
+  accept_alert
+end

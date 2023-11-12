@@ -1,4 +1,3 @@
-@wip
 Feature: Delete account
   As a logged in user
   I want to permanently delete my account with all of its data
@@ -6,6 +5,7 @@ Feature: Delete account
 
   Rule: User must be logged out immediately after deleting their account
 
+    @javascript
     Example: User logged out immediately
       Given I am logged in
       And I am on the account page

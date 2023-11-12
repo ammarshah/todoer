@@ -26,3 +26,7 @@ end
 Then('I should see my email address in a disabled input field') do
   expect(page).to have_field("user[email]", with: @user.email, disabled: true)
 end
+
+Then('I should be logged out') do
+  expect(page).to have_link(href: path_for('login'))
+end
