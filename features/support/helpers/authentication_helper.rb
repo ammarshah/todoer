@@ -20,11 +20,6 @@ module AuthenticationHelper
     end
   end
 
-  def confirm_email
-    deliver_enqueued_emails
-    visit confirmation_link
-  end
-
   def resend_confirmation_instructions_for(email:)
     visit path_for('resend confirmation instructions')
     fill_in "Email", with: email
@@ -46,6 +41,15 @@ module AuthenticationHelper
   def update_account_with(full_name:)
     within("#update_account") do
       fill_in "Full name", with: full_name
+      click_button "Save"
+    end
+  end
+
+  def change_password_with(current_password:, new_password:, retype_new_password:)
+    within("#change_password") do
+      fill_in "Current password", with: current_password
+      fill_in "New password", with: new_password
+      fill_in "Retype new password", with: retype_new_password
       click_button "Save"
     end
   end

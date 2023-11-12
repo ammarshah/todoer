@@ -93,7 +93,9 @@ When('I register with a/an {int}-character password') do |password_length|
 end
 
 When('I confirm(ed) my email( again)') do
-  confirm_email
+  deliver_enqueued_emails
+
+  visit confirmation_link
 end
 
 When('I log in') do
@@ -131,10 +133,9 @@ When('I update my account with an {int}-character full name') do |full_name_leng
 end
 
 When('I change my password by providing current password {string}, new password {string} and retype new password {string}') do |current_password, new_password, retype_new_password|
-  within("#change_password") do
-    fill_in "Current password", with: current_password
-    fill_in "New password", with: new_password
-    fill_in "Retype new password", with: retype_new_password
-    click_button "Save"
-  end
+  change_password_with(
+    current_password: current_password,
+    new_password: new_password,
+    retype_new_password: retype_new_password
+  )
 end

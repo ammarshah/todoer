@@ -23,7 +23,8 @@ module MessageHelper
     "the password was previously used"                          => I18n.t("errors.messages.taken_in_past"),
     "the reset password token is invalid"                       => "Reset password token is invalid",
     "my account is updated successfully"                        => "Your account has been updated successfully",
-    "the current password is required"                          => "Current password can't be blank"
+    "the current password is required"                          => "Current password can't be blank",
+    "the new passwords do not match"                            => "Password confirmation doesn't match Password"
   }
 
   def message_for(text)

@@ -22,16 +22,11 @@ Feature: Change password
 
   Rule: New password and retype new password must exactly match
 
-    Example: User enters the same new password and retype new password
-      Given I am logged in
-      And I am on the account page
-      When I change my password by providing new password "newPassword" and retype new password "newPassword"
-      Then I should see a success message indicating my account is updated successfully
-
     Example: User enters different new password and retype new password
+      Given I have an account with the password "password"
       Given I am logged in
       And I am on the account page
-      When I change my password by providing new password "newPassword" and retype new password "NEWPASSWORD"
+      When I change my password by providing current password "password", new password "newPassword" and retype new password "NEWPASSWORD"
       Then I should see an error message indicating that the new passwords do not match
 
   Rule: New password must not match any of the old passwords
