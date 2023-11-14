@@ -3,11 +3,11 @@
     <% if user_signed_in? %>
       <% if controller_name == "app" %>
         <%= link_to account_path do %>
-          <%= image_tag "account.svg", alt: "Account", size: "28x28" %>
+          <%= image_tag "account.svg", alt: "Account", size: "28x28", class: "hoverlight" %>
         <% end %>
       <% else %>
         <%= link_to app_path do %>
-          <%= image_tag "back.svg", alt: "Back", size: "28x28" %>
+          <%= image_tag "back.svg", alt: "Back", size: "28x28", class: "hoverlight" %>
         <% end %>
       <% end %>
     <% else %>
@@ -24,11 +24,11 @@
   <div id="nav-link">
     <% if user_signed_in? %>
       <%= link_to logout_path, data: { turbo_method: :delete } do %>
-        <%= image_tag "logout.svg", size: "28x28" %>
+        <%= image_tag "logout.svg", size: "28x28", class: "hoverlight" %>
       <% end %>
     <% else %>
       <%= link_to login_path do %>
-        <%= image_tag "login.svg", size: "28x28" %>
+        <%= image_tag "login.svg", size: "28x28", class: "hoverlight" %>
       <% end %>
     <% end %>
   </div>

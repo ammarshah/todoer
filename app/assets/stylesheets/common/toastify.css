@@ -29,7 +29,7 @@
 .toast-close {
   background: transparent;
   border: 0;
-  color: var(--white);
+  color: var(--main-white);
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;

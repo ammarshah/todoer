@@ -1,14 +1,14 @@
 :root {
   /* Colors */
-  --white: #f0f0f8;
-  --off-white: #d1d1d1;
-  --black: #222;
-  --grey: #333;
-  --light-grey: #a5a5a5;
+  --main-white: #f0f0f8;
+  --hover-white: #d1d1d1;
+  --main-black: #222;
+  --main-grey: #333;
+  --disabled-grey: #a5a5a5;
   --alert-red: #d8504a;
   --error-red: #9b4f4f;
   --danger-red: #9d2d2d;
 
   /* Properties */
-  --default-border-radius: 6px;
+  --default-border-radius: 10px;
 }

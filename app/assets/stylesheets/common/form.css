@@ -34,20 +34,20 @@
   box-sizing: border-box; /* Include padding and border in the width calculation */
   padding: 14px;
   background-color: transparent;
-  border: 1px solid var(--white);
-  color: var(--white);
+  border: 1px solid var(--main-white);
+  color: var(--main-white);
   border-radius: var(--default-border-radius);
   font-size: 18px;
 }
 
 .form-container form input[type="submit"] {
   cursor: pointer;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--main-white);
+  color: var(--main-black);
 }
 
 .form-container form input[type="submit"]:hover {
-  background-color: var(--off-white);
+  background-color: var(--hover-white);
 }
 
 /* Prevent browser autofill from changing background color of the input field */
@@ -57,13 +57,13 @@
 .form-container form input:-webkit-autofill:focus, 
 .form-container form input:-webkit-autofill:active {
   -webkit-background-clip: text;
-  -webkit-text-fill-color: var(--white);
+  -webkit-text-fill-color: var(--main-white);
   transition: background-color 5000s ease-in-out 0s;
-  caret-color: var(--white);
+  caret-color: var(--main-white);
 }
 
 .form-container form input:disabled {
-  background-color: var(--light-grey);
+  background-color: var(--disabled-grey);
 }
 
 .form-container .danger-zone {
@@ -76,7 +76,7 @@
   cursor: pointer;
   border-color: var(--error-red);
   background-color: var(--error-red);
-  color: var(--white);
+  color: var(--main-white);
 }
 
 .form-container .danger-zone .danger:hover {

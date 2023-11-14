@@ -10,8 +10,12 @@ html, body {
 
 /* Set a global color */
 body, a {
-  color: var(--white);
+  color: var(--main-white);
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Create a flex container for the master-container */
@@ -23,7 +27,7 @@ body, a {
 
 /* Make the header stick to the top */
 header {  
-  background-color: var(--black);
+  background-color: var(--main-black);
   padding: 10px;
   position: sticky;
   top: 0;
@@ -34,7 +38,7 @@ header {
 }
 
 #main-content {
-  background-color: var(--grey);
+  background-color: var(--main-grey);
   padding: 20px;
   flex-grow: 1; /* Allow the #main-content to take up the remaining space */
   display: flex;
@@ -45,7 +49,7 @@ header {
 
 /* Make the footer stick to the bottom */
 footer {
-  background-color: var(--grey);
+  background-color: var(--main-grey);
   padding: 20px;
   margin-top: auto; /* Push the footer to the bottom */
 }
