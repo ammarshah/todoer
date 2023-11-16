@@ -25,18 +25,6 @@ a:hover {
   min-height: 100%;
 }
 
-/* Make the header stick to the top */
-header {  
-  background-color: var(--main-black);
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  height: 50px; /* Set the fixed height */
-  display: flex;
-  align-items: center; /* Center horizontally */
-  justify-content: space-between; /* Distribute space evenly between children */
-}
-
 #main-content {
   background-color: var(--main-grey);
   padding: 20px;
@@ -45,11 +33,4 @@ header {
   flex-direction: column;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
-}
-
-/* Make the footer stick to the bottom */
-footer {
-  background-color: var(--main-grey);
-  padding: 20px;
-  margin-top: auto; /* Push the footer to the bottom */
 }

@@ -1,115 +1,116 @@
 .form-container {
   width: 30%;
-}
 
-.form-container .title {
-  font-size: 3em;
-}
+  & .title {
+    font-size: 3em;
+  }
 
-.form-container .mr-top {
-  margin-top: 30px;
-}
+  & .mr-top {
+    margin-top: 30px;
+  }
 
-.form-container .mr-bottom {
-  margin-bottom: 30px;
-}
+  & .mr-bottom {
+    margin-bottom: 30px;
+  }
 
-.form-container #error {
-  border-radius: var(--default-border-radius);
-  padding: 14px;
-  margin-bottom: 10px;
-  background-color: var(--error-red);
-}
+  & #error {
+    border-radius: var(--default-border-radius);
+    padding: 14px;
+    margin-bottom: 10px;
+    background-color: var(--error-red);
+  }
 
-.form-container form .field {
-  margin-bottom: 10px;
-}
+  & .danger-zone {
+    border: 1px solid var(--alert-red);
+    border-radius: var(--default-border-radius);
+    padding: 15px;
 
-.form-container form input[type="text"],
-.form-container form input[type="email"],
-.form-container form input[type="password"],
-.form-container form input[type="submit"],
-.form-container form button {
-  width: 100%;
-  box-sizing: border-box; /* Include padding and border in the width calculation */
-  padding: 14px;
-  background-color: transparent;
-  border: 1px solid var(--main-white);
-  color: var(--main-white);
-  border-radius: var(--default-border-radius);
-  font-size: 18px;
-}
+    & button.danger {
+      cursor: pointer;
+      border-color: var(--error-red);
+      background-color: var(--error-red);
+      color: var(--main-white);
 
-.form-container form input[type="submit"] {
-  cursor: pointer;
-  background-color: var(--main-white);
-  color: var(--main-black);
-}
+      &:hover {
+        border-color: var(--danger-red);
+        background-color: var(--danger-red);
+      }
+    }
+  }
 
-.form-container form input[type="submit"]:hover {
-  background-color: var(--hover-white);
-}
+  & form {
+    & .field {
+      margin-bottom: 10px;
+    }
 
-/* Prevent browser autofill from changing background color of the input field */
-.form-container form input:autofill,
-.form-container form input:-webkit-autofill,
-.form-container form input:-webkit-autofill:hover, 
-.form-container form input:-webkit-autofill:focus, 
-.form-container form input:-webkit-autofill:active {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: var(--main-white);
-  transition: background-color 5000s ease-in-out 0s;
-  caret-color: var(--main-white);
-}
+    & input[type="text"],
+    & input[type="email"],
+    & input[type="password"],
+    & input[type="submit"],
+    & button {
+      width: 100%;
+      box-sizing: border-box; /* Include padding and border in the width calculation */
+      padding: 14px;
+      background-color: transparent;
+      border: 1px solid var(--main-white);
+      color: var(--main-white);
+      border-radius: var(--default-border-radius);
+      font-size: 18px;
+    }
 
-.form-container form input:disabled {
-  background-color: var(--disabled-grey);
-}
+    & input[type="submit"] {
+      cursor: pointer;
+      background-color: var(--main-white);
+      color: var(--main-black);
+  
+      &:hover {
+        background-color: var(--hover-white);
+      }
+    }
 
-.form-container .danger-zone {
-  border: 1px solid var(--alert-red);
-  border-radius: var(--default-border-radius);
-  padding: 15px;
-}
+    & input:disabled {
+      background-color: var(--disabled-grey);
+    }
 
-.form-container .danger-zone button.danger {
-  cursor: pointer;
-  border-color: var(--error-red);
-  background-color: var(--error-red);
-  color: var(--main-white);
-}
-
-.form-container .danger-zone .danger:hover {
-  border-color: var(--danger-red);
-  background-color: var(--danger-red);
+    /* Prevent browser autofill from changing background color of the input field */
+    & input:autofill,
+    & input:-webkit-autofill {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: var(--main-white);
+      transition: background-color 5000s ease-in-out 0s;
+      caret-color: var(--main-white);
+    }
+  }
 }
 
 /* Any Mobile Device */
 @media only screen and (max-width: 767px) {
-  .form-container #title {
-    font-size: 2em;
-  }
-
   .form-container {
     width: 70%;
-  }
 
-  .form-container form input[type="text"],
-  .form-container form input[type="email"],
-  .form-container form input[type="password"],
-  .form-container form input[type="submit"],
-  .form-container form button {
-    font-size: 16px;
+    & .title {
+      font-size: 2em;
+    }
+
+    & form {
+      & input[type="text"],
+      & input[type="email"],
+      & input[type="password"],
+      & input[type="submit"],
+      & button {
+        font-size: 16px;
+      }
+    }
   }
 }
 
 /* Any Tablet Device */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .form-container #title {
-    font-size: 2.5em;
-  }
-
   .form-container {
     width: 40%;
+
+    & .title {
+      font-size: 2.5em;
+    }
   }
 }

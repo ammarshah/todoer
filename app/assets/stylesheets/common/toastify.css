@@ -20,10 +20,14 @@
   max-width: calc(50% - 20px);
   z-index: 2147483647;
   font-size: 14px;
-}
 
-.toastify.on {
-  opacity: 1;
+  &.on {
+    opacity: 1;
+  }
+
+  &.alert {
+    color: var(--alert-red);
+  }
 }
 
 .toast-close {
@@ -71,10 +75,6 @@
   right: 0;
   max-width: fit-content;
   max-width: -moz-fit-content;
-}
-
-.toastify.alert {
-  color: var(--alert-red);
 }
 
 @media only screen and (max-width: 360px) {

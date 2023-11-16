@@ -1,3 +1,9 @@
-footer p {
-  font-size: 12px;
+footer {
+  background-color: var(--main-grey);
+  padding: 20px;
+  margin-top: auto; /* Push the footer to the bottom */
+
+  & p {
+    font-size: 12px;
+  }
 }

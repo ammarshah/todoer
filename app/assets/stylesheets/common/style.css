@@ -20,9 +20,9 @@
 
 .hoverlight {
   border-radius: var(--default-border-radius);
-  padding: 3px;
-}
+  padding: 7px;
 
-.hoverlight:hover {
-  background-color: var(--main-grey);
+  &:hover {
+    background-color: var(--main-grey);
+  }
 }
