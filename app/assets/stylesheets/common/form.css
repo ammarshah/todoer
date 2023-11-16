@@ -15,7 +15,7 @@
 
   & #error {
     border-radius: var(--default-border-radius);
-    padding: 14px;
+    padding: var(--default-input-padding);
     margin-bottom: 10px;
     background-color: var(--error-red);
   }
@@ -23,7 +23,7 @@
   & .danger-zone {
     border: 1px solid var(--alert-red);
     border-radius: var(--default-border-radius);
-    padding: 15px;
+    padding: var(--default-container-padding);
 
     & button.danger {
       cursor: pointer;
@@ -50,7 +50,7 @@
     & button {
       width: 100%;
       box-sizing: border-box; /* Include padding and border in the width calculation */
-      padding: 14px;
+      padding: var(--default-input-padding);
       background-color: transparent;
       border: 1px solid var(--main-white);
       color: var(--main-white);
@@ -70,6 +70,7 @@
 
     & input:disabled {
       background-color: var(--disabled-grey);
+      cursor: not-allowed;
     }
 
     /* Prevent browser autofill from changing background color of the input field */

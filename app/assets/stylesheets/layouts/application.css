@@ -27,7 +27,7 @@ a:hover {
 
 #main-content {
   background-color: var(--main-grey);
-  padding: 20px;
+  padding: var(--default-container-padding);
   flex-grow: 1; /* Allow the #main-content to take up the remaining space */
   display: flex;
   flex-direction: column;

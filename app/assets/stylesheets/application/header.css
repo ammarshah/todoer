@@ -1,9 +1,9 @@
 header {
   background-color: var(--main-black);
-  padding: 10px;
+  padding: var(--default-container-padding);
   position: sticky; /* Make the header stick to the top */
   top: 0;
-  height: 50px; /* Set the fixed height */
+  height: 30px; /* Set the fixed height */
   display: flex;
   align-items: center; /* Center horizontally */
   justify-content: space-between; /* Distribute space evenly between children */

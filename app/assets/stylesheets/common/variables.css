@@ -11,4 +11,6 @@
 
   /* Properties */
   --default-border-radius: 10px;
+  --default-container-padding: 20px;
+  --default-input-padding: 14px;
 }

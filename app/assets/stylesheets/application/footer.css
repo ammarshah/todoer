@@ -1,6 +1,6 @@
 footer {
   background-color: var(--main-grey);
-  padding: 20px;
+  padding: var(--default-container-padding);
   margin-top: auto; /* Push the footer to the bottom */
 
   & p {
