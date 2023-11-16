@@ -34,3 +34,28 @@ a:hover {
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
 }
+
+/* Custom scrollbar styles for WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the entire scrollbar */
+}
+
+/* FIXME: It's a hack to make the top portion of the tracking area match the color of the header */
+::-webkit-scrollbar-track {
+  background: linear-gradient(var(--main-black) 70px, var(--main-grey) 0px); /* Color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #545454; /* Color of the scroll thumb */
+  border-radius: var(--default-border-radius);  /* Roundness of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6f6f6f;
+}
+
+/* Custom scrollbar styles for Firefox */
+html {
+  scrollbar-width: auto; /* thin or auto */
+  scrollbar-color: #545454 none; /* Thumb and track color */
+}
