@@ -2,23 +2,27 @@
   <div id="todos-container">
     <ul class="todos">
       <li class="todo" data-todo-id="123">
-        <div class="todo-status">
-          <%= image_tag "check.svg", alt: "Mark todo complete", size: "12x12" %>
+        <div>
+          <div class="todo-status">
+            <%= image_tag "check.svg", alt: "Mark todo complete", size: "12x12" %>
+          </div>
         </div>
 
         <div class="todo-title">
-          Reword all success and error messages
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet ipsum et ante venenatis suscipit. Pellentesque non ultrices tellus. Phasellus dui orci, elementum ac eros at, auctor faucibus libero. Aliquam tempus hendrerit lectus, et facilisis erat facilisis consectetur. Nam dapibus vitae leo eget tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut suscipit odio a dolor malesuada porttitor. Curabitur hendrerit ligula eu ullamcorper dignissim. Nulla facilisi. In congue nisi vitae libero dapibus, a placerat purus convallis. Nunc dignissim, velit sed euismod accumsan, odio diam ullamcorper sem, ut ornare dolor nisl ac magna. Sed fermentum libero urna, nec efficitur nisi convallis quis. Pellentesque sed feugiat lectus. Integer quis nisl hendrerit, fringilla metus vel, commodo mi. Praesent tempus est a lorem rutrum commodo. Donec tempus molestie dui, ut sagittis urna dapibus ac.
         </div>
 
         <div class="todo-actions">
-          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", id: "edit-todo" %>
-          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", id: "delete-todo" %>
+          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "edit-todo" %>
+          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo" %>
         </div>
       </li>
 
       <li class="todo" data-todo-id="456">
-        <div class="todo-status">
-          <%= image_tag "check.svg", alt: "Mark task complete", size: "12x12" %>
+        <div>
+          <div class="todo-status">
+            <%= image_tag "check.svg", alt: "Mark task complete", size: "12x12" %>
+          </div>
         </div>
 
         <div class="todo-title">
@@ -26,8 +30,8 @@
         </div>
 
         <div class="todo-actions">
-          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", id: "edit-todo" %>
-          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", id: "delete-todo" %>
+          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "edit-todo" %>
+          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo" %>
         </div>
       </li>
 
@@ -47,8 +51,10 @@
 
     <ul class="todos">
       <li class="todo" data-todo-id="789">
-        <div class="todo-status completed">
-          <%= image_tag "check.svg", alt: "Mark task complete", size: "12x12" %>
+        <div>
+          <div class="todo-status completed">
+            <%= image_tag "check.svg", alt: "Mark task complete", size: "12x12" %>
+          </div>
         </div>
 
         <div class="todo-title completed">
@@ -56,7 +62,7 @@
         </div>
 
         <div class="todo-actions">
-          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", id: "delete-todo" %>
+          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo" %>
         </div>
       </li>
     </ul>
