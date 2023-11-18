@@ -2,8 +2,8 @@
   <div id="todos-container">
     <ul class="todos">
       <li class="todo" data-todo-id="123">
-        <div>
-          <div class="todo-status">
+        <div class="todo-status">
+          <div class="todo-status-checkbox">
             <%= image_tag "check.svg", alt: "Mark todo complete", size: "12x12" %>
           </div>
         </div>
@@ -13,14 +13,14 @@
         </div>
 
         <div class="todo-actions">
-          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "edit-todo" %>
-          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo" %>
+          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "edit-todo hoverlight" %>
+          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo hoverlight" %>
         </div>
       </li>
 
       <li class="todo" data-todo-id="456">
-        <div>
-          <div class="todo-status">
+        <div class="todo-status">
+          <div class="todo-status-checkbox">
             <%= image_tag "check.svg", alt: "Mark task complete", size: "12x12" %>
           </div>
         </div>
@@ -30,8 +30,8 @@
         </div>
 
         <div class="todo-actions">
-          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "edit-todo" %>
-          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo" %>
+          <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "edit-todo hoverlight" %>
+          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo hoverlight" %>
         </div>
       </li>
 
@@ -51,8 +51,8 @@
 
     <ul class="todos">
       <li class="todo" data-todo-id="789">
-        <div>
-          <div class="todo-status completed">
+        <div class="todo-status">
+          <div class="todo-status-checkbox completed">
             <%= image_tag "check.svg", alt: "Mark task complete", size: "12x12" %>
           </div>
         </div>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="todo-actions">
-          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo" %>
+          <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "delete-todo hoverlight" %>
         </div>
       </li>
     </ul>

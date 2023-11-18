@@ -3,68 +3,83 @@
 
   & #todos-container {
 
-    & li.todo {
-      list-style-type: none;
-      display: flex;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #545454;
+    & ul.todos {
+      margin: 0;
+      padding: 0;
 
-      &:hover {
-        & .todo-actions {
-          opacity: 1;
-        }
-      }
-
-      &:not(:first-child) {
-        padding-top: 20px;
-      }
-
-      & .todo-status {
+      & li.todo {
+        list-style-type: none;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border: 1px solid var(--disabled-grey);
-        border-radius: 50%;
-        width: 16px;
-        height: 16px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--main-grey);
 
-        & img {
-          opacity: 0;
-          transition: all .2s ease-out;
+        &:not(#new-todo):hover {
+          border-bottom-color: #545454;
         }
 
-        &.completed {
-          background-color: var(--disabled-grey);
-        }
-
-        &.completed, &:hover {
-          & img {
+        &:hover {
+          & .todo-actions {
             opacity: 1;
-            transition: all .2s ease-in;
           }
         }
-      }
 
-      & .todo-title {
-        margin-left: 10px;
-        margin-right: 10px;
-        word-break: break-word;
+        & .todo-status {
+          padding: 7px;
 
-        &.completed {
-          color: var(--disabled-grey);
-          text-decoration: line-through;
+          & .todo-status-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid #7b7b7b;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+  
+            & img {
+              opacity: 0;
+              transition: all .2s ease-out;
+            }
+  
+            &.completed {
+              background-color: #7b7b7b;
+            }
+  
+            &.completed, &:hover {
+              & img {
+                opacity: 1;
+                transition: all .2s ease-in;
+              }
+            }
+          }
         }
-      }
 
-      & .todo-actions {
-        opacity: 0;
-        flex: 1;
-        text-align: right;
-        white-space: nowrap;
+        & .todo-title {
+          padding: 7px;
+          word-break: break-word;
 
-        & img {
-          cursor: pointer;
+          &.completed {
+            color: var(--disabled-grey);
+            text-decoration: line-through;
+          }
+        }
+
+        & .todo-actions {
+          opacity: 0;
+          flex: 1;
+          text-align: right;
+          white-space: nowrap;
+
+          & img {
+            cursor: pointer;
+          }
+
+          & .hoverlight {
+            &:hover {
+              background-color: #454545;
+            }
+          }
         }
       }
     }
