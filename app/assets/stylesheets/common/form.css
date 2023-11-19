@@ -5,14 +5,6 @@
     font-size: 3em;
   }
 
-  & .mr-top {
-    margin-top: 30px;
-  }
-
-  & .mr-bottom {
-    margin-bottom: 30px;
-  }
-
   & #error {
     border-radius: var(--default-border-radius);
     padding: var(--default-input-padding);

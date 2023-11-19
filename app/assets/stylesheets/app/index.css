@@ -1,0 +1,145 @@
+:root {
+  --todo-status-checkbox: #7b7b7b;
+  --todo-default-padding: 7px;
+}
+
+#app {
+  width: 50%;
+
+  /* Any Mobile Device */
+  @media only screen and (max-width: 767px) {
+    width: 90%;
+  }
+
+  /* Any Tablet Device */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    width: 60%;
+  }
+
+  & #todos-container {
+
+    & ul.todos {
+      margin: 0;
+      padding: 0;
+
+      & li.todo {
+        list-style-type: none;
+        display: flex;
+        padding: var(--todo-default-padding);
+
+        &:not(#new-todo) {
+          border: 1px solid var(--main-grey);
+
+          &:hover {
+            background-color: #3d3d3d;
+            border: 1px solid #4d4d4d;
+            border-radius: var(--default-border-radius);
+          }
+        }
+
+        &:hover {
+          & .todo-actions {
+            opacity: 1;
+          }
+        }
+
+        & .todo-status {
+          padding: var(--todo-default-padding);
+
+          & .todo-status-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid var(--todo-status-checkbox);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+
+            & img {
+              opacity: 0;
+              transition: all .2s ease-out;
+            }
+
+            &.completed {
+              background-color: var(--todo-status-checkbox);
+            }
+
+            &.completed, &:hover {
+              & img {
+                opacity: 1;
+                transition: all .2s ease-in;
+              }
+            }
+          }
+        }
+
+        & .todo-title {
+          padding: var(--todo-default-padding);
+          word-break: break-word;
+
+          &.completed {
+            color: var(--disabled-grey);
+            text-decoration: line-through;
+          }
+        }
+
+        & .todo-actions {
+          opacity: 0;
+          flex: 1;
+          text-align: right;
+          white-space: nowrap;
+
+          & img {
+            cursor: pointer;
+          }
+        }
+
+        & .hoverlight {
+          &:hover {
+            background-color: #4b4b4b;
+          }
+        }
+      }
+
+      & li#new-todo {
+        & form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          & .field {
+            width: 100%;
+            margin-left: 40px;
+            margin-right: 5px;
+
+            & input {
+              width: 100%;
+              box-sizing: border-box;
+              background-color: transparent;
+              color: var(--main-white);
+              font-size: 16px;
+              border: none;
+              border-bottom: 1px solid var(--scrollbar-grey);
+              padding: 0;
+              padding-bottom: var(--todo-default-padding);
+              outline: none;
+
+              &:hover {
+                border-bottom-color: var(--todo-status-checkbox);
+              }
+
+              /* Prevent browser autofill from changing background color of the input field */
+              &:autofill, &:-webkit-autofill {
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: var(--main-white);
+                transition: background-color 5000s ease-in-out 0s;
+                caret-color: var(--main-white);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

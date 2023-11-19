@@ -14,6 +14,14 @@
   float: right;
 }
 
+.mr-top {
+  margin-top: 30px;
+}
+
+.mr-bottom {
+  margin-bottom: 30px;
+}
+
 .subtitle {
   color: var(--disabled-grey);
 }

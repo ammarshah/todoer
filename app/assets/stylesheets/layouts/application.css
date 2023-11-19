@@ -46,7 +46,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #545454; /* Color of the scroll thumb */
+  background-color: var(--scrollbar-grey); /* Color of the scroll thumb */
   border-radius: var(--default-border-radius);  /* Roundness of the scroll thumb */
 }
 
@@ -57,5 +57,5 @@ a:hover {
 /* Custom scrollbar styles for Firefox */
 html {
   scrollbar-width: auto; /* thin or auto */
-  scrollbar-color: #545454 none; /* Thumb and track color */
+  scrollbar-color: var(--scrollbar-grey) none; /* Thumb and track color */
 }

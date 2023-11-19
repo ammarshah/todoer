@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" class="mr-top mr-bottom">
   <div id="todos-container">
     <ul class="todos">
       <li class="todo" data-todo-id="123">
@@ -36,16 +36,15 @@
       </li>
 
       <li id="new-todo" class="todo">
-        <form action="#" method="post">
-          <input type="text" name="todo_title" placeholder="Add new todo">
-          <button type="button" data-add-todo-navigation-element="true" class="plus_add_button">
-            <span class="icon_add" aria-hidden="true">
-              <svg width="13" height="13">
-                <path fill="currentColor" fill-rule="evenodd" d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1H6z"></path>
-              </svg>
-            </span>
-          </button>
-        </form>
+        <%= form_with(model: @todo) do |form| %>
+          <div class="field">
+            <%= form.text_field :title, placeholder: Tagline::DEFAULT_TAGLINE %>
+          </div>
+
+          <div class="action">
+            <%= image_submit_tag "add.svg", alt: "Add todo", width: "16", height: "16", id: "add-todo", class: "hoverlight" %>
+          </div>
+        <% end %>
       </li>
     </ul>
 

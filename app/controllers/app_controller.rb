@@ -1,12 +1,7 @@
 class AppController < ApplicationController
-  before_action :redirect_to_home, unless: :user_signed_in?
+  before_action :authenticate_user!
 
   def index
-  end
-
-  private
-
-  def redirect_to_home
-    redirect_to root_path
+    @todo = Todo.new
   end
 end

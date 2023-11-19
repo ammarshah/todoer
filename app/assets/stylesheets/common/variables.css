@@ -2,8 +2,9 @@
   /* Colors */
   --main-white: #f0f0f8;
   --hover-white: #d1d1d1;
-  --main-black: #222;
-  --main-grey: #333;
+  --main-black: #222222;
+  --main-grey: #333333;
+  --scrollbar-grey: #545454;
   --disabled-grey: #a5a5a5;
   --alert-red: #d8504a;
   --error-red: #9b4f4f;
