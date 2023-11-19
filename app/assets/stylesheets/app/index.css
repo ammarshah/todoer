@@ -17,20 +17,18 @@
   }
 
   & #todos-container {
-
     & ul.todos {
       margin: 0;
       padding: 0;
 
       & li.todo {
         list-style-type: none;
-        display: flex;
         padding: var(--todo-default-padding);
 
         &:not(#new-todo) {
           border: 1px solid var(--main-grey);
 
-          &:hover {
+          &:hover, & #edit-mode {
             background-color: #3d3d3d;
             border: 1px solid #4d4d4d;
             border-radius: var(--default-border-radius);
@@ -43,99 +41,106 @@
           }
         }
 
-        & .todo-status {
-          padding: var(--todo-default-padding);
+        & form {
+          display: flex;
 
-          & .todo-status-checkbox {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 1px solid var(--todo-status-checkbox);
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
+          & .todo-status {
+            padding: var(--todo-default-padding);
 
-            & img {
-              opacity: 0;
+            & .todo-status-checkbox {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              border: 1px solid var(--todo-status-checkbox);
+              border-radius: 50%;
+              width: 16px;
+              height: 16px;
               transition: all .2s ease-out;
-            }
 
-            &.completed {
-              background-color: var(--todo-status-checkbox);
-            }
-
-            &.completed, &:hover {
               & img {
-                opacity: 1;
+                opacity: 0;
+                transition: all .2s ease-out;
+              }
+
+              &:hover {
+                border-color: var(--disabled-grey);
                 transition: all .2s ease-in;
+              }
+
+              &.completed {
+                background-color: var(--todo-status-checkbox);
+
+                &:hover {
+                  background-color: transparent;
+                  transition: all .2s ease-in;
+                }
+              }
+
+              &.completed, &:hover {
+                & img {
+                  opacity: 1;
+                  transition: all .2s ease-in;
+                }
               }
             }
           }
-        }
 
-        & .todo-title {
-          padding: var(--todo-default-padding);
-          word-break: break-word;
+          & .todo-title {
+            width: 100%;
+            padding: var(--todo-default-padding);
+            padding-top: 5px;
+            outline: none;
+            word-break: break-word;
+            letter-spacing: .0065em;
+            line-height: 1.5;
 
-          &.completed {
-            color: var(--disabled-grey);
-            text-decoration: line-through;
+            &.completed {
+              color: var(--disabled-grey);
+              text-decoration: line-through;
+            }
+
+            &:focus {
+              color: var(--disabled-grey);
+              caret-color: var(--main-white);
+            }
           }
-        }
 
-        & .todo-actions {
-          opacity: 0;
-          flex: 1;
-          text-align: right;
-          white-space: nowrap;
+          & .todo-actions {
+            opacity: 0;
+            flex: 1;
+            text-align: right;
+            white-space: nowrap;
+            margin-left: var(--todo-default-padding);
 
-          & img {
-            cursor: pointer;
+            & img {
+              cursor: pointer;
+            }
+
+            &.visible {
+              opacity: 1;
+            }
           }
-        }
 
-        & .hoverlight {
-          &:hover {
-            background-color: #4b4b4b;
+          & .hoverlight {
+            &:hover {
+              background-color: #4b4b4b;
+            }
           }
         }
       }
 
       & li#new-todo {
         & form {
-          width: 100%;
-          display: flex;
-          align-items: center;
+          align-items: flex-end;
 
           & .field {
-            width: 100%;
+            padding-left: 0;
             margin-left: 40px;
-            margin-right: 5px;
+            border-bottom: 1px solid var(--scrollbar-grey);
 
-            & input {
-              width: 100%;
-              box-sizing: border-box;
-              background-color: transparent;
-              color: var(--main-white);
-              font-size: 16px;
-              border: none;
-              border-bottom: 1px solid var(--scrollbar-grey);
-              padding: 0;
-              padding-bottom: var(--todo-default-padding);
-              outline: none;
-
-              &:hover {
-                border-bottom-color: var(--todo-status-checkbox);
-              }
-
-              /* Prevent browser autofill from changing background color of the input field */
-              &:autofill, &:-webkit-autofill {
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: var(--main-white);
-                transition: background-color 5000s ease-in-out 0s;
-                caret-color: var(--main-white);
-              }
+            &:focus {
+              border-bottom-color: var(--todo-status-checkbox);
             }
           }
         }

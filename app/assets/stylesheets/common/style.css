@@ -29,8 +29,16 @@
 .hoverlight {
   border-radius: var(--default-border-radius);
   padding: 7px;
+  transition: all .2s ease-out;
 
   &:hover {
     background-color: var(--main-grey);
+    transition: all .2s ease-in;
   }
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color: #757575;
+  pointer-events: none;
 }
