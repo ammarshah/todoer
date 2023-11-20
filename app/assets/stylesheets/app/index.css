@@ -1,6 +1,11 @@
 :root {
-  --todo-status-checkbox: #7b7b7b;
   --todo-default-padding: 7px;
+  --todo-status-checkbox-grey: #7b7b7b;
+  --todo-title-background-grey: #3d3d3d;
+  --todo-title-border-grey: #4d4d4d;
+  --todo-title-edit-grey: #c7c7c7;
+  --todo-hoverlight-grey: #474747;
+  --todo-hoverlight-delete-red: #673737;
 }
 
 #app {
@@ -33,8 +38,8 @@
 
         &:not(#new-todo) {
           .todo-title {
-            background-color: #3d3d3d;
-            border: 1px solid #4d4d4d;
+            background-color: var(--todo-title-background-grey);
+            border: 1px solid var(--todo-title-border-grey);
             border-radius: var(--default-border-radius);
           }
         }
@@ -51,7 +56,7 @@
               align-items: center;
               justify-content: center;
               cursor: pointer;
-              border: 1px solid var(--todo-status-checkbox);
+              border: 1px solid var(--todo-status-checkbox-grey);
               border-radius: 50%;
               width: 16px;
               height: 16px;
@@ -68,7 +73,7 @@
               }
 
               &.completed {
-                background-color: var(--todo-status-checkbox);
+                background-color: var(--todo-status-checkbox-grey);
 
                 &:hover {
                   background-color: transparent;
@@ -102,7 +107,7 @@
             &:not(&.field) {
               &:focus {
                 background-color: transparent;
-                color: #c7c7c7;
+                color: var(--todo-title-edit-grey);
                 caret-color: var(--main-white);
               }
             }
@@ -125,7 +130,11 @@
 
           .hoverlight {
             &:hover {
-              background-color: #474747;
+              background-color: var(--todo-hoverlight-grey);
+            }
+
+            &.delete:hover {
+              background-color: var(--todo-hoverlight-delete-red);
             }
           }
         }
@@ -142,7 +151,7 @@
             border-bottom: 1px solid var(--scrollbar-grey);
 
             &:focus {
-              border-bottom-color: var(--todo-status-checkbox);
+              border-bottom-color: var(--todo-status-checkbox-grey);
             }
           }
         }
