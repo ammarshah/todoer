@@ -1,19 +1,19 @@
 .form-container {
   width: 30%;
 
-  & .title {
+  .title {
     font-size: 3em;
   }
 
-  & #error {
+  #error {
     border-radius: var(--default-border-radius);
     padding: var(--default-input-padding);
     margin-bottom: 10px;
     background-color: var(--error-red);
   }
 
-  & .danger-zone {
-    border: 1px solid var(--alert-red);
+  .danger-zone {
+    border: 1px solid var(--error-red);
     border-radius: var(--default-border-radius);
     padding: var(--default-container-padding);
 
@@ -31,7 +31,7 @@
   }
 
   & form {
-    & .field {
+    .field {
       margin-bottom: 10px;
     }
 
@@ -81,7 +81,7 @@
   .form-container {
     width: 70%;
 
-    & .title {
+    .title {
       font-size: 2em;
     }
 
@@ -102,7 +102,7 @@
   .form-container {
     width: 40%;
 
-    & .title {
+    .title {
       font-size: 2.5em;
     }
   }
