@@ -9,12 +9,11 @@
             </div>
           </div>
 
-          <div id="edit-mode" class="todo-title" contenteditable="true" spellcheck="false" placeholder="<%= Tagline::DEFAULT_TAGLINE %>">
+          <div class="todo-title" contenteditable="true" spellcheck="false" placeholder="<%= Tagline::DEFAULT_TAGLINE %>">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet ipsum et ante venenatis suscipit. Pellentesque non ultrices tellus. Phasellus dui orci, elementum ac eros at, auctor faucibus libero. Aliquam tempus hendrerit lectus, et facilisis erat facilisis consectetur. Nam dapibus vitae leo eget tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut suscipit odio a dolor malesuada porttitor. Curabitur hendrerit ligula eu ullamcorper dignissim. Nulla facilisi. In congue nisi vitae libero dapibus, a placerat purus convallis. Nunc dignissim, velit sed euismod accumsan, odio diam ullamcorper sem, ut ornare dolor nisl ac magna. Sed fermentum libero urna, nec efficitur nisi convallis quis. Pellentesque sed feugiat lectus. Integer quis nisl hendrerit, fringilla metus vel, commodo mi. Praesent tempus est a lorem rutrum commodo. Donec tempus molestie dui, ut sagittis urna dapibus ac.
           </div>
 
           <div class="todo-actions">
-            <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "hoverlight" %>
             <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight" %>
           </div>
         <% end %>
@@ -33,7 +32,6 @@
           </div>
 
           <div class="todo-actions">
-            <%= image_tag "edit.svg", alt: "Edit todo", size: "16x16", class: "hoverlight" %>
             <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight" %>
           </div>
         <% end %>
@@ -52,6 +50,24 @@
     </ul>
 
     <ul class="todos">
+      <li class="todo" data-todo-id="321">
+        <%= form_with(model: @todo) do |form| %>
+          <div class="todo-status">
+            <div class="todo-status-checkbox completed">
+              <%= image_tag "check.svg", alt: "Mark todo incomplete", size: "12x12" %>
+            </div>
+          </div>
+
+          <div class="todo-title completed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet ipsum et ante venenatis suscipit. Pellentesque non ultrices tellus. Phasellus dui orci, elementum ac eros at, auctor faucibus libero. Aliquam tempus hendrerit lectus, et facilisis erat facilisis consectetur. Nam dapibus vitae leo eget tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut suscipit odio a dolor malesuada porttitor. Curabitur hendrerit ligula eu ullamcorper dignissim. Nulla facilisi. In congue nisi vitae libero dapibus, a placerat purus convallis. Nunc dignissim, velit sed euismod accumsan, odio diam ullamcorper sem, ut ornare dolor nisl ac magna. Sed fermentum libero urna, nec efficitur nisi convallis quis. Pellentesque sed feugiat lectus. Integer quis nisl hendrerit, fringilla metus vel, commodo mi. Praesent tempus est a lorem rutrum commodo. Donec tempus molestie dui, ut sagittis urna dapibus ac.
+          </div>
+
+          <div class="todo-actions">
+            <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight" %>
+          </div>
+        <% end %>
+      </li>
+
       <li class="todo" data-todo-id="789">
         <%= form_with(model: @todo) do |form| %>
           <div class="todo-status">

@@ -16,24 +16,14 @@
     width: 60%;
   }
 
-  & #todos-container {
-    & ul.todos {
+  #todos-container {
+    .todos {
       margin: 0;
       padding: 0;
 
-      & li.todo {
+      .todo {
         list-style-type: none;
-        padding: var(--todo-default-padding);
-
-        &:not(#new-todo) {
-          border: 1px solid var(--main-grey);
-
-          &:hover, & #edit-mode {
-            background-color: #3d3d3d;
-            border: 1px solid #4d4d4d;
-            border-radius: var(--default-border-radius);
-          }
-        }
+        padding: var(--todo-default-padding) 0;
 
         &:hover {
           & .todo-actions {
@@ -41,13 +31,22 @@
           }
         }
 
+        &:not(#new-todo) {
+          .todo-title {
+            background-color: #3d3d3d;
+            border: 1px solid #4d4d4d;
+            border-radius: var(--default-border-radius);
+          }
+        }
+
         & form {
           display: flex;
 
-          & .todo-status {
-            padding: var(--todo-default-padding);
+          .todo-status {
+            margin: 11px;
+            height: fit-content;
 
-            & .todo-status-checkbox {
+            .todo-status-checkbox {
               display: flex;
               align-items: center;
               justify-content: center;
@@ -86,10 +85,9 @@
             }
           }
 
-          & .todo-title {
+          .todo-title {
             width: 100%;
-            padding: var(--todo-default-padding);
-            padding-top: 5px;
+            padding: var(--todo-default-padding) 12px;
             outline: none;
             word-break: break-word;
             letter-spacing: .0065em;
@@ -98,20 +96,23 @@
             &.completed {
               color: var(--disabled-grey);
               text-decoration: line-through;
+              cursor: not-allowed;
             }
 
-            &:focus {
-              color: var(--disabled-grey);
-              caret-color: var(--main-white);
+            &:not(&.field) {
+              &:focus {
+                background-color: transparent;
+                color: #c7c7c7;
+                caret-color: var(--main-white);
+              }
             }
           }
 
-          & .todo-actions {
+          .todo-actions {
             opacity: 0;
-            flex: 1;
-            text-align: right;
-            white-space: nowrap;
+            margin-top: 5px;
             margin-left: var(--todo-default-padding);
+            height: fit-content;
 
             & img {
               cursor: pointer;
@@ -122,20 +123,21 @@
             }
           }
 
-          & .hoverlight {
+          .hoverlight {
             &:hover {
-              background-color: #4b4b4b;
+              background-color: #474747;
             }
           }
         }
       }
 
-      & li#new-todo {
+      #new-todo {
         & form {
           align-items: flex-end;
 
-          & .field {
+          .field {
             padding-left: 0;
+            padding-right: 0;
             margin-left: 40px;
             border-bottom: 1px solid var(--scrollbar-grey);
 
