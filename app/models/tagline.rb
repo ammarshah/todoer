@@ -1,5 +1,5 @@
 class Tagline < ApplicationRecord
-  DEFAULT_TAGLINE = 'Whaddya want TODO?'
+  DEFAULT_TAGLINE = 'Whaddya want todo?'
 
   validates :text,      presence: true,
                         uniqueness: true
