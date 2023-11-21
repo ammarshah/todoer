@@ -36,8 +36,10 @@
           </div>
         <% end %>
       </li>
+    </ul>
 
-      <li id="new-todo" class="todo">
+    <ul class="todos">
+      <li id="add-todo" class="todo">
         <%= form_with(model: @todo) do |form| %>
           <div class="todo-title field" contenteditable="true" spellcheck="false" placeholder="<%= Tagline::DEFAULT_TAGLINE %>"></div>
           <%= form.hidden_field :title %>
