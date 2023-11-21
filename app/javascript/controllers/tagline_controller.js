@@ -5,21 +5,23 @@ export default class extends Controller {
   taglines = []
 
   async initialize() {
-    this.taglines = await this.fetchTaglines()
-  }
-
-  async fetchTaglines() {
-    const response = await fetch('/taglines')
-    return await response.json()
+    this.taglines = await this.#fetchTaglines()
   }
 
   changeTagline() {
     const currentTagline = this.taglineTarget.textContent
-    const newTagline = this.randomTagline(currentTagline)
+    const newTagline = this.#randomTagline(currentTagline)
     this.taglineTarget.textContent = newTagline
   }
 
-  randomTagline(excludedTagline) {
+  // Private functions
+
+  async #fetchTaglines() {
+    const response = await fetch('/taglines')
+    return await response.json()
+  }
+
+  #randomTagline(excludedTagline) {
     let randomTagline
 
     do {

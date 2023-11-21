@@ -6,16 +6,19 @@ export default class extends Controller {
 
   connect() {
     if (this.hasFlashTarget) {
-      this.showFlash()
+      this.#showFlash()
     }
   }
 
-  showFlash() {
+  // Private functions
+
+  #showFlash() {
     for(let flash of this.flashTargets) {
       const message = flash.value
       const type = flash.dataset.type
 
       this.#showToast(message, type)
+      flash.remove()
     }
   }
 
