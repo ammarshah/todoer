@@ -9,13 +9,13 @@ Feature: Add todo
     Example: User adds a todo with a title
       Given I am logged in
       And I am on the app page
-      When I add a todo with a title "Buy bread"
+      When I add a todo with the title "Buy bread"
       Then I should see "Buy bread" todo in the incomplete todos list
 
     Example: User adds a todo without a title
       Given I am logged in
       And I am on the app page
-      When I add a todo with a title ""
+      When I add a todo with the title ""
       Then I should see an error message indicating that a title is required
 
   Rule: Title length must be of maximum 1000 characters
@@ -51,5 +51,5 @@ Feature: Add todo
     Example: User adds a todo with title containing extra spaces
       Given I am logged in
       And I am on the app page
-      When I add a todo with title "   Buy    bread "
+      When I add a todo with the title "   Buy    bread "
       Then I should see "Buy bread" todo in the incomplete todos list

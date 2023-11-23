@@ -9,7 +9,7 @@ Feature: List todos
     Example: User does not see other users' todos
       Given I am logged in
       And I am on the app page
-      And I added a todo with a title "Buy bread"
+      And I added a todo with the title "Buy bread"
       When another user logs in
       And he goes to the app page
       Then he should not see "Buy bread" todo in the incomplete todos list
