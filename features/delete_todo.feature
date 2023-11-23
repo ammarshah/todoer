@@ -9,12 +9,12 @@ Feature: Delete todo
     And I am on the app page
     And I added a todo with the title "Buy bread"
     When I delete the todo, present in the incomplete todos list, with the title "Buy bread"
-    Then I should not see "Buy bread" todo in the incomplete todos list
+    Then I should not see a todo with the title "Buy bread" in the incomplete todos list
 
   Scenario: User deletes a completed todo
     Given I am logged in
     And I am on the app page
     And I added a todo with the title "Buy bread"
-    And I marked the todo, with the title "Buy bread", complete
+    And I marked the todo with the title "Buy bread" as completed
     When I delete the todo, present in the completed todos list, with the title "Buy bread"
-    Then I should not see "Buy bread" todo in the completed todos list
+    Then I should not see a todo with the title "Buy bread" in the completed todos list

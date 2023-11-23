@@ -12,4 +12,4 @@ Feature: List todos
       And I added a todo with the title "Buy bread"
       When another user logs in
       And he goes to the app page
-      Then he should not see "Buy bread" todo in the incomplete todos list
+      Then he should not see a todo with the title "Buy bread" in the incomplete todos list

@@ -10,7 +10,7 @@ Feature: Add todo
       Given I am logged in
       And I am on the app page
       When I add a todo with the title "Buy bread"
-      Then I should see "Buy bread" todo in the incomplete todos list
+      Then I should see a todo with the title "Buy bread" in the incomplete todos list
 
     Example: User adds a todo without a title
       Given I am logged in
@@ -52,4 +52,4 @@ Feature: Add todo
       Given I am logged in
       And I am on the app page
       When I add a todo with the title "   Buy    bread "
-      Then I should see "Buy bread" todo in the incomplete todos list
+      Then I should see a todo with the title "Buy bread" in the incomplete todos list
