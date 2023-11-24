@@ -1,4 +1,3 @@
-@wip
 Feature: Add todo
   As a logged in user
   I want to add a todo
@@ -6,18 +5,21 @@ Feature: Add todo
 
   Rule: Title is required
 
+    @javascript
     Example: User adds a todo with a title
       Given I am logged in
       And I am on the app page
       When I add a todo with the title "Buy bread"
       Then I should see a todo with the title "Buy bread" in the incomplete todos list
 
+    @javascript
     Example: User adds a todo without a title
       Given I am logged in
       And I am on the app page
       When I add a todo with the title ""
       Then I should see an error message indicating that a title is required
 
+  @wip
   Rule: Title length must be of maximum 1000 characters
 
     Example: User adds a todo with a 1000-character title
@@ -35,6 +37,7 @@ Feature: Add todo
       Then I should see an error message indicating that the title must be maximum 1000 characters long
       And I should have 0 todos in the incomplete todos list
 
+  @wip
   Rule: Multi-line and extra spaces in the title must be auto-squished
 
     Example: User pastes a multi-line title

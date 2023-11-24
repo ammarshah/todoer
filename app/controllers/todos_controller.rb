@@ -1,13 +1,14 @@
 class TodosController < ApplicationController
-  def index
-    @todos = Todo.all
-    @new_todo = Todo.new
-  end
-
   def create
-    Todo.create(todo_params)
-  
-    redirect_to root_path
+    todo = Todo.new(todo_params)
+
+    respond_to do |format|
+      if todo.save
+        format.html { redirect_to app_path }
+      else
+        format.html { redirect_to app_path, alert: todo.errors.full_messages.first }
+      end
+    end
   end
 
   private

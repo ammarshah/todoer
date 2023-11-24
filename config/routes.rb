@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'app', to: 'app#index'
 
-  resources :todos, only: :create
+  resources :todos, only: [:create, :update, :destroy]
 
   resources :taglines, only: :index
 end
