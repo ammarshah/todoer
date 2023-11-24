@@ -19,9 +19,9 @@ Feature: Add todo
       When I add a todo with the title ""
       Then I should see an error message indicating that a title is required
 
-  @wip
   Rule: Title length must be of maximum 1000 characters
 
+    @javascript
     Example: User adds a todo with a 1000-character title
       Given I am logged in
       And I am on the app page
@@ -29,6 +29,7 @@ Feature: Add todo
       When I add a todo with a 1000-character title
       Then I should have 1 todo in the incomplete todos list
 
+    @javascript
     Example: User adds a todo with a 1001-character title
       Given I am logged in
       And I am on the app page
