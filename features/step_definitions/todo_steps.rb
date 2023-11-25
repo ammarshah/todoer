@@ -26,15 +26,23 @@ When('I paste a multi-line title') do |multiline_title|
   send_keys [:control, 'a', 'c', 'v'] # Select all ('a'), then copy ('c'), then paste ('v')
 end
 
+When('I mark the todo with the title {string} as completed') do |title|
+  mark_todo_complete(title: title)
+end
+
 # THEN
 Then('I should see a todo with the title {string} in the incomplete todos list') do |title|
   expect(page.find('ul#incomplete-todos')).to have_css('li', text: title)
 end
 
-Then('I should see an auto-squished title as {string}') do |squished_title|
-  expect(page.find('#add-todo')).to have_css('.todo-title', text: squished_title)
+Then('I/he should not see a todo with the title {string} in the incomplete todos list') do |title|
+  expect(page.find('ul#incomplete-todos')).not_to have_css('li', text: title)
 end
 
-Then('he should not see a todo with the title {string} in the incomplete todos list') do |title|
-  expect(page.find('ul#incomplete-todos')).not_to have_css('li', text: title)
+Then('I should see a todo with the title {string} in the completed todos list') do |title|
+  expect(page.find('ul#completed-todos')).to have_css('li', text: title)
+end
+
+Then('I should see an auto-squished title as {string}') do |squished_title|
+  expect(page.find('#add-todo')).to have_css('.todo-title', text: squished_title)
 end

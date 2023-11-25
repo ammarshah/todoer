@@ -30,12 +30,64 @@ RSpec.describe Todo, type: :model do
       end
     end
 
+    context "for completed attribute" do
+      it "does not save with completed field blank" do
+        invalid_todo = build(:todo, completed: "")
+
+        expect { invalid_todo.save! }.to raise_error("Validation failed: Completed is not included in the list")
+      end
+    end
+
     context "for user association" do
       it "does not save without a user" do
         invalid_todo = build(:todo, user: nil)
 
         expect { invalid_todo.save! }.to raise_error("Validation failed: User must exist")
       end
+    end
+  end
+
+  context "status" do
+    it "is by default incomplete" do
+      todo = create(:todo)
+
+      expect(todo.completed?).to be_falsy
+    end
+
+    it "can be marked as complete" do
+      todo = create(:todo)
+
+      todo.completed = true
+      todo.save!
+
+      expect(todo.completed?).to be_truthy
+    end
+
+    it "can be marked as incomplete" do
+      todo = create(:todo, completed: true)
+
+      todo.completed = false
+      todo.save!
+
+      expect(todo.completed?).to be_falsy
+    end
+  end
+
+  describe "#completed" do
+    it "returns the completed todos" do
+      incomplete_todo = create(:todo)
+      completed_todo = create(:todo, :completed)
+
+      expect(Todo.completed).to eq([completed_todo])
+    end
+  end
+
+  describe "#incomplete" do
+    it "returns the incomplete todos" do
+      incomplete_todo = create(:todo)
+      completed_todo = create(:todo, :completed)
+
+      expect(Todo.incomplete).to eq([incomplete_todo])
     end
   end
 end

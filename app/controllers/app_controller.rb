@@ -3,6 +3,7 @@ class AppController < ApplicationController
 
   def index
     @new_todo = Todo.new
-    @todos = current_user.todos
+    @incomplete_todos = current_user.todos.incomplete
+    @completed_todos = current_user.todos.completed
   end
 end

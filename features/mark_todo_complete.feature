@@ -1,11 +1,11 @@
-@wip
-Feature: Mark todo completed
+Feature: Mark todo complete
   As a logged in user
   I want to mark my incomplete todos as completed
   So that I will know the things I have already completed
 
   Rule: Completed todos must show up in a separate list
 
+    @javascript
     Example: User marks an incomplete todo as completed and sees it in a separate list
       Given I am logged in
       And I am on the app page

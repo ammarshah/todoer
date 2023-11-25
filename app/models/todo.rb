@@ -4,7 +4,12 @@ class Todo < ApplicationRecord
   validates :title, presence: true,
                     length:   { maximum: 1000 }
 
+  validates :completed, inclusion: { in: [true, false] }
+
   before_validation :squish_title
+
+  scope :incomplete, -> { where(completed: false) }
+  scope :completed,  -> { where(completed: true) }
 
   private
 
