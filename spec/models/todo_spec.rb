@@ -10,7 +10,7 @@ RSpec.describe Todo, type: :model do
 
     context "for title attribute" do
       it "does not save without a title" do
-        invalid_todo = build(:todo, title: nil)
+        invalid_todo = build(:todo, title: "")
 
         expect { invalid_todo.save! }.to raise_error("Validation failed: Title can't be blank")
       end
@@ -21,6 +21,12 @@ RSpec.describe Todo, type: :model do
 
         expect { todo_with_valid_title.save! }.not_to raise_error
         expect { todo_with_invalid_title.save! }.to raise_error("Validation failed: Title is too long (maximum is 1000 characters)")
+      end
+
+      it "auto-squishes the title while saving" do
+        todo = create(:todo, title: "    Buy    bread    ")
+
+        expect(todo.title).to eq("Buy bread")
       end
     end
   end

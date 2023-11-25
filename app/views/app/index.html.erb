@@ -41,7 +41,8 @@
               keydown.ctrl+shift+enter->todo#submitForm
               keydown.shift+alt+enter->todo#submitForm
               keydown.ctrl+alt+shift+enter->todo#submitForm
-              keydown.esc->todo#focusOut"></div>
+              keydown.esc->todo#focusOut
+              paste->todo#autoSquishText"></div>
 
           <%= form.hidden_field :title, data: { todo_target: "titleHiddenField" } %>
 

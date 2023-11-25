@@ -38,9 +38,9 @@ Feature: Add todo
       Then I should see an error message indicating that the title must be maximum 1000 characters long
       And I should have 0 todos in the incomplete todos list
 
-  @wip
   Rule: Multi-line and extra spaces in the title must be auto-squished
 
+    @javascript
     Example: User pastes a multi-line title
       Given I am logged in
       And I am on the app page
@@ -52,6 +52,7 @@ Feature: Add todo
         """
       Then I should see an auto-squished title as "Buy bread"
 
+    @javascript
     Example: User adds a todo with title containing extra spaces
       Given I am logged in
       And I am on the app page
