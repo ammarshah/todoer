@@ -4,14 +4,14 @@ Given('I (should )have {int} todo(s) in the incomplete todos list') do |todos_co
 end
 
 # WHEN
-When('I add a todo with the title {string}') do |title|
-  todo = build(:todo, title: title)
+When('I add(ed) a todo with the title {string}') do |title|
+  todo = build(:todo, title: title, user: current_user)
 
   add_todo(todo)
 end
 
 When('I add a todo with a {int}-character title') do |title_length|
-  todo = build(:todo, title: 'A' * title_length)
+  todo = build(:todo, title: 'A' * title_length, user: current_user)
 
   add_todo(todo)
 end
@@ -33,4 +33,8 @@ end
 
 Then('I should see an auto-squished title as {string}') do |squished_title|
   expect(page.find('#add-todo')).to have_css('.todo-title', text: squished_title)
+end
+
+Then('he should not see a todo with the title {string} in the incomplete todos list') do |title|
+  expect(page.find('ul#incomplete-todos')).not_to have_css('li', text: title)
 end

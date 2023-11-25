@@ -144,4 +144,18 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  context "associations" do
+    context "todos" do
+      it "destroys all of the associated todos when the user is destroyed" do
+        user = create(:user)
+
+        3.times { create(:todo, user: user) }
+        expect(Todo.count).to eq(3)
+
+        user.destroy
+        expect(Todo.count).to eq(0)
+      end
+    end
+  end
 end

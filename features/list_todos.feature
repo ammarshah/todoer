@@ -1,4 +1,3 @@
-@wip
 Feature: List todos
   As a logged in user
   I want to see the list of my previously added todos
@@ -6,6 +5,7 @@ Feature: List todos
 
   Rule: Every user must only see their own todos
 
+    @javascript
     Example: User does not see other users' todos
       Given I am logged in
       And I am on the app page

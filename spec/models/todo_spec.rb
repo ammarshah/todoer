@@ -29,5 +29,13 @@ RSpec.describe Todo, type: :model do
         expect(todo.title).to eq("Buy bread")
       end
     end
+
+    context "for user association" do
+      it "does not save without a user" do
+        invalid_todo = build(:todo, user: nil)
+
+        expect { invalid_todo.save! }.to raise_error("Validation failed: User must exist")
+      end
+    end
   end
 end

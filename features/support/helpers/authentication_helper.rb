@@ -1,4 +1,8 @@
 module AuthenticationHelper
+  def current_user
+    @user
+  end
+
   def register(user)
     register_with(full_name: user.full_name, email: user.email, password: user.password)
   end

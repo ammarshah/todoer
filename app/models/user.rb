@@ -9,6 +9,8 @@ class User < ApplicationRecord
   # Demo link: https://regex101.com/r/PTPAJy/1
   EMAIL_REGEX = /\A[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\z/
 
+  has_many :todos, dependent: :destroy
+
   validates :full_name, presence: true,
                         length:   { maximum: 80 }
 

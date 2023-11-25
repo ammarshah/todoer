@@ -3,6 +3,6 @@ class AppController < ApplicationController
 
   def index
     @new_todo = Todo.new
-    @todos = Todo.all
+    @todos = current_user.todos
   end
 end

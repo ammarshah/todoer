@@ -116,6 +116,14 @@ When('I login with with the email {string} and the password {string}') do |email
   login_with(email: email, password: password)
 end
 
+When('another user logs in') do
+  logout
+
+  @user = create(:user, :confirmed)
+
+  login(@user)
+end
+
 When('I resend confirmation instructions') do
   resend_confirmation_instructions_for(email: @user.email)
 end

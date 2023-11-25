@@ -1,6 +1,8 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    todo = Todo.new(todo_params)
+    todo = current_user.todos.new(todo_params)
 
     respond_to do |format|
       if todo.save
