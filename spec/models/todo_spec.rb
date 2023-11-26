@@ -51,7 +51,7 @@ RSpec.describe Todo, type: :model do
     it "is by default incomplete" do
       todo = create(:todo)
 
-      expect(todo.completed?).to be_falsy
+      expect(todo).not_to be_completed
     end
 
     it "can be marked as complete" do
@@ -59,8 +59,9 @@ RSpec.describe Todo, type: :model do
 
       todo.completed = true
       todo.save!
+      todo.reload
 
-      expect(todo.completed?).to be_truthy
+      expect(todo).to be_completed
     end
 
     it "can be marked as incomplete" do
@@ -68,8 +69,9 @@ RSpec.describe Todo, type: :model do
 
       todo.completed = false
       todo.save!
+      todo.reload
 
-      expect(todo.completed?).to be_falsy
+      expect(todo).not_to be_completed
     end
   end
 
