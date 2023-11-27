@@ -1,30 +1,21 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "addTodoForm",
-    "updateTodoForm",
-    "title",
-    "titleHiddenField",
-    "completedHiddenField"
-  ]
+  static targets = [ "form", "title", "titleHiddenField", "completedHiddenField" ]
+
+  updateCompletedHiddenFieldValue() {
+    const hiddenField = this.completedHiddenFieldTarget
+    hiddenField.value = hiddenField.value === "true" ? "false" : "true"
+    this.submitForm()
+  }
 
   updateTitleHiddenFieldValue() {
     this.titleHiddenFieldTarget.value = this.titleTarget.textContent
   }
 
-  submitAddTodoForm(event) {
-    event.preventDefault()
-    
-    this.addTodoFormTarget.submit()
-    
-    this.titleTarget.textContent = ''
-    this.titleHiddenFieldTarget.value = ''
-  }
-
-  submitUpdateTodoForm() {
-    this.#updateCompletedHiddenFieldValue()
-
-    this.updateTodoFormTarget.submit()
+  submitForm(event) {
+    if (event) event.preventDefault()
+    this.formTarget.submit()
   }
 
   focusOut() {
@@ -46,9 +37,5 @@ export default class extends Controller {
   #squishString(string) {
     // Replace multiple spaces and new lines with a single space
     return string.replace(/\s+/g, ' ').trim()
-  }
-
-  #updateCompletedHiddenFieldValue() {
-    this.completedHiddenFieldTarget.value = "true"
   }
 }

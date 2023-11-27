@@ -1,4 +1,3 @@
-@wip
 Feature: Mark todo incomplete
   As a logged in user
   I want to mark my completed todos as incomplete
@@ -6,6 +5,7 @@ Feature: Mark todo incomplete
 
   Rule: Incomplete todos must show up in a separate list
 
+    @javascript
     Example: User marks a completed todo as incomplete and sees it in a separate list
       Given I am logged in
       And I am on the app page

@@ -11,6 +11,14 @@ module TodoHelper
     end
   end
 
+  def mark_todo_incomplete(title:)
+    within('ul#completed-todos') do
+      find('li', text: title)
+        .find('.todo-status-checkbox')
+        .click
+    end
+  end
+
   private
 
   def add_todo_with(title:)

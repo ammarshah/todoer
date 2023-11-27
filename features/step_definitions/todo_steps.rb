@@ -26,8 +26,12 @@ When('I paste a multi-line title') do |multiline_title|
   send_keys [:control, 'a', 'c', 'v'] # Select all ('a'), then copy ('c'), then paste ('v')
 end
 
-When('I mark the todo with the title {string} as completed') do |title|
+When('I mark(ed) the todo with the title {string} as completed') do |title|
   mark_todo_complete(title: title)
+end
+
+When('I mark the todo with the title {string} as incomplete') do |title|
+  mark_todo_incomplete(title: title)
 end
 
 # THEN
@@ -41,6 +45,10 @@ end
 
 Then('I should see a todo with the title {string} in the completed todos list') do |title|
   expect(page.find('ul#completed-todos')).to have_css('li', text: title)
+end
+
+Then('I should not see a todo with the title {string} in the completed todos list') do |title|
+  expect(page.find('ul#completed-todos')).not_to have_css('li', text: title)
 end
 
 Then('I should see an auto-squished title as {string}') do |squished_title|
