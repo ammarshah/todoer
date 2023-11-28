@@ -25,7 +25,6 @@ Feature: Edit todo
       And I refresh the page
       Then I should see a todo with the title "Buy bread and butter" in the incomplete todos list
 
-  @wip
   Rule: Pressing escape key while editing a todo must revert the changes
 
     @javascript
