@@ -3,8 +3,6 @@ Feature: Edit todo
   I want to update my previously added todos
   So that I will stay up-to-date with the things I need to do
 
-  # TODO: Rule: Title is required
-
   # TODO: Rule: Pressing enter key or focus out of title field while editing a todo must save the changes
 
   # TODO: Rule: Pressing escape key while editing a todo must revert the changes

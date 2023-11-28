@@ -16,8 +16,8 @@ Feature: Add todo
     Example: User adds a todo without a title
       Given I am logged in
       And I am on the app page
-      When I add a todo with the title ""
-      Then I should have 0 todos in the incomplete todos list
+      When I add a todo with the title " "
+      Then I should see an error message indicating that a title is required
 
   Rule: Title length must be of maximum 1000 characters
 
