@@ -1,9 +1,9 @@
-@wip
 Feature: Delete todo
   As a logged in user
   I want to delete my previously added todos
   So that I don't have unnecessary todos in the list
 
+  @javascript
   Scenario: User deletes an incomplete todo
     Given I am logged in
     And I am on the app page
@@ -11,6 +11,7 @@ Feature: Delete todo
     When I delete the todo, present in the incomplete todos list, with the title "Buy bread"
     Then I should not see a todo with the title "Buy bread" in the incomplete todos list
 
+  @javascript
   Scenario: User deletes a completed todo
     Given I am logged in
     And I am on the app page

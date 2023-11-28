@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_todo, only: [:update]
+  before_action :set_todo, only: [:update, :destroy]
 
   def create
     todo = current_user.todos.new(todo_params)
@@ -21,6 +21,14 @@ class TodosController < ApplicationController
       else
         format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
       end
+    end
+  end
+
+  def destroy
+    @todo.destroy
+
+    respond_to do |format|
+      format.html { redirect_to app_path }
     end
   end
 

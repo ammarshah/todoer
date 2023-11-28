@@ -19,6 +19,24 @@ module TodoHelper
     end
   end
 
+  def delete_incomplete_todo(title:)
+    within('ul#incomplete-todos') do
+      find('li', text: title)
+        .hover
+        .find('.todo-actions .delete')
+        .click
+    end
+  end
+
+  def delete_completed_todo(title:)
+    within('ul#completed-todos') do
+      find('li', text: title)
+        .hover
+        .find('.todo-actions .delete')
+        .click
+    end
+  end
+
   private
 
   def add_todo_with(title:)

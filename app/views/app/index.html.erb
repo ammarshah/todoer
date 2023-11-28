@@ -4,24 +4,25 @@
       <% @incomplete_todos.each do |todo| %>
         <li class="todo" data-controller="todo">
           <%= form_with(model: todo, data: { todo_target: "form" }) do |form| %>
-            <div class="todo-status">
-              <div class="todo-status-checkbox" data-action="click->todo#updateCompletedHiddenFieldValue">
-                <%= image_tag "check.svg", alt: "Mark todo complete", size: "12x12" %>
-              </div>
-            </div>
-
             <%= form.hidden_field :completed, data: { todo_target: "completedHiddenField" } %>
-
-            <div class="todo-title" contenteditable="true" spellcheck="false" placeholder="<%= Tagline::DEFAULT_TAGLINE %>">
-              <%= todo.title %>
-            </div>
-
             <%= form.hidden_field :title %>
-
-            <div class="todo-actions">
-              <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight delete" %>
-            </div>
           <% end %>
+
+          <div class="todo-status">
+            <div class="todo-status-checkbox" data-action="click->todo#updateCompletedHiddenFieldValue">
+              <%= image_tag "check.svg", alt: "Mark todo complete", size: "12x12" %>
+            </div>
+          </div>
+
+          <div class="todo-title" contenteditable="true" spellcheck="false" placeholder="<%= Tagline::DEFAULT_TAGLINE %>">
+            <%= todo.title %>
+          </div>
+
+          <div class="todo-actions">
+            <%= button_to todo_path(todo), method: :delete do %>
+              <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight delete" %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     </ul>
@@ -29,29 +30,29 @@
     <ul class="todos">
       <li id="add-todo" class="todo" data-controller="todo">
         <%= form_with(model: @new_todo, data: { todo_target: "form" }) do |form| %>
-          <div class="todo-title field"
-            contenteditable="true"
-            spellcheck="false"
-            placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
-            data-todo-target="title"
-            data-action="input->todo#updateTitleHiddenFieldValue
-              keydown.enter->todo#submitForm
-              keydown.shift+enter->todo#submitForm
-              keydown.ctrl+enter->todo#submitForm
-              keydown.alt+enter->todo#submitForm
-              keydown.ctrl+alt+enter->todo#submitForm
-              keydown.ctrl+shift+enter->todo#submitForm
-              keydown.shift+alt+enter->todo#submitForm
-              keydown.ctrl+alt+shift+enter->todo#submitForm
-              keydown.esc->todo#focusOut
-              paste->todo#autoSquishText"></div>
-
           <%= form.hidden_field :title, data: { todo_target: "titleHiddenField" } %>
-
-          <div class="todo-actions visible">
-            <%= image_tag "add.svg", alt: "Add todo", size: "16x16", id: "todo-submit", class: "hoverlight", data: { action: "click->todo#submitForm" } %>
-          </div>
         <% end %>
+
+        <div class="todo-title field"
+          contenteditable="true"
+          spellcheck="false"
+          placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
+          data-todo-target="title"
+          data-action="input->todo#updateTitleHiddenFieldValue
+            keydown.enter->todo#submitForm
+            keydown.shift+enter->todo#submitForm
+            keydown.ctrl+enter->todo#submitForm
+            keydown.alt+enter->todo#submitForm
+            keydown.ctrl+alt+enter->todo#submitForm
+            keydown.ctrl+shift+enter->todo#submitForm
+            keydown.shift+alt+enter->todo#submitForm
+            keydown.ctrl+alt+shift+enter->todo#submitForm
+            keydown.esc->todo#focusOut
+            paste->todo#autoSquishText"></div>
+
+        <div class="todo-actions visible">
+          <%= image_tag "add.svg", alt: "Add todo", size: "16x16", id: "todo-submit", class: "hoverlight", data: { action: "click->todo#submitForm" } %>
+        </div>
       </li>
     </ul>
 
@@ -59,22 +60,24 @@
       <% @completed_todos.each do |todo| %>
         <li class="todo" data-controller="todo">
           <%= form_with(model: todo, data: { todo_target: "form" }) do |form| %>
-            <div class="todo-status">
-              <div class="todo-status-checkbox completed" data-action="click->todo#updateCompletedHiddenFieldValue">
-                <%= image_tag "check.svg", alt: "Mark todo incomplete", size: "12x12" %>
-              </div>
-            </div>
-
             <%= form.hidden_field :completed, data: { todo_target: "completedHiddenField" } %>
-
-            <div class="todo-title completed">
-              <%= todo.title %>
-            </div>
-
-            <div class="todo-actions">
-              <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight delete" %>
-            </div>
           <% end %>
+
+          <div class="todo-status">
+            <div class="todo-status-checkbox completed" data-action="click->todo#updateCompletedHiddenFieldValue">
+              <%= image_tag "check.svg", alt: "Mark todo incomplete", size: "12x12" %>
+            </div>
+          </div>
+
+          <div class="todo-title completed">
+            <%= todo.title %>
+          </div>
+
+          <div class="todo-actions">
+            <%= button_to todo_path(todo), method: :delete do %>
+              <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight delete" %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     </ul>

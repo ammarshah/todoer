@@ -34,6 +34,14 @@ When('I mark the todo with the title {string} as incomplete') do |title|
   mark_todo_incomplete(title: title)
 end
 
+When('I delete the todo, present in the incomplete todos list, with the title {string}') do |title|
+  delete_incomplete_todo(title: title)
+end
+
+When('I delete the todo, present in the completed todos list, with the title {string}') do |title|
+  delete_completed_todo(title: title)
+end
+
 # THEN
 Then('I should see a todo with the title {string} in the incomplete todos list') do |title|
   expect(page.find('ul#incomplete-todos')).to have_css('li', text: title)
