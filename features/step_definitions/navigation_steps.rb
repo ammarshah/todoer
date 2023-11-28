@@ -16,3 +16,7 @@ end
 When('I follow(ed) the reset password link in the email( again)') do
   visit reset_password_link
 end
+
+When('I refresh the page') do
+  refresh
+end

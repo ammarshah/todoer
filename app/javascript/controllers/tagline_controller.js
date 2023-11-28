@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ "tagline" ]
-  taglines = []
+  static taglines = []
 
   async initialize() {
     this.taglines = await this.#fetchTaglines()

@@ -19,11 +19,7 @@ end
 # Since there is no easy way to use clipboard with Capybara,
 # we are simply doing copy and paste by sending keyboard shortcut keys
 When('I paste a multi-line title') do |multiline_title|
-  within('#add-todo') do
-    find('.todo-title').set(multiline_title) # Set the multi-line title somewhere on the page
-  end
-
-  send_keys [:control, 'a', 'c', 'v'] # Select all ('a'), then copy ('c'), then paste ('v')
+  paste_title(title: multiline_title)
 end
 
 When('I mark(ed) the todo with the title {string} as completed') do |title|
@@ -40,6 +36,14 @@ end
 
 When('I delete the todo, present in the completed todos list, with the title {string}') do |title|
   delete_completed_todo(title: title)
+end
+
+When('I update the todo\'s title, present in the incomplete todos list, from {string} to {string}') do |title, new_title|
+  update_incomplete_todo_title(title: title, new_title: new_title)
+end
+
+When('I update the todo\'s title, present in the completed todos list, from {string} to {string}') do |title, new_title|
+  update_completed_todo_title(title: title, new_title: new_title)
 end
 
 # THEN

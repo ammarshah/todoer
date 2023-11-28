@@ -1,38 +1,102 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "form", "title", "titleHiddenField", "completedHiddenField" ]
+  static targets = [ "form", "titleField", "titleHiddenField", "completedHiddenField" ]
 
-  updateCompletedHiddenFieldValue() {
-    const hiddenField = this.completedHiddenFieldTarget
-    hiddenField.value = hiddenField.value === "true" ? "false" : "true"
-    this.submitForm()
+  saveTodo(event) {
+    event.preventDefault()
+
+    if (this.#hasFormChanged()) {
+      this.formTarget.submit()
+    }
   }
 
-  updateTitleHiddenFieldValue() {
-    this.titleHiddenFieldTarget.value = this.titleTarget.textContent
+  updateCompletedHiddenField() {
+    this.#hiddenCompleted = this.#hiddenCompleted === "true" ? "false" : "true"
   }
 
-  submitForm(event) {
-    if (event) event.preventDefault()
-    this.formTarget.submit()
+  updateTitleHiddenField() {
+    this.#hiddenTitle = this.#title
   }
 
-  focusOut() {
-    this.titleTarget.blur()
+  revertTitleChanges() {
+    this.#updateTitle(this.#originalTitle)
   }
 
-  autoSquishText() {
+  blurElement(event) {
+    event.currentTarget.blur()
+  }
+
+  autoSquishTitle() {
     // Delay the squishing logic to ensure the pasted content is available
     setTimeout(() => {
-      const sqishedTitle = this.#squishString(this.titleTarget.textContent)
-
-      this.titleTarget.textContent = sqishedTitle
-      this.titleHiddenFieldTarget.value = sqishedTitle
+      const squishedTitle = this.#squishString(this.#title)
+      this.#updateTitle(squishedTitle)
     }, 0)
   }
 
   // Private functions
+
+  get #title() {
+    if (this.hasTitleFieldTarget) {
+      return this.titleFieldTarget.textContent
+    }
+  }
+
+  set #title(title) {
+    if (this.hasTitleFieldTarget) {
+      this.titleFieldTarget.textContent = title
+    }
+  }
+
+  get #hiddenTitle() {
+    if (this.hasTitleHiddenFieldTarget) {
+      return this.titleHiddenFieldTarget.value
+    }
+  }
+
+  set #hiddenTitle(title) {
+    if (this.hasTitleHiddenFieldTarget) {
+      this.titleHiddenFieldTarget.value = title
+    }
+  }
+
+  get #originalTitle() {
+    if (this.hasTitleHiddenFieldTarget) {
+      return this.titleHiddenFieldTarget.dataset.originalValue
+    }
+  }
+
+  get #hiddenCompleted() {
+    if (this.hasCompletedHiddenFieldTarget) {
+      return this.completedHiddenFieldTarget.value
+    }
+  }
+
+  set #hiddenCompleted(completed) {
+    if (this.hasCompletedHiddenFieldTarget) {
+      this.completedHiddenFieldTarget.value = completed
+    }
+  }
+
+  get #originalCompleted() {
+    if (this.hasCompletedHiddenFieldTarget) {
+      return this.completedHiddenFieldTarget.dataset.originalValue
+    }
+  }
+
+  #hasFormChanged() {
+    if (this.#hiddenTitle !== this.#originalTitle || this.#hiddenCompleted !== this.#originalCompleted) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  #updateTitle(title) {
+    this.#title = title
+    this.updateTitleHiddenField()
+  }
 
   #squishString(string) {
     // Replace multiple spaces and new lines with a single space
