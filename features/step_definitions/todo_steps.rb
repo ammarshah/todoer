@@ -39,11 +39,17 @@ When('I delete the todo, present in the completed todos list, with the title {st
 end
 
 When('I update the todo\'s title, present in the incomplete todos list, from {string} to {string}') do |title, new_title|
-  update_incomplete_todo_title(title: title, new_title: new_title)
+  change_incomplete_todo_title(title: title, new_title: new_title)
+  press_key(key: 'enter')
 end
 
 When('I update the todo\'s title, present in the completed todos list, from {string} to {string}') do |title, new_title|
-  update_completed_todo_title(title: title, new_title: new_title)
+  change_completed_todo_title(title: title, new_title: new_title)
+  press_key(key: 'enter')
+end
+
+When('I change the todo\'s title, present in the incomplete todos list, from {string} to {string}') do |title, new_title|
+  change_incomplete_todo_title(title: title, new_title: new_title)
 end
 
 # THEN

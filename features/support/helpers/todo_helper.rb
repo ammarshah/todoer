@@ -44,23 +44,19 @@ module TodoHelper
     end
   end
 
-  def update_incomplete_todo_title(title:, new_title:)
+  def change_incomplete_todo_title(title:, new_title:)
     within('ul#incomplete-todos') do
       find('li', text: title)
         .find('.todo-title')
         .set(new_title)
-
-      send_keys [:enter]
     end
   end
 
-  def update_completed_todo_title(title:, new_title:)
+  def change_completed_todo_title(title:, new_title:)
     within('ul#completed-todos') do
       find('li', text: title)
         .find('.todo-title')
         .set(new_title)
-
-      send_keys [:enter]
     end
   end
 
