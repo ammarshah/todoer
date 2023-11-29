@@ -36,9 +36,9 @@ Feature: List todos
       When I mark the todo with the title "First todo" as incomplete
       Then I should see the todo with the title "First todo" as the last item in the incomplete todos list
 
-  @wip
   Rule: Todo marked as completed must show up at the top of the completed todos list
 
+    @javascript
     Example: User marks a todo as completed and sees it at the top of the completed todos list
       Given I am logged in
       And I am on the app page

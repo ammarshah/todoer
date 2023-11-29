@@ -73,6 +73,10 @@ Then('I should not see a todo with the title {string} in the completed todos lis
   expect(page.find('ul#completed-todos')).not_to have_css('li', text: title)
 end
 
+Then('I should see the todo with the title {string} as the first item in the completed todos list') do |title|
+  expect(page.find('ul#completed-todos')).to have_css('li:first-child', text: title)
+end
+
 Then('I should see an auto-squished title as {string}') do |squished_title|
   expect(page.find('#add-todo')).to have_css('.todo-title', text: squished_title)
 end

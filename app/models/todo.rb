@@ -11,7 +11,7 @@ class Todo < ApplicationRecord
   before_validation :squish_title
 
   scope :incomplete, -> { where(completed: false).order(position: :asc) }
-  scope :completed,  -> { where(completed: true) }
+  scope :completed,  -> { where(completed: true).order(position: :desc) }
 
   private
 

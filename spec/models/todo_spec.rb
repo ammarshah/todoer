@@ -99,5 +99,13 @@ RSpec.describe Todo, type: :model do
 
       expect(Todo.completed).to eq([completed_todo])
     end
+
+    it "returns the completed todos in a descending order by their position" do
+      completed_todo1 = create(:todo, :completed, position: 1)
+      completed_todo3 = create(:todo, :completed, position: 3)
+      completed_todo2 = create(:todo, :completed, position: 2)
+
+      expect(Todo.completed).to eq([completed_todo3, completed_todo2, completed_todo1])
+    end
   end
 end
