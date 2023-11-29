@@ -14,9 +14,9 @@ Feature: List todos
       And he goes to the app page
       Then he should not see a todo with the title "Buy bread" in the incomplete todos list
 
-  @wip
   Rule: Incomplete todos list must list todos in an ascending order by recently added
 
+    @javascript
     Example: User adds a new todo and sees it at the bottom of the incomplete todos list
       Given I am logged in
       And I am on the app page

@@ -61,6 +61,10 @@ Then('I/he should not see a todo with the title {string} in the incomplete todos
   expect(page.find('ul#incomplete-todos')).not_to have_css('li', text: title)
 end
 
+Then('I should see the todo with the title {string} as the last item in the incomplete todos list') do |title|
+  expect(page.find('ul#incomplete-todos')).to have_css('li:last-child', text: title)
+end
+
 Then('I should see a todo with the title {string} in the completed todos list') do |title|
   expect(page.find('ul#completed-todos')).to have_css('li', text: title)
 end
