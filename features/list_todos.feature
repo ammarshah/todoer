@@ -24,9 +24,9 @@ Feature: List todos
       When I add a todo with the title "New todo"
       Then I should see the todo with the title "New todo" as the last item in the incomplete todos list
 
-  @wip
   Rule: Todo marked as incomplete must show up at the bottom of the incomplete todos list
 
+    @javascript
     Example: User marks a todo as incomplete and sees it at the bottom of the incomplete todos list
       Given I am logged in
       And I am on the app page

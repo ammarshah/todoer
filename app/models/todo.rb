@@ -1,6 +1,8 @@
 class Todo < ApplicationRecord
   belongs_to :user
 
+  acts_as_list scope: [:user_id, :completed]
+
   validates :title, presence: true,
                     length:   { maximum: 1000 }
 
@@ -8,7 +10,7 @@ class Todo < ApplicationRecord
 
   before_validation :squish_title
 
-  scope :incomplete, -> { where(completed: false) }
+  scope :incomplete, -> { where(completed: false).order(position: :asc) }
   scope :completed,  -> { where(completed: true) }
 
   private
