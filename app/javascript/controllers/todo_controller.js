@@ -7,7 +7,7 @@ export default class extends Controller {
     event.preventDefault()
 
     if (this.#hasFormChanged()) {
-      this.formTarget.submit()
+      this.formTarget.requestSubmit() // requestSubmit() makes form submission request as TURBO_STREAM
     }
   }
 

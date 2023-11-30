@@ -1,4 +1,4 @@
-<li class="todo" data-controller="todo">
+<li id="<%= dom_id todo %>" class="todo" data-controller="todo">
   <%= form_with(model: todo, data: { todo_target: "form" }) do |form| %>
     <%= form.hidden_field :completed, data: { todo_target: "completedHiddenField", original_value: todo.completed } %>
     <% unless todo.completed? %>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="todo-actions">
-    <%= button_to todo_path(todo), method: :delete do %>
+    <%= button_to todo_path(todo), method: :delete, data: { turbo_frame: "_top" } do %>
       <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight delete" %>
     <% end %>
   </div>

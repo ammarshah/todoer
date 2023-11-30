@@ -4,7 +4,6 @@ class TodosController < ApplicationController
 
   def index
     if params[:internal_request].present?
-      @new_todo = Todo.new
       @incomplete_todos = current_user.todos.incomplete
       @completed_todos = current_user.todos.completed
     else
@@ -13,13 +12,14 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo = current_user.todos.new(todo_params)
+    @todo = current_user.todos.new(todo_params)
 
     respond_to do |format|
-      if todo.save
+      if @todo.save
+        format.turbo_stream
         format.html { redirect_to app_path }
       else
-        format.html { redirect_to app_path, alert: todo.errors.full_messages.first }
+        format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
       end
     end
   end
@@ -27,6 +27,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
+        format.turbo_stream
         format.html { redirect_to app_path }
       else
         format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
@@ -38,6 +39,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to app_path }
     end
   end
