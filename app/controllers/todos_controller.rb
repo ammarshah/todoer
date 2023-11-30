@@ -25,6 +25,8 @@ class TodosController < ApplicationController
   end
 
   def update
+    @todo_before_update = @todo.dup
+
     respond_to do |format|
       if @todo.update(todo_params)
         format.turbo_stream

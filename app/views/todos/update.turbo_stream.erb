@@ -1,1 +1,9 @@
-<%= turbo_stream.replace @todo %>
+<% if todo_was_marked_complete?(@todo_before_update, @todo) %>
+  <%= turbo_stream.remove @todo %>
+  <%= turbo_stream.prepend "completed-todos", @todo %>
+<% elsif todo_was_marked_incomplete?(@todo_before_update, @todo) %>
+  <%= turbo_stream.remove @todo %>
+  <%= turbo_stream.append "incomplete-todos", @todo %>
+<% else %>
+  <%= turbo_stream.replace @todo %>
+<% end %>

@@ -19,4 +19,12 @@ module TodoHelper
         paste->todo#squishTitle'"
     ).html_safe
   end
+
+  def todo_was_marked_complete?(old_todo, new_todo)
+    !old_todo.completed? && new_todo.completed?
+  end
+
+  def todo_was_marked_incomplete?(old_todo, new_todo)
+    old_todo.completed? && !new_todo.completed?
+  end
 end
