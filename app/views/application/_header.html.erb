@@ -1,7 +1,7 @@
 <header>
   <div id="logo">
     <% if user_signed_in? %>
-      <% if controller_name == "app" %>
+      <% if controller_name == "apps" %>
         <%= link_to account_path do %>
           <%= image_tag "account.svg", alt: "Account", size: "28x28", class: "hoverlight" %>
         <% end %>

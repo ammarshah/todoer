@@ -3,9 +3,7 @@ module ApplicationHelper
   # which makes the tagline on the homepage scrollable
   def scrollable_tagline_attributes
     if controller_name == "home"
-      ("tabindex='0'
-        autofocus
-        data-controller='tagline'
+      ("data-controller=tagline
         data-action='wheel->tagline#changeTagline
           keydown.up->tagline#changeTagline
           keydown.down->tagline#changeTagline

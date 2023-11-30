@@ -1,11 +1,15 @@
-<div id="todos">
-  <ul>
-    <% @todos.each do |todo| %>
-      <li>
-        <%= todo.title %>
-      </li>
-    <% end %>
-  </ul>
+<%= turbo_frame_tag "todos" do %>
+  <div id="todos-container">
+    <ul id="incomplete-todos" class="todos">
+      <%= render @incomplete_todos %>
+    </ul>
 
-  <%= render partial: 'form', locals: { todo: @new_todo } %>
-</div>
+    <ul class="todos">
+      <%= render "form", todo: @new_todo %>
+    </ul>
+
+    <ul id="completed-todos" class="todos">
+      <%= render @completed_todos %>
+    </ul>
+  </div>
+<% end %>

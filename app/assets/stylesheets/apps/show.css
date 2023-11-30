@@ -1,0 +1,13 @@
+#app {
+  width: 65%;
+
+  /* Any Mobile Device */
+  @media only screen and (max-width: 767px) {
+    width: 95%;
+  }
+
+  /* Any Tablet Device */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    width: 75%;
+  }
+}

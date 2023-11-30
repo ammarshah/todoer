@@ -27,10 +27,12 @@ export default class extends Controller {
     event.currentTarget.blur()
   }
 
-  autoSquishTitle() {
+  squishTitle() {
     // Delay the squishing logic to ensure the pasted content is available
     setTimeout(() => {
-      const squishedTitle = this.#squishString(this.#title)
+      // Replace multiple spaces and new lines with a single space
+      const squishedTitle = this.#title.replace(/\s+/g, ' ').trim()
+
       this.#updateTitle(squishedTitle)
     }, 0)
   }
@@ -96,10 +98,5 @@ export default class extends Controller {
   #updateTitle(title) {
     this.#title = title
     this.updateTitleHiddenField()
-  }
-
-  #squishString(string) {
-    // Replace multiple spaces and new lines with a single space
-    return string.replace(/\s+/g, ' ').trim()
   }
 }

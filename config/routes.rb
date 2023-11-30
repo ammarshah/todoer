@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get 'app', to: 'app#index'
+  # get 'app', to: 'app#index'
 
-  resources :todos, only: [:create, :update, :destroy]
+  resource :app, only: [:show]
+
+  resources :todos, only: [:index, :create, :update, :destroy]
 
   resources :taglines, only: :index
 end

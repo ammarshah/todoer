@@ -2,6 +2,16 @@ class TodosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_todo, only: [:update, :destroy]
 
+  def index
+    if params[:internal_request].present?
+      @new_todo = Todo.new
+      @incomplete_todos = current_user.todos.incomplete
+      @completed_todos = current_user.todos.completed
+    else
+      redirect_to app_path
+    end
+  end
+
   def create
     todo = current_user.todos.new(todo_params)
 
