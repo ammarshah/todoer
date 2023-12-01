@@ -3,6 +3,19 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "form", "titleField", "titleHiddenField", "completedHiddenField" ]
 
+  connect() {
+    // Retain focus on the title field when Turbo Stream replaces the partial
+    if (this.hasTitleFieldTarget) {
+      const titleField = this.titleFieldTarget
+      const hasFieldClass = titleField.classList.contains('field')
+      const hasInvalidClass = titleField.classList.contains('invalid')
+  
+      if (hasFieldClass || hasInvalidClass) {
+        titleField.focus()
+      }
+    }
+  }
+
   saveTodo(event) {
     event.preventDefault()
 

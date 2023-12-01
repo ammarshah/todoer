@@ -1,14 +1,11 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
+  before_action :validate_request!, only: :index
   before_action :set_todo, only: [:update, :destroy]
 
   def index
-    if params[:internal_request].present?
-      @incomplete_todos = current_user.todos.incomplete
-      @completed_todos = current_user.todos.completed
-    else
-      redirect_to app_path
-    end
+    @incomplete_todos = current_user.todos.incomplete
+    @completed_todos = current_user.todos.completed
   end
 
   def create
@@ -19,6 +16,7 @@ class TodosController < ApplicationController
         format.turbo_stream
         format.html { redirect_to app_path }
       else
+        format.turbo_stream
         format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
       end
     end
@@ -32,6 +30,7 @@ class TodosController < ApplicationController
         format.turbo_stream
         format.html { redirect_to app_path }
       else
+        format.turbo_stream
         format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
       end
     end
@@ -47,6 +46,10 @@ class TodosController < ApplicationController
   end
 
   private
+
+  def validate_request!
+    redirect_to app_path unless params[:internal_request].present?
+  end
 
   def set_todo
     @todo = current_user.todos.find(params[:id])

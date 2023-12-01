@@ -1,28 +1,31 @@
-<li id="add-todo" class="todo" data-controller="todo">
-  <%= form_with(model: Todo.new, data: { todo_target: "form", action: "turbo:submit-end->todo#revertTitleChanges" }) do |form| %>
-    <%= form.hidden_field :title, data: { todo_target: "titleHiddenField", original_value: "" } %>
-  <% end %>
+<%= turbo_frame_tag todo do %>
+  <li id="add-todo" class="todo" data-controller="todo">
+    <%= form_with(model: todo, data: { todo_target: "form" }) do |form| %>
+      <%= form.hidden_field :title, data: { todo_target: "titleHiddenField", original_value: "" } %>
+    <% end %>
 
-  <div class="todo-title field"
-    contenteditable="true"
-    autofocus="true"
-    spellcheck="false"
-    placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
-    data-todo-target="titleField"
-    data-action="input->todo#updateTitleHiddenField
-      keydown.enter->todo#saveTodo
-      keydown.shift+enter->todo#saveTodo
-      keydown.ctrl+enter->todo#saveTodo
-      keydown.alt+enter->todo#saveTodo
-      keydown.ctrl+alt+enter->todo#saveTodo
-      keydown.ctrl+shift+enter->todo#saveTodo
-      keydown.shift+alt+enter->todo#saveTodo
-      keydown.ctrl+alt+shift+enter->todo#saveTodo
-      keydown.esc->todo#revertTitleChanges
-      keydown.esc->todo#blurElement
-      paste->todo#squishTitle"></div>
+    <div class="todo-title field <%= "invalid" if todo.errors.any? %>"
+      contenteditable="true"
+      spellcheck="false"
+      placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
+      data-todo-target="titleField"
+      data-action="input->todo#updateTitleHiddenField
+        keydown.enter->todo#saveTodo
+        keydown.shift+enter->todo#saveTodo
+        keydown.ctrl+enter->todo#saveTodo
+        keydown.alt+enter->todo#saveTodo
+        keydown.ctrl+alt+enter->todo#saveTodo
+        keydown.ctrl+shift+enter->todo#saveTodo
+        keydown.shift+alt+enter->todo#saveTodo
+        keydown.ctrl+alt+shift+enter->todo#saveTodo
+        keydown.esc->todo#revertTitleChanges
+        keydown.esc->todo#blurElement
+        paste->todo#squishTitle"><%= todo.title %></div>
 
-  <div class="todo-actions visible">
-    <%= image_tag "add.svg", alt: "Add todo", size: "16x16", id: "todo-submit", class: "hoverlight", data: { action: "click->todo#saveTodo" } %>
-  </div>
-</li>
+    <div class="todo-actions visible">
+      <%= image_tag "add.svg", alt: "Add todo", size: "16x16", id: "todo-submit", class: "hoverlight", data: { action: "click->todo#saveTodo" } %>
+    </div>
+  </li>
+
+  <%= render "error_messages", resource: todo %>
+<% end %>

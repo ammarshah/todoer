@@ -1,5 +1,6 @@
 :root {
   --todo-default-padding: 7px;
+  --todo-default-field-left-margin: 40px;
   --todo-status-checkbox-grey: #7b7b7b;
   --todo-title-background-grey: #3d3d3d;
   --todo-title-border-grey: #4d4d4d;
@@ -75,7 +76,7 @@
         &.field {
           padding-left: 0;
           padding-right: 0;
-          margin-left: 40px;
+          margin-left: var(--todo-default-field-left-margin);
           border-bottom: 1px solid var(--scrollbar-grey);
         }
 
@@ -83,6 +84,10 @@
           color: var(--disabled-grey);
           text-decoration: line-through;
           cursor: not-allowed;
+        }
+
+        &.invalid, &.invalid:hover, &.invalid:focus {
+          border-color: var(--alert-red) !important;
         }
 
         .todo:not(#add-todo) & {
@@ -136,6 +141,13 @@
           background-color: var(--todo-hoverlight-delete-red);
         }
       }
+    }
+
+    #error {
+      text-align: left;
+      margin-left: var(--todo-default-field-left-margin);
+      font-size: 12px;
+      color: var(--alert-red);
     }
   }
 }
