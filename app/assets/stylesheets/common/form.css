@@ -5,7 +5,7 @@
     font-size: 3em;
   }
 
-  #error {
+  .error-message {
     border-radius: var(--default-border-radius);
     padding: var(--default-input-padding);
     margin-bottom: 10px;

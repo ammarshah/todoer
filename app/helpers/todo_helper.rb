@@ -5,6 +5,8 @@ module TodoHelper
       placeholder='#{Tagline::DEFAULT_TAGLINE}'
       data-todo-target=titleField
       data-action='input->todo#updateTitleHiddenField
+        focusin->todo#hideCompletedCheckbox
+        focusout->todo#showCompletedCheckbox
         focusout->todo#saveTodo
         keydown.enter->todo#saveTodo
         keydown.shift+enter->todo#saveTodo
@@ -14,8 +16,7 @@ module TodoHelper
         keydown.ctrl+shift+enter->todo#saveTodo
         keydown.shift+alt+enter->todo#saveTodo
         keydown.ctrl+alt+shift+enter->todo#saveTodo
-        keydown.esc->todo#revertTitleChanges
-        keydown.esc->todo#blurElement
+        keydown.esc->todo#resetTitle
         paste->todo#squishTitle'"
     ).html_safe
   end

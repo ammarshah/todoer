@@ -1,19 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "form", "titleField", "titleHiddenField", "completedHiddenField" ]
+  static targets = [ "form", "titleField", "titleHiddenField", "completedCheckbox", "completedHiddenField" ]
+  static values = {
+    turboFrameId: String
+  }
 
   connect() {
-    // Retain focus on the title field when Turbo Stream replaces the partial
-    if (this.hasTitleFieldTarget) {
-      const titleField = this.titleFieldTarget
-      const hasFieldClass = titleField.classList.contains('field')
-      const hasInvalidClass = titleField.classList.contains('invalid')
-  
-      if (hasFieldClass || hasInvalidClass) {
-        titleField.focus()
-      }
-    }
+    this.#regainFocus()
   }
 
   saveTodo(event) {
@@ -32,12 +26,22 @@ export default class extends Controller {
     this.#hiddenTitle = this.#title
   }
 
-  revertTitleChanges() {
-    this.#updateTitle(this.#originalTitle)
+  hideCompletedCheckbox() {
+    this.completedCheckboxTarget.style.opacity = 0
+    this.completedCheckboxTarget.style.pointerEvents = "none"
   }
 
-  blurElement(event) {
-    event.currentTarget.blur()
+  showCompletedCheckbox() {
+    if (!this.#titleHasError()) {
+      this.completedCheckboxTarget.style.opacity = 1
+      this.completedCheckboxTarget.style.pointerEvents = "auto"
+    }
+  }
+
+  resetTitle() {
+    this.#updateTitle(this.#originalTitle) // Revert title changes
+    this.#removeErrorMessage()
+    this.titleFieldTarget.blur() // Trigger focusout
   }
 
   squishTitle() {
@@ -111,5 +115,32 @@ export default class extends Controller {
   #updateTitle(title) {
     this.#title = title
     this.updateTitleHiddenField()
+  }
+
+  #titleIsField() {
+    return this.titleFieldTarget.classList.contains("field")
+  }
+
+  #titleHasError() {
+    return this.titleFieldTarget.classList.contains("invalid")
+  }
+
+  #regainFocus() {
+    // Regain focus on the title field when Turbo Stream reloads the element
+    if (this.hasTitleFieldTarget) {
+      if (this.#titleIsField() || this.#titleHasError()) {
+        this.titleFieldTarget.focus()
+      }
+    }
+  }
+
+  #removeErrorMessage() {
+    const turboFrame = "#" + this.turboFrameIdValue
+    const errorMessage = this.element.closest(turboFrame).querySelector('.error-message')
+
+    if (errorMessage) {
+      this.titleFieldTarget.classList.remove("invalid")
+      errorMessage.remove()
+    }
   }
 }
