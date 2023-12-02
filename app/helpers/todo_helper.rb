@@ -8,14 +8,14 @@ module TodoHelper
         focusin->todo#hideCompletedCheckbox
         focusout->todo#showCompletedCheckbox
         focusout->todo#saveTodo
-        keydown.enter->todo#saveTodo
-        keydown.shift+enter->todo#saveTodo
-        keydown.ctrl+enter->todo#saveTodo
-        keydown.alt+enter->todo#saveTodo
-        keydown.ctrl+alt+enter->todo#saveTodo
-        keydown.ctrl+shift+enter->todo#saveTodo
-        keydown.shift+alt+enter->todo#saveTodo
-        keydown.ctrl+alt+shift+enter->todo#saveTodo
+        keydown.enter->todo#blurTitleField
+        keydown.shift+enter->todo#blurTitleField
+        keydown.ctrl+enter->todo#blurTitleField
+        keydown.alt+enter->todo#blurTitleField
+        keydown.ctrl+alt+enter->todo#blurTitleField
+        keydown.ctrl+shift+enter->todo#blurTitleField
+        keydown.shift+alt+enter->todo#blurTitleField
+        keydown.ctrl+alt+shift+enter->todo#blurTitleField
         keydown.esc->todo#resetTitle
         paste->todo#squishTitle'"
     ).html_safe

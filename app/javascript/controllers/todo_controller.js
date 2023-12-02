@@ -41,7 +41,11 @@ export default class extends Controller {
   resetTitle() {
     this.#updateTitle(this.#originalTitle) // Revert title changes
     this.#removeErrorMessage()
-    this.titleFieldTarget.blur() // Trigger focusout
+    this.blurTitleField()
+  }
+
+  blurTitleField() {
+    this.titleFieldTarget.blur() // Triggers focusout
   }
 
   squishTitle() {
