@@ -4,27 +4,41 @@
       <%= form.hidden_field :title, data: { todo_target: "titleHiddenField", original_value: "" } %>
     <% end %>
 
-    <div class="todo-title field <%= "invalid" if todo.errors.any? %>"
-      contenteditable="true"
-      spellcheck="false"
-      placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
-      data-todo-target="titleField"
-      data-action="input->todo#updateTitleHiddenField
-        keydown.enter->todo#saveTodo
-        keydown.shift+enter->todo#saveTodo
-        keydown.ctrl+enter->todo#saveTodo
-        keydown.alt+enter->todo#saveTodo
-        keydown.ctrl+alt+enter->todo#saveTodo
-        keydown.ctrl+shift+enter->todo#saveTodo
-        keydown.shift+alt+enter->todo#saveTodo
-        keydown.ctrl+alt+shift+enter->todo#saveTodo
-        keydown.esc->todo#resetTitle
-        paste->todo#squishTitle"><%= todo.title %></div>
+    <div class="todo-data">
+      <div class="todo-title field <%= "invalid" if todo.errors.any? %>"
+        contenteditable="true"
+        spellcheck="false"
+        placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
+        data-todo-target="titleField"
+        data-action="input->todo#updateTitleHiddenField
+          keydown.enter->todo#saveTodo
+          keydown.shift+enter->todo#saveTodo
+          keydown.ctrl+enter->todo#saveTodo
+          keydown.alt+enter->todo#saveTodo
+          keydown.ctrl+alt+enter->todo#saveTodo
+          keydown.ctrl+shift+enter->todo#saveTodo
+          keydown.shift+alt+enter->todo#saveTodo
+          keydown.ctrl+alt+shift+enter->todo#saveTodo
+          keydown.esc->todo#resetTitle
+          paste->todo#squishTitle"><%= todo.title %></div>
+
+      <div class="todo-info">
+        <div class="todo-error">
+          <%= render "error_messages", resource: todo %>
+        </div>
+
+        <div class="todo-hint hide">
+          <% if todo.errors.any? %>
+            Press esc to cancel
+          <% else %>
+            Press enter to save
+          <% end %>
+        </div>
+      </div>
+    </div>
 
     <div class="todo-actions visible">
       <%= image_tag "add.svg", alt: "Add todo", size: "16x16", id: "todo-submit", class: "hoverlight", data: { action: "click->todo#saveTodo" } %>
     </div>
   </li>
-
-  <%= render "error_messages", resource: todo %>
 <% end %>

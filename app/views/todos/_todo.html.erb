@@ -13,7 +13,23 @@
       </div>
     </div>
 
-    <div class="todo-title <%= "completed" if todo.completed? %> <%= "invalid" if todo.errors.any? %>" <%= title_attributes unless todo.completed? %>><%= todo.title %></div>
+    <div class="todo-data">
+      <div class="todo-title <%= "completed" if todo.completed? %> <%= "invalid" if todo.errors.any? %>" <%= title_attributes unless todo.completed? %>><%= todo.title %></div>
+
+      <div class="todo-info">
+        <div class="todo-error">
+          <%= render "error_messages", resource: todo %>
+        </div>
+
+        <div class="todo-hint hide">
+          <% if todo.errors.any? %>
+            Press esc to cancel
+          <% else %>
+            Press enter to save
+          <% end %>
+        </div>
+      </div>
+    </div>
 
     <div class="todo-actions">
       <%= button_to todo_path(todo), method: :delete, data: { turbo_frame: "_top" } do %>
@@ -21,6 +37,4 @@
       <% end %>
     </div>
   </li>
-
-  <%= render "error_messages", resource: todo %>
 <% end %>
