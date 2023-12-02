@@ -36,11 +36,11 @@
           border-radius: 50%;
           width: 16px;
           height: 16px;
-          transition: all .2s ease-in;
+          transition: var(--default-transition);
 
           & img {
             opacity: 0;
-            transition: all .2s ease-out;
+            transition: var(--default-transition);
           }
 
           &:hover {
@@ -58,7 +58,7 @@
           &.completed, &:hover {
             & img {
               opacity: 1;
-              transition: all .2s ease-in;
+              transition: var(--default-transition);
             }
           }
         }
@@ -77,7 +77,13 @@
           word-break: break-word;
           letter-spacing: .0065em;
           line-height: 1.5;
-          transition: all .2s ease-in;
+          transition: var(--default-transition);
+
+          .todo:not(#add-todo) & {
+            background-color: var(--todo-title-background-grey);
+            border: 1px solid var(--todo-title-border-grey);
+            border-radius: var(--default-border-radius);
+          }
 
           &.field {
             padding-left: 0;
@@ -95,22 +101,21 @@
             border-color: var(--alert-red) !important;
           }
 
-          .todo:not(#add-todo) & {
-            background-color: var(--todo-title-background-grey);
-            border: 1px solid var(--todo-title-border-grey);
-            border-radius: var(--default-border-radius);
-          }
-
-          &:not(&.field) {
-            &:focus {
-              background-color: transparent;
-              color: var(--todo-title-edit-mode-grey);
-              caret-color: var(--main-white);
-              border-color: var(--disabled-grey);
+          &:focus {
+            ~ .todo-info .todo-hint {
+              opacity: 1;
+              max-height: 100px;
             }
           }
 
           &:focus, &:not(&.completed):hover {
+            border-color: var(--disabled-grey);
+          }
+
+          &:not(&.field):focus {
+            background-color: transparent;
+            color: var(--todo-title-edit-mode-grey);
+            caret-color: var(--main-white);
             border-color: var(--disabled-grey);
           }
         }
@@ -118,7 +123,7 @@
         .todo-info {
           display: flex;
           justify-content: space-between;
-          margin-top: var(--todo-default-padding);
+          margin-top: 2px;
           font-size: 12px;
 
           .todo-error {
@@ -126,7 +131,11 @@
           }
 
           .todo-hint {
+            opacity: 0;
+            max-height: 0; /* We don't want .todo-hint to take its space initially since we're using opacity: 0; instead of display: none; */
             color: var(--todo-status-checkbox-grey);
+            text-align: right;
+            transition: var(--default-transition);
           }
         }
       }
@@ -136,7 +145,7 @@
         margin-top: 5px;
         margin-left: var(--todo-default-padding);
         height: fit-content;
-        transition: all .2s ease-in;
+        transition: var(--default-transition);
 
         & button {
           background: none;

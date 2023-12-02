@@ -29,11 +29,10 @@
 .hoverlight {
   border-radius: var(--default-border-radius);
   padding: 7px;
-  transition: all .2s ease-out;
+  transition: var(--default-transition);
 
   &:hover {
     background-color: var(--main-grey);
-    transition: all .2s ease-in;
   }
 }
 

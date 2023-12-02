@@ -10,6 +10,7 @@
     padding: var(--default-input-padding);
     margin-bottom: 10px;
     background-color: var(--error-red);
+    text-align: center;
   }
 
   .danger-zone {
