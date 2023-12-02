@@ -136,6 +136,13 @@
             color: var(--todo-status-checkbox-grey);
             text-align: right;
             transition: var(--default-transition);
+
+            .key {
+              padding: 0px 4px;
+              border-radius: 5px;
+              background-color: var(--todo-title-border-grey);
+              color: var(--todo-title-edit-mode-grey);
+            }
           }
         }
       }
