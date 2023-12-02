@@ -1,5 +1,5 @@
 <%= turbo_frame_tag todo do %>
-  <li class="todo" data-controller="todo" data-todo-turbo-frame-id-value="<%= dom_id todo %>">
+  <li class="todo" data-controller="todo error">
     <%= form_with(model: todo, data: { todo_target: "form" }) do |form| %>
       <%= form.hidden_field :completed, data: { todo_target: "completedHiddenField", original_value: todo.completed } %>
       <% unless todo.completed? %>

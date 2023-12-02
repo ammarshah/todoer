@@ -2,9 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ "form", "titleField", "titleHiddenField", "completedCheckbox", "completedHiddenField" ]
-  static values = {
-    turboFrameId: String
-  }
 
   connect() {
     this.#regainFocus()
@@ -40,7 +37,7 @@ export default class extends Controller {
 
   resetTitle() {
     this.#updateTitle(this.#originalTitle) // Revert title changes
-    this.#removeErrorMessage()
+    this.titleFieldTarget.classList.remove("invalid")
     this.blurTitleField()
   }
 
@@ -109,11 +106,11 @@ export default class extends Controller {
   }
 
   #hasFormChanged() {
-    if (this.#hiddenTitle !== this.#originalTitle || this.#hiddenCompleted !== this.#originalCompleted) {
+    if (this.#hiddenTitle !== this.#originalTitle ||
+        this.#hiddenCompleted !== this.#originalCompleted) {
       return true
-    } else {
-      return false
     }
+    return false
   }
 
   #updateTitle(title) {
@@ -135,16 +132,6 @@ export default class extends Controller {
       if (this.#titleIsField() || this.#titleHasError()) {
         this.titleFieldTarget.focus()
       }
-    }
-  }
-
-  #removeErrorMessage() {
-    const turboFrame = "#" + this.turboFrameIdValue
-    const errorMessage = this.element.closest(turboFrame).querySelector('.error-message')
-
-    if (errorMessage) {
-      this.titleFieldTarget.classList.remove("invalid")
-      errorMessage.remove()
     }
   }
 }

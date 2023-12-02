@@ -17,6 +17,7 @@ module TodoHelper
         keydown.shift+alt+enter->todo#blurTitleField
         keydown.ctrl+alt+shift+enter->todo#blurTitleField
         keydown.esc->todo#resetTitle
+        keydown.esc->error#remove
         paste->todo#squishTitle'"
     ).html_safe
   end
