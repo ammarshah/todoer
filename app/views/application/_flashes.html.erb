@@ -1,4 +1,4 @@
-<div id="flashes" data-controller="flash">
+<div id="flashes" data-controller="flash" data-turbo-temporary>
   <% flash.each do |type, message| %>
     <input type="hidden" data-flash-target="flash" data-type="<%= type %>" value="<%= message %>">
   <% end %>

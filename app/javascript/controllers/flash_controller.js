@@ -18,12 +18,12 @@ export default class extends Controller {
       const type = flash.dataset.type
 
       this.#showToast(message, type)
-      flash.remove()
     }
   }
 
   #showToast(message, type) {
     let options = {
+      selector: "flashes",
       text:      message,
       className: type,
       gravity:   "top",
