@@ -40,9 +40,8 @@ a:hover {
   width: 8px; /* Width of the entire scrollbar */
 }
 
-/* FIXME: It's a hack to make the top portion of the tracking area match the color of the header */
 ::-webkit-scrollbar-track {
-  background: linear-gradient(var(--main-black) 70px, var(--main-grey) 0px); /* Color of the tracking area */
+  background: var(--main-grey); /* Color of the tracking area */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -62,5 +61,5 @@ html {
 
 /* See https://turbo.hotwired.dev/handbook/drive#displaying-progress */
 .turbo-progress-bar {
-  background-color: var(--scrollbar-grey);
+  background-color: var(--hoverlight-grey);
 }

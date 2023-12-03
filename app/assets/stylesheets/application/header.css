@@ -1,22 +1,25 @@
 header {
-  background-color: var(--main-black);
-  padding: var(--default-container-padding);
-  position: sticky; /* Make the header stick to the top */
-  top: 0;
-  height: 30px; /* Set the fixed height */
-  display: flex;
-  align-items: center; /* Center horizontally */
-  justify-content: space-between; /* Distribute space evenly between children */
+  &#navbar {
+    display: flex;
+    align-items: center; /* Center horizontally */
+    justify-content: space-between; /* Distribute space evenly between children */
+    background-color: var(--main-grey);
+    padding: var(--default-container-padding);
+    position: sticky; /* Make the header stick to the top */
+    top: 0;
+    height: 30px; /* Set the fixed height */
+    transition: var(--default-transition);
 
-  & .tagline {
-    font-size: 1.2em;
-  }
+    &.active {
+      box-shadow: var(--shadow-large);
+    }
 
-  & #logo {
-    margin-left: 10px;
-  }
+    #logo {
+      margin-left: 10px;
+    }
 
-  & #nav-link {
-    margin-right: 10px;
+    #nav-link {
+      margin-right: 10px;
+    }
   }
 }

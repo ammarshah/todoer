@@ -32,7 +32,11 @@
   transition: var(--default-transition);
 
   &:hover {
-    background-color: var(--main-grey);
+    background-color: var(--hoverlight-grey);
+  }
+
+  &.delete:hover {
+    background-color: var(--hoverlight-red);
   }
 }
 

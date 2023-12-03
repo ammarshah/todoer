@@ -2,17 +2,21 @@
   /* Colors */
   --main-white: #f0f0f8;
   --hover-white: #d1d1d1;
-  --main-black: #222222;
   --main-grey: #333333;
+  --hoverlight-grey: #474747;
   --scrollbar-grey: #545454;
   --disabled-grey: #a5a5a5;
   --alert-red: #d8504a;
   --error-red: #9b4f4f;
   --danger-red: #9d2d2d;
+  --hoverlight-red: #673737;
 
   /* Properties */
   --default-border-radius: 10px;
   --default-container-padding: 20px;
   --default-input-padding: 14px;
   --default-transition: all 0.2s ease-in;
+  --shadow-small: 1px 3px 6px hsl(0 0% 0% / 0.1);
+  --shadow-large: 2px 4px 10px hsl(0 0% 0% / 0.1);
+  --shadow-xlarge: 4px 8px 20px hsl(0 0% 0% / 0.15);
 }

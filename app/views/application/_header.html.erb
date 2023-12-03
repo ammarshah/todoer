@@ -1,4 +1,4 @@
-<header>
+<header id="navbar" data-controller="navbar" data-action="scroll@window->navbar#activate" data-navbar-active-class="active">
   <div id="logo">
     <% if user_signed_in? %>
       <% if controller_name == "apps" %>
@@ -16,10 +16,6 @@
       <% end %>
     <% end %>
   </div>
-
-  <%# <div class="tagline center">
-    <p>Let's get things todoed</p>
-  </div> %>
 
   <div id="nav-link">
     <% if user_signed_in? %>
