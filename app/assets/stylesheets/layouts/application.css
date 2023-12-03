@@ -59,3 +59,8 @@ html {
   scrollbar-width: auto; /* thin or auto */
   scrollbar-color: var(--scrollbar-grey) none; /* Thumb and track color */
 }
+
+/* See https://turbo.hotwired.dev/handbook/drive#displaying-progress */
+.turbo-progress-bar {
+  background-color: var(--scrollbar-grey);
+}
