@@ -6,7 +6,7 @@
   <% end %>
 
   <% if errors.any? %>
-    <div class="error-message" data-error-target="message" data-turbo-cache="false">
+    <div class="error-message" data-error-target="message" data-turbo-temporary>
       <%= errors.full_messages.first %>
     </div>
   <% end %>

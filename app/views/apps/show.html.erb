@@ -1,3 +1,8 @@
+<% content_for :meta_tags do %>
+  <%# See https://turbo.hotwired.dev/handbook/building#opting-out-of-caching %>
+  <meta name="turbo-cache-control" content="no-preview">
+<% end %>
+
 <div id="app" class="mr-top mr-bottom">
   <%= turbo_frame_tag "todos", src: todos_path(internal_request: true) do %>
     Loading...
