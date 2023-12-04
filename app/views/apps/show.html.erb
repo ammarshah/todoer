@@ -5,6 +5,8 @@
 
 <div id="app" class="mr-top mr-bottom">
   <%= turbo_frame_tag "todos", src: todos_path(internal_request: true) do %>
-    Loading...
+    <div class="center">
+      <%= image_tag "logo_white.png", alt: "Loading...", size: "120x120", class: "animate-pulse" %>
+    </div>
   <% end %>
 </div>
