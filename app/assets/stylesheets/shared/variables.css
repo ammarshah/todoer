@@ -15,7 +15,7 @@
   --default-border-radius: 10px;
   --default-container-padding: 20px;
   --default-input-padding: 14px;
-  --default-transition: all 0.2s ease-in;
+  --default-transition: all 0.4s ease;
   --shadow-small: 1px 3px 6px hsl(0 0% 0% / 0.1);
   --shadow-large: 2px 4px 10px hsl(0 0% 0% / 0.1);
   --shadow-xlarge: 4px 8px 20px hsl(0 0% 0% / 0.15);

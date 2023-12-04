@@ -1,0 +1,33 @@
+/* Copied from https://www.linkedin.com/feed website initital page load sources */
+:root {
+  --loading-bar-initial-position: -50%;
+  --loading-bar-final-position: 150%;
+}
+
+@keyframes loading {
+  0%, 100% {
+    transform: translate(var(--loading-bar-initial-position));
+  }
+
+  50% {
+    transform: translate(var(--loading-bar-final-position));
+  }
+}
+
+.loading-bar {
+  width: 25%;
+  height: 2px;
+  margin: auto;
+  background-color: var(--disabled-grey);
+  border-radius: var(--default-border-radius);
+  overflow: hidden;
+
+  .grey-bar {
+    height: 100%;
+    width: 50%;
+    background-color: var(--scrollbar-grey);
+    border-radius: var(--default-border-radius);
+    transform: translate(var(--loading-bar-initial-position));
+    animation: loading 1.5s ease infinite;
+  }
+}

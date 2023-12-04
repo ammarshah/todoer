@@ -1,3 +1,5 @@
+// Copied from https://www.hotrails.dev website sources
+
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
