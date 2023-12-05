@@ -10,13 +10,14 @@
   --error-red: #9b4f4f;
   --danger-red: #9d2d2d;
   --hoverlight-red: #673737;
+  --shadow-black: #212121;
 
   /* Properties */
   --default-border-radius: 10px;
   --default-container-padding: 20px;
   --default-input-padding: 14px;
   --default-transition: all 0.4s ease;
-  --shadow-small: 1px 3px 6px hsl(0 0% 0% / 0.1);
-  --shadow-large: 2px 4px 10px hsl(0 0% 0% / 0.1);
-  --shadow-xlarge: 4px 8px 20px hsl(0 0% 0% / 0.15);
+  --shadow-small: 0px 3px 6px var(--shadow-black);
+  --shadow-large: 0px 4px 10px var(--shadow-black);
+  --shadow-xlarge: 0px 8px 20px var(--shadow-black);
 }

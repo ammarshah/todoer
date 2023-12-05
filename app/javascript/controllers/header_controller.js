@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   activate() {
-    if (window.scrollY >= 40) {
+    if (window.scrollY >= 50) {
       this.element.classList.add(this.activeClass)
     } else {
       this.element.classList.remove(this.activeClass)
