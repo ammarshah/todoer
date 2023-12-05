@@ -3,6 +3,13 @@ module TodoHelper
     "#{title_class_attribute(todo)} #{title_other_attributes(todo) unless todo.completed?}".html_safe
   end
 
+  def completed_attributes(todo)
+    "#{completed_class_attribute(todo)}
+    #{completed_style_attribute(todo)}
+    data-todo-target=completedCheckbox
+    data-action='click->todo#updateCompletedHiddenField click->todo#saveTodo'".html_safe
+  end
+
   def todo_was_marked_complete?(old_todo, new_todo)
     !old_todo.completed? && new_todo.completed?
   end
@@ -46,5 +53,20 @@ module TodoHelper
     placeholder='#{Tagline::DEFAULT_TAGLINE}'
     data-todo-target=titleField
     data-action='#{data_action}'".html_safe
+  end
+
+  def completed_class_attribute(todo)
+    classes = "todo-status-checkbox
+      #{"completed" if todo.completed?}".squish
+
+    "class='#{classes}'".html_safe
+  end
+
+  def completed_style_attribute(todo)
+    if todo.errors.any?
+      styles = "opacity: 0; pointer-events: none;"
+
+      "style='#{styles}'".html_safe
+    end
   end
 end
