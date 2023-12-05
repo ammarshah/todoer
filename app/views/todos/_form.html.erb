@@ -5,23 +5,7 @@
     <% end %>
 
     <div class="todo-data">
-      <div class="todo-title field <%= "invalid" if todo.errors.any? %>"
-        contenteditable="true"
-        spellcheck="false"
-        placeholder="<%= Tagline::DEFAULT_TAGLINE %>"
-        data-todo-target="titleField"
-        data-action="input->todo#updateTitleHiddenField
-          keydown.enter->todo#saveTodo
-          keydown.shift+enter->todo#saveTodo
-          keydown.ctrl+enter->todo#saveTodo
-          keydown.alt+enter->todo#saveTodo
-          keydown.ctrl+alt+enter->todo#saveTodo
-          keydown.ctrl+shift+enter->todo#saveTodo
-          keydown.shift+alt+enter->todo#saveTodo
-          keydown.ctrl+alt+shift+enter->todo#saveTodo
-          keydown.esc->todo#resetTitle
-          keydown.esc->error#remove
-          paste->todo#squishTitle"><%= todo.title %></div>
+      <div <%= title_attributes(todo) %>><%= todo.title %></div>
 
       <div class="todo-info">
         <div class="todo-error">

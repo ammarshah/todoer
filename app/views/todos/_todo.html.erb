@@ -14,7 +14,7 @@
     </div>
 
     <div class="todo-data">
-      <div class="todo-title <%= "completed" if todo.completed? %> <%= "invalid" if todo.errors.any? %>" <%= title_attributes unless todo.completed? %>><%= todo.title %></div>
+      <div <%= title_attributes(todo) %>><%= todo.title %></div>
 
       <div class="todo-info">
         <div class="todo-error">
