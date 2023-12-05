@@ -1,6 +1,6 @@
 <% if @todo.errors.any? %>
-  <%= turbo_stream.replace "new_todo", partial: "form", locals: { todo: @todo } %>
+  <%= turbo_stream.replace "new_todo", partial: "todo", locals: { todo: @todo } %>
 <% else %>
-  <%= turbo_stream.replace "new_todo", partial: "form", locals: { todo: Todo.new } %>
+  <%= turbo_stream.replace "new_todo", partial: "todo", locals: { todo: Todo.new } %>
   <%= turbo_stream.append "incomplete-todos", @todo %>
 <% end %>

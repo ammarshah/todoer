@@ -10,6 +10,14 @@ module TodoHelper
     data-action='click->todo#updateCompletedHiddenField click->todo#saveTodo'".html_safe
   end
 
+  def title_original_value(todo)
+    if todo.new_record?
+      return ""
+    else
+      return todo.errors.any? ? @todo_before_update.title : todo.title
+    end
+  end
+
   def todo_was_marked_complete?(old_todo, new_todo)
     !old_todo.completed? && new_todo.completed?
   end
