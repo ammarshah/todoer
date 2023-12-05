@@ -145,7 +145,6 @@
       }
 
       .todo-actions {
-        opacity: 0;
         margin-top: 5px;
         margin-left: var(--todo-default-padding);
         height: fit-content;
@@ -158,11 +157,12 @@
         }
 
         & img {
+          opacity: 0;
           cursor: pointer;
-        }
 
-        &.visible, .todo:hover & {
-          opacity: 1;
+          &.visible, .todo:hover & {
+            opacity: 1;
+          }
         }
       }
     }
