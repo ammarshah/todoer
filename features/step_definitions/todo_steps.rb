@@ -16,8 +16,6 @@ When('I add a todo with a {int}-character title') do |title_length|
   add_todo(todo)
 end
 
-# Since there is no easy way to use clipboard with Capybara,
-# we are simply doing copy and paste by sending keyboard shortcut keys
 When('I paste a multi-line title') do |multiline_title|
   paste_title(title: multiline_title)
 end
@@ -77,6 +75,6 @@ Then('I should see the todo with the title {string} as the first item in the com
   expect(page.find('ul#completed-todos')).to have_css('li:first-child', text: title)
 end
 
-Then('I should see an auto-squished title as {string}') do |squished_title|
+Then('I should see a squished title as {string}') do |squished_title|
   expect(page.find('#add-todo')).to have_css('.todo-title', text: squished_title)
 end

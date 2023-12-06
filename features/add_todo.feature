@@ -38,7 +38,7 @@ Feature: Add todo
       Then I should see an error message indicating that the title must be maximum 1000 characters long
       And I should have 0 todos in the incomplete todos list
 
-  Rule: Multi-line and extra spaces in the title must be auto-squished
+  Rule: Multi-line and extra spaces in the title must be auto-squished on paste and while saving
 
     @javascript
     Example: User pastes a multi-line title
@@ -50,7 +50,7 @@ Feature: Add todo
 
         bread
         """
-      Then I should see an auto-squished title as "Buy bread"
+      Then I should see a squished title as "Buy bread"
 
     @javascript
     Example: User adds a todo with title containing extra spaces

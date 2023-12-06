@@ -3,6 +3,8 @@ module TodoHelper
     add_todo_with(title: todo.title)
   end
 
+  # Since there is no easy way to use clipboard with Capybara,
+  # we are simply doing copy and paste by sending keyboard shortcut keys
   def paste_title(title:)
     within('#add-todo') do
       find('.todo-title').set(title) # Set the multi-line title somewhere on the page
