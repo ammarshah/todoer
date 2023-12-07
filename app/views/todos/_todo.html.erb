@@ -2,13 +2,8 @@
 <%= turbo_frame_tag todo do %>
   <li id="<%= "add-todo" if todo.new_record? %>" class="todo" data-controller="todo error">
     <%= form_with(model: todo, data: { todo_target: "form" }) do |form| %>
-      <% if todo.persisted? %>
-        <%= form.hidden_field :completed, data: { todo_target: "completedHiddenField", original_value: todo.completed } %>
-      <% end %>
-
-      <% unless todo.completed? %>
-        <%= form.hidden_field :title, data: { todo_target: "titleHiddenField", original_value: title_original_value(todo) } %>
-      <% end %>
+      <%= form.hidden_field :completed, data: { todo_target: "completedHiddenField", original_value: todo.completed } if todo.persisted? %>
+      <%= form.hidden_field :title, data: { todo_target: "titleHiddenField", original_value: title_original_value(todo) } unless todo.completed? %>
     <% end %>
 
     <% if todo.persisted? %>
@@ -35,11 +30,11 @@
 
     <div class="todo-actions">
       <% if todo.persisted? %>
-        <%= button_to todo_path(todo), method: :delete, data: { turbo_frame: "_top" } do %>
+        <%= button_to todo_path(todo), method: :delete, title: "Delete", data: { turbo_frame: "_top" } do %>
           <%= image_tag "delete.svg", alt: "Delete todo", size: "16x16", class: "hoverlight delete" %>
         <% end %>
       <% else %>
-        <%= image_tag "add.svg", alt: "Add todo", size: "16x16", id: "todo-submit", class: "hoverlight visible", data: { action: "click->todo#saveTodo" } %>
+        <%= image_tag "add.svg", alt: "Add todo", title: "Add", size: "16x16", id: "todo-submit", class: "hoverlight visible", data: { action: "click->todo#saveTodo" } %>
       <% end %>
     </div>
   </li>
