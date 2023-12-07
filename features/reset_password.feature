@@ -46,7 +46,7 @@ Feature: Reset password
       And I reset my password
       When I follow the reset password link in the email again
       And I reset my password
-      Then I should see an error message indicating that the reset password link is invalid
+      Then I should see an error message indicating that the reset password token is invalid
 
   Rule: New password must not match any of the old passwords
 
