@@ -26,7 +26,11 @@ module MessageHelper
     "the new passwords do not match"                            => "Password confirmation doesn't match Password",
     "I am no longer considered a Todoer"                        => "Your account has been successfully deleted. Please don't call yourself a Todoer anymore until you Register again!",
     "a title is required"                                       => "Title can't be blank",
-    "the title must be maximum 1000 characters long"            => "Title is too long (maximum is 1000 characters)"
+    "the title must be maximum 1000 characters long"            => "Title is too long (maximum is 1000 characters)",
+    "my message has been received"                              => "Thank you! We've received your message and will respond ASAP!",
+    "a name is required"                                        => "Name can't be blank",
+    "a subject is required"                                     => "Subject can't be blank",
+    "a message is required"                                     => "Message can't be blank"
   }
 
   def message_for(text)

@@ -36,6 +36,7 @@
       margin-bottom: 10px;
     }
 
+    & textarea,
     & input[type="text"],
     & input[type="email"],
     & input[type="password"],
@@ -49,6 +50,7 @@
       color: var(--main-white);
       border-radius: var(--default-border-radius);
       font-size: 18px;
+      font-family: inherit;
     }
 
     & input[type="submit"] {
@@ -61,7 +63,9 @@
       }
     }
 
-    & input:disabled {
+    & input:disabled,
+    & input[type="text"]:read-only,
+    & input[type="email"]:read-only {
       background-color: var(--disabled-grey);
       cursor: not-allowed;
     }
@@ -87,6 +91,7 @@
     }
 
     & form {
+      & textarea,
       & input[type="text"],
       & input[type="email"],
       & input[type="password"],

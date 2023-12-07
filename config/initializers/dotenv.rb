@@ -10,7 +10,8 @@ common_required_keys = [
   "SMTP_USERNAME",
   "SMTP_PASSWORD",
   "DEFAULT_FROM_EMAIL",
-  "DEFAULT_REPLY_TO_EMAIL"
+  "DEFAULT_REPLY_TO_EMAIL",
+  "TODOER_SUPPORT_EMAIL"
 ]
 
 # Keys that are required in production environment only

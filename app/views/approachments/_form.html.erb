@@ -1,0 +1,41 @@
+<div class="form-container mr-bottom">
+  <h1 class="title center">Approach Us</h1>
+
+  <p class="subtitle center mr-bottom">
+    Give feedback, report an issue or just say hello.
+    <br>
+    We'd love to hear from you.
+  </p>
+
+  <%= form_with(model: approachment, url: approach_us_path, class: "mr-bottom") do |form| %>
+    <%= render "error_messages", resource: approachment %>
+
+    <div class="field">
+      <% if user_signed_in? %>
+        <%= form.text_field :name, value: current_user.full_name, readonly: true, placeholder: "Your name" %>
+      <% else %>
+        <%= form.text_field :name, placeholder: "Your name" %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <% if user_signed_in? %>
+        <%= form.email_field :email, value: current_user.email, readonly: true, placeholder: "Your email" %>
+      <% else %>
+        <%= form.email_field :email, placeholder: "Your email" %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :subject, placeholder: "What's this about?" %>
+    </div>
+
+    <div class="field">
+      <%= form.text_area :message, placeholder: "Message or details", rows: 5 %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Send" %>
+    </div>
+  <% end %>
+</div>
