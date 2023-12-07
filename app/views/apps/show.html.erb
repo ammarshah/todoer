@@ -1,6 +1,5 @@
 <% content_for :meta_tags do %>
-  <%# See https://turbo.hotwired.dev/handbook/building#opting-out-of-caching %>
-  <meta name="turbo-cache-control" content="no-preview">
+  <%= render "application/meta_tags/no_preview" %>
 <% end %>
 
 <div id="app" class="mr-top mr-bottom">
