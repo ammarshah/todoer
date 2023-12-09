@@ -14,10 +14,10 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.save
         format.turbo_stream
-        format.html { redirect_to app_path }
+        format.html { redirect_to app_url }
       else
         format.turbo_stream
-        format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
+        format.html { redirect_to app_url, alert: @todo.errors.full_messages.first }
       end
     end
   end
@@ -28,10 +28,10 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.update(todo_params)
         format.turbo_stream
-        format.html { redirect_to app_path }
+        format.html { redirect_to app_url }
       else
         format.turbo_stream
-        format.html { redirect_to app_path, alert: @todo.errors.full_messages.first }
+        format.html { redirect_to app_url, alert: @todo.errors.full_messages.first }
       end
     end
   end
@@ -41,14 +41,14 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@todo) }
-      format.html { redirect_to app_path }
+      format.html { redirect_to app_url }
     end
   end
 
   private
 
   def validate_request!
-    redirect_to app_path unless params[:internal_request].present?
+    redirect_to app_url unless params[:internal_request].present?
   end
 
   def set_todo

@@ -8,7 +8,7 @@ class ApproachmentsController < ApplicationController
 
     respond_to do |format|
       if @approachment.save
-        format.html { redirect_to root_path, notice: "Thank you! We've received your message and will respond ASAP!" }
+        format.html { redirect_to root_url, notice: "Thank you! We've received your message and will respond ASAP!" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

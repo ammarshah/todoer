@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   private
 
   def redirect_to_app
-    redirect_to app_path
+    redirect_to app_url
   end
 end
