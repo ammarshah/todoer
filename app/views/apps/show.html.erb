@@ -4,6 +4,10 @@
 
 <div id="app" class="mr-top mr-bottom">
   <%= turbo_frame_tag "todos", src: todos_path(internal_request: true) do %>
+    <div class="loading-logo center mr-bottom">
+      <%= image_tag "logo.svg", alt: "Todoer" %>
+    </div>
+
     <%= render "loading_bar" %>
   <% end %>
 </div>
