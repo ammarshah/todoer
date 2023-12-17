@@ -18,15 +18,15 @@ en:
       unconfirmed: "You have to confirm your email address before continuing. <a href='/confirm'>Resend me confirmation instructions.</a>"
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Confirm your email address"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Reset your password"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
         subject: "Email Changed"
       password_change:
-        subject: "Password Changed"
+        subject: "Password changed"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
