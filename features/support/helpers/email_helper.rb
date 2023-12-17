@@ -1,10 +1,10 @@
 module EmailHelper
   def confirmation_link
-    @confirmation_link ||= extract_link_from_email_with(text: 'Confirm my account')
+    @confirmation_link ||= extract_link_from_email_with(text: 'Confirm email')
   end
 
   def reset_password_link
-    @reset_password_link ||= extract_link_from_email_with(text: 'Change my password')
+    @reset_password_link ||= extract_link_from_email_with(text: 'Reset password')
   end
 
   private
