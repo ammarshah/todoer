@@ -1,6 +1,10 @@
 <div class="form-container">
   <h1 class="title center">Reset Password</h1>
 
+  <p class="subtitle center mr-bottom">
+    Enter a new password for your account <strong><%= User.with_reset_password_token(params[:reset_password_token]).try(:email) %></strong>.
+  </p>
+
   <%= form_with(model: resource, url: password_path(resource_name), method: :put) do |form| %>
     <%= render "error_messages", resource: resource %>
     <%= form.hidden_field :reset_password_token %>
