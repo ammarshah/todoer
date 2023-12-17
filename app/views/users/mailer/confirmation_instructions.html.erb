@@ -1,5 +1,21 @@
-<p>Welcome <%= @email %>!</p>
+<h1>Confirm your email address</h1>
 
-<p>You can confirm your account email through the link below:</p>
+<div class="spacer"></div>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p class="align-left">
+  Once you've confirmed that <%= mail_to @resource.email, class: "color-white" %> is your email address, you can get started in Todoer!
+</p>
+
+<div class="spacer"></div>
+
+<p>
+  <%= link_to 'Confirm email', confirmation_url(@resource, confirmation_token: @token), class: "button" %>
+</p>
+
+<div class="spacer"></div>
+
+<p class="align-left subtitle">
+  If you didn't request this email, there's nothing to worry about — you can safely ignore it.
+</p>
+
+<div class="spacer"></div>

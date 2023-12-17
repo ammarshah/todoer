@@ -3,11 +3,75 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      #master-container {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 40px;
+        text-align: center;
+        font-size: 18px;
+        background-color: #333333;
+        color: #f0f0f8;
+      }
+
+      #main-content {
+        display: inline-block;
+        width: 50%;
+      }
+
+      #header {
+        margin-bottom: 60px;
+      }
+
+      #footer {
+        margin-top: 60px;
+        font-size: 12px;
+      }
+
+      .align-left {
+        text-align: left;
+      }
+
+      .spacer {
+        padding-bottom: 20px;
+      }
+
+      .subtitle {
+        color: #a5a5a5;
+      }
+
+      .color-white {
+        color: #f0f0f8 !important;
+      }
+
+      a.button {
+        display: inline-block;
+        padding: 1em 3em;
+        border-radius: 10px;
+        text-decoration: none;
+        background-color: #f0f0f8;
+        color: #333333;
+      }
+
+      a.button:hover {
+        background-color: #d1d1d1;
+      }
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="master-container">
+      <div id="main-content">
+        <div id="header">
+          <%= link_to root_url, title: "Todoer" do %>
+            <%#= image_tag "logo.png", alt: "Todoer", size: "48x48" %>
+            <%= image_tag "https://raw.githubusercontent.com/ammarshah/todoer/master/app/assets/images/logo.png", alt: "Todoer", size: "48x48" %>
+          <% end %>
+        </div>
+
+        <%= yield %>
+
+        <p id="footer" class="subtitle">© <%= Date.today.year %> Todoer.</p>
+      </div>
+    </div>
   </body>
 </html>
