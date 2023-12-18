@@ -60,6 +60,12 @@ gem "devise-security"
 # Provides sorting and reordering a number of objects in a list
 gem "acts_as_list"
 
+group :development, :production do
+  # Applies all CSS rules to each matching HTML element
+  # in your email template by adding them to the style attribute
+  gem "premailer-rails"
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -10,6 +10,9 @@
         text-align: center;
         font-size: 18px;
         background-color: #333333;
+      }
+
+      #master-container, a {
         color: #f0f0f8;
       }
 
@@ -43,14 +46,6 @@
         padding-bottom: 40px;
       }
 
-      .color-white {
-        color: #f0f0f8 !important;
-      }
-
-      .color-grey {
-        color: #a5a5a5 !important;
-      }
-
       a.button {
         display: inline-block;
         padding: 1em 3em;
@@ -61,7 +56,14 @@
       }
 
       a.button:hover {
-        background-color: #d1d1d1;
+        background-color: #d1d1d1 !important;
+      }
+
+      /* Any Mobile and Tablet Device */
+      @media only screen and (max-width: 991px) {
+        #main-content {
+          width: 100% !important;
+        }
       }
     </style>
   </head>
