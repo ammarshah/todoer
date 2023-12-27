@@ -1,5 +1,5 @@
 <%
-  default_opts = "--publish-quiet --format #{ENV['CUCUMBER_FORMAT'] || 'progress'}"
+  default_opts = "--publish-quiet --format #{ENV['CUCUMBER_FORMAT'] || 'progress'} --order random"
 
   std_opts = "--strict --tags 'not @wip'"
 
