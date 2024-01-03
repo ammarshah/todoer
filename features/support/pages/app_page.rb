@@ -20,7 +20,7 @@ class AppPage < PageEz::Page
     add_todo_form.add_button.click
   end
 
-  has_one :incomplete_todos_list, 'ul#incomplete-todos' do
+  has_one :todos_list do
     has_many :todos, 'li.todo' do
       has_one :status_checkbox, '.todo-status-checkbox'
       has_one :title_field, '.todo-title'
@@ -29,46 +29,26 @@ class AppPage < PageEz::Page
       def mark_complete
         status_checkbox.click
       end
+      alias :mark_incomplete :mark_complete
+
+      def edit(title:)
+        title_field.set(title)
+      end
+
+      def update(title:)
+        edit(title: title)
+        press_key(key: 'enter')
+      end
 
       def delete
         hover
         delete_button.click
       end
-    end
-
-    def change_todo_title(from:, to:)
-      todo_matching(text: from).title_field.set(to)
-    end
-
-    def update_todo_title(from:, to:)
-      change_todo_title(from: from, to: to)
-      press_key(key: 'enter')
     end
   end
 
-  has_one :completed_todos_list, 'ul#completed-todos' do
-    has_many :todos, 'li.todo' do
-      has_one :status_checkbox, '.todo-status-checkbox'
-      has_one :title_field, '.todo-title'
-      has_one :delete_button, '.todo-actions .delete'
-
-      def mark_incomplete
-        status_checkbox.click
-      end
-
-      def delete
-        hover
-        delete_button.click
-      end
-    end
-
-    def change_todo_title(from:, to:)
-      todo_matching(text: from).title_field.set(to)
-    end
-
-    def update_todo_title(from:, to:)
-      change_todo_title(from: from, to: to)
-      press_key(key: 'enter')
-    end
+  # Dynamic selector for `has_one :todos_list`
+  def todos_list(status:)
+    "ul##{status}-todos"
   end
 end

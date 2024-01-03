@@ -10,7 +10,7 @@ Feature: Edit todo
       Given I am logged in
       And I am on the app page
       And I added a todo with the title "Buy bread"
-      When I change the todo's title, present in the incomplete todos list, from "Buy bread" to "Buy bread and butter"
+      When I edit the todo's title, present in the incomplete todos list, from "Buy bread" to "Buy bread and butter"
       And I press "enter" key
       And I refresh the page
       Then I should see a todo with the title "Buy bread and butter" in the incomplete todos list
@@ -22,7 +22,7 @@ Feature: Edit todo
       And I added a todo with the title "Buy bread"
       And I updated the todo's title, present in the incomplete todos list, from "Buy bread" to " "
       And I saw an error message indicating that a title is required
-      When I change the todo's title, present in the incomplete todos list, from " " to "Buy bread and butter"
+      When I edit the todo's title, present in the incomplete todos list, from " " to "Buy bread and butter"
       And I press "enter" key
       Then I should not see an error message indicating that a title is required
 
@@ -31,7 +31,7 @@ Feature: Edit todo
       Given I am logged in
       And I am on the app page
       And I added a todo with the title "Buy bread"
-      When I change the todo's title, present in the incomplete todos list, from "Buy bread" to "Buy bread and butter"
+      When I edit the todo's title, present in the incomplete todos list, from "Buy bread" to "Buy bread and butter"
       And I focus out of the field
       And I refresh the page
       Then I should see a todo with the title "Buy bread and butter" in the incomplete todos list
@@ -43,7 +43,7 @@ Feature: Edit todo
       And I added a todo with the title "Buy bread"
       And I updated the todo's title, present in the incomplete todos list, from "Buy bread" to " "
       And I saw an error message indicating that a title is required
-      When I change the todo's title, present in the incomplete todos list, from " " to "Buy bread and butter"
+      When I edit the todo's title, present in the incomplete todos list, from " " to "Buy bread and butter"
       And I focus out of the field
       Then I should not see an error message indicating that a title is required
 
@@ -54,7 +54,7 @@ Feature: Edit todo
       Given I am logged in
       And I am on the app page
       And I added a todo with the title "Buy bread"
-      When I change the todo's title, present in the incomplete todos list, from "Buy bread" to "Buy bread and butter"
+      When I edit the todo's title, present in the incomplete todos list, from "Buy bread" to "Buy bread and butter"
       And I press "escape" key
       Then I should see a todo with the title "Buy bread" in the incomplete todos list
       And I refresh the page
