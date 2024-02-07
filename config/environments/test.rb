@@ -49,7 +49,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
 
   # For Devise mailer
-  config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
+  config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'], port: ENV['APP_PORT'] }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr

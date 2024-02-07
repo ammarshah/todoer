@@ -49,3 +49,46 @@ Run all tests:
 ```shell
 $ rake
 ```
+
+## Deployment
+
+a. Build the image:
+
+```shell
+$ docker compose build
+```
+
+b. Tag the image with new build version:
+
+```shell
+$ docker tag ammarshah/todoer-server:latest ammarshah/todoer-server:1.0.0
+```
+
+c. Push the tag to your [Docker Hub](https://hub.docker.com) repository:
+
+```shell
+$ docker push ammarshah/todoer-server:1.0.0
+$ docker push ammarshah/todoer-server:latest
+```
+
+d. Commit and push the latest code to your GitHub repository:
+
+```shell
+$ git push origin master
+```
+
+e. Login to your production server via ssh and pull the latest code from GitHub repository:
+
+```shell
+$ git pull origin master
+```
+
+f. Finally, use `docker compose` command to run the required services:
+
+```shell
+$ docker compose up -d
+```
+
+Note: This will pull the latest (pre-built) image for each service, listed in `compose.yml`, from the Docker Hub registry and run the containers.
+
+The application is accessible at [http://your-server-ip](http://your-server-ip).

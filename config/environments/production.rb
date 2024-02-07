@@ -85,7 +85,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:         ENV['SMTP_ADDRESS'],
     port:            ENV['SMTP_PORT'],
-    domain:          ENV['APP_HOST'],
+    domain:          ENV['APP_DOMAIN'],
     user_name:       ENV['SMTP_USERNAME'],
     password:        ENV['SMTP_PASSWORD'],
     authentication:  'plain',
@@ -93,7 +93,7 @@ Rails.application.configure do
   }
 
   # For Devise mailer
-  config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
+  config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'], port: ENV['APP_PORT'] }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
