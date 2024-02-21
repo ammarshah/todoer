@@ -6,6 +6,12 @@ But I soon felt an urge for using the BDD's outside-in approach and I decided to
 
 Also, it uses the latest version of Ruby (v3) and Rails (v7) at the time.
 
+## Demo
+
+This app is deployed on [Render](https://render.com).
+
+Demo URL: https://todoer-coen.onrender.com/
+
 ## Project Setup
 
 To setup this project, you'll want to clone and run the setup script for the repo.
