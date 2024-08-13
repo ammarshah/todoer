@@ -50,7 +50,7 @@ Given('I requested to reset my password') do
   @user ||= create(:user)
 
   request_reset_password_for(email: @user.email)
-  
+
   # We need this expectation here to make sure that the web request from the
   # above `request_reset_password_for` method is finished completely which
   # means we will have an ActiveJob enqueued for the reset password email

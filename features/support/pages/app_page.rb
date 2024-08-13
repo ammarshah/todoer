@@ -11,7 +11,7 @@ class AppPage < PageEz::Page
     # need to do copy and paste by sending keyboard shortcut keys
     def paste_title(title)
       title_field.set(title) # Set the title somewhere on the page
-      send_keys [:control, 'a', 'c', 'v'] # Select all ('a'), then copy ('c'), then paste ('v')
+      send_keys [ :control, 'a', 'c', 'v' ] # Select all ('a'), then copy ('c'), then paste ('v')
     end
   end
 

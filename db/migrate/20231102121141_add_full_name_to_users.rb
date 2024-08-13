@@ -1,4 +1,4 @@
-class AddFullNameToUsers < ActiveRecord::Migration[7.0]
+class AddFullNameToUsers < ActiveRecord::Migration[7.2]
   def change
     add_column :users, :full_name, :string, null: false
   end

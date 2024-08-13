@@ -14,7 +14,7 @@ RSpec.describe Tagline, type: :model do
   end
 
   it "does not save with an existing text" do
-    tagline = create(:tagline, text: "What an awesome tagline!")
+    create(:tagline, text: "What an awesome tagline!")
     duplicate_tagline = build(:tagline, text: "What an awesome tagline!")
 
     expect { duplicate_tagline.save! }.to raise_error("Validation failed: Text has already been taken")

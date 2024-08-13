@@ -1,12 +1,12 @@
 class Todo < ApplicationRecord
   belongs_to :user
 
-  acts_as_list scope: [:user_id, :completed]
+  acts_as_list scope: [ :user_id, :completed ]
 
   validates :title, presence: true,
                     length:   { maximum: 1000 }
 
-  validates :completed, inclusion: { in: [true, false] }
+  validates :completed, inclusion: { in: [ true, false ] }
 
   before_validation :squish_title
 

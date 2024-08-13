@@ -12,9 +12,9 @@ module TodoHelper
 
   def title_original_value(todo)
     if todo.new_record?
-      return ""
+      ""
     else
-      return todo.errors.any? ? @todo_before_update.title : todo.title
+      todo.errors.any? ? @todo_before_update.title : todo.title
     end
   end
 

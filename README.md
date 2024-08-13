@@ -53,7 +53,7 @@ $ cucumber --order=random:YOUR_SEED
 Run all tests:
 
 ```shell
-$ rake
+$ bin/rake
 ```
 
 ## Deployment

@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
   before_action :validate_request!, only: :index
-  before_action :set_todo, only: [:update, :destroy]
+  before_action :set_todo, only: [ :update, :destroy ]
 
   def index
     @incomplete_todos = current_user.todos.incomplete

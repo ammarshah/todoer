@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
       end
 
       it "does not save if email already exists" do
-        user = create(:user, email: "existing_email@example.com")
+        create(:user, email: "existing_email@example.com")
         user_with_existing_email = build(:user, email: "existing_email@example.com")
         another_user_with_existing_email = build(:user, email: "EXISTING_EMAIL@EXAMPLE.COM")
 

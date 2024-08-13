@@ -78,9 +78,9 @@ RSpec.describe Todo, type: :model do
   describe ".incomplete" do
     it "returns the incomplete todos" do
       incomplete_todo = create(:todo)
-      completed_todo = create(:todo, :completed)
+      create(:todo, :completed)
 
-      expect(Todo.incomplete).to eq([incomplete_todo])
+      expect(Todo.incomplete).to eq([ incomplete_todo ])
     end
 
     it "returns the incomplete todos in an ascending order by their position" do
@@ -88,16 +88,16 @@ RSpec.describe Todo, type: :model do
       incomplete_todo3 = create(:todo, position: 3)
       incomplete_todo2 = create(:todo, position: 2)
 
-      expect(Todo.incomplete).to eq([incomplete_todo1, incomplete_todo2, incomplete_todo3])
+      expect(Todo.incomplete).to eq([ incomplete_todo1, incomplete_todo2, incomplete_todo3 ])
     end
   end
 
   describe ".completed" do
     it "returns the completed todos" do
-      incomplete_todo = create(:todo)
+      create(:todo)
       completed_todo = create(:todo, :completed)
 
-      expect(Todo.completed).to eq([completed_todo])
+      expect(Todo.completed).to eq([ completed_todo ])
     end
 
     it "returns the completed todos in a descending order by their position" do
@@ -105,7 +105,7 @@ RSpec.describe Todo, type: :model do
       completed_todo3 = create(:todo, :completed, position: 3)
       completed_todo2 = create(:todo, :completed, position: 2)
 
-      expect(Todo.completed).to eq([completed_todo3, completed_todo2, completed_todo1])
+      expect(Todo.completed).to eq([ completed_todo3, completed_todo2, completed_todo1 ])
     end
   end
 end

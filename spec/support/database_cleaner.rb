@@ -1,5 +1,4 @@
 RSpec.configure do |config|
-
   config.before(:suite) do
     if config.use_transactional_fixtures?
       raise(<<-MSG)
@@ -44,5 +43,4 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
 end

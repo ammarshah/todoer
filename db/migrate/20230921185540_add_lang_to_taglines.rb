@@ -1,4 +1,4 @@
-class AddLangToTaglines < ActiveRecord::Migration[7.0]
+class AddLangToTaglines < ActiveRecord::Migration[7.2]
   def change
     add_column :taglines, :lang, :string, null: false
     add_column :taglines, :lang_code, :string, null: false

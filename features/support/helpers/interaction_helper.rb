@@ -1,6 +1,6 @@
 module InteractionHelper
   def press_key(key:)
-    send_keys [key.to_sym]
+    send_keys [ key.to_sym ]
   end
 
   def trigger_blur

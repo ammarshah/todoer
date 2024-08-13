@@ -1,4 +1,4 @@
-class CreateApproachments < ActiveRecord::Migration[7.0]
+class CreateApproachments < ActiveRecord::Migration[7.2]
   def change
     create_table :approachments do |t|
       t.string :name, null: false
