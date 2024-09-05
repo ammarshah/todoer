@@ -68,7 +68,7 @@ Rails.application.configure do
   #
   # One potential security risk is mentioned here:
   #   https://github.com/heartcombo/devise#password-reset-tokens-and-rails-logs
-  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "warn")
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
