@@ -10,7 +10,7 @@ Also, it uses the latest version of Ruby (v3) and Rails (v7) at the time.
 
 This app is deployed on a free [Render](https://render.com) tier which [spins down the server if it's idle for 15 minutes](https://docs.render.com/free#spinning-down-on-idle), so it takes some time to spin up the server again when it next receives a request.
 
-Demo URL: https://todoer-coen.onrender.com/
+Demo URL: https://todoer-9s1j.onrender.com/
 
 ## Prerequisites
 
