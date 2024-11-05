@@ -57,10 +57,10 @@ Run Cucumber tests:
 
 ```shell
 # By default, it runs tests in a random order
-$ bin/rails cucumber
+$ bundle exec cucumber
 
 # Use --order option if you want to run tests with seed
-$ bin/rails cucumber --order=random:YOUR_SEED
+$ bundle exec cucumber --order=random:YOUR_SEED
 ```
 
 Run all tests:
