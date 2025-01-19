@@ -25,7 +25,7 @@ services:
       - key: SECRET_KEY_BASE
         sync: false
       - key: APP_DOMAIN
-        value: todoer.onrender.com
+        value: todoer-9s1j.onrender.com
       - key: APP_PORT
         value: DUMMY
       - key: POSTGRES_HOST
