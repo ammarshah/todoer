@@ -15,7 +15,7 @@ services:
     runtime: ruby
     plan: free
     region: oregon
-    repo: https://bitbucket.org/ammarshah/todoer
+    repo: https://gitlab.com/ammarvellous/todoer
     branch: master
     autoDeploy: true
     buildCommand: ./bin/render-build.sh
