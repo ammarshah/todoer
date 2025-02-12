@@ -105,6 +105,7 @@ GEM
     crass (1.0.6)
     css_parser (1.21.0)
       addressable
+    csv (3.3.2)
     cucumber (9.2.1)
       builder (~> 3.2)
       cucumber-ci-environment (> 9, < 11)
@@ -414,6 +415,7 @@ DEPENDENCIES
   brakeman
   bullet
   capybara
+  csv
   cucumber-rails
   database_cleaner-active_record
   debug
