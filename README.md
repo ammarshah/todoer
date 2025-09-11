@@ -14,15 +14,9 @@ Demo URL: https://todoer-9s1j.onrender.com/
 
 ## Prerequisites
 
-1. Install [PostgreSQL](https://www.liberiangeek.net/2024/04/install-postgresql-psql-ubuntu-24-04) database
+1. Install [PostgreSQL](https://gist.github.com/ammarshah/f0397c9c405df68e352256d58b1e84a7) database.
 
-2. Install `libpq` library to successfully install `pg` gem
-
-   ```shell
-   $ sudo apt install libpq-dev
-   ```
-
-3. Setup [rbenv](https://gist.github.com/ammarshah/b78f09fcd526a7c5db3a7273d29d0032) for easily managing multiple Ruby versions
+2. Install [rbenv](https://gist.github.com/ammarshah/7e9226271ef3b8b49861b7865b642d2d) for easily managing multiple Ruby versions.
 
 ## Project Setup
 
@@ -34,6 +28,12 @@ $ cd todoer
 $ rbenv install
 $ cp .env.template .env
 $ bin/setup
+```
+
+## Run Development Server
+
+```shell
+$ bin/dev
 ```
 
 ## Run Tests

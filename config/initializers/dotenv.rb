@@ -4,9 +4,6 @@ required_keys = [
   "SECRET_KEY_BASE",
   "APP_DOMAIN",
   "APP_PORT",
-  "POSTGRES_HOST",
-  "POSTGRES_USERNAME",
-  "POSTGRES_PASSWORD",
   "SMTP_ADDRESS",
   "SMTP_PORT",
   "SMTP_USERNAME",
@@ -15,5 +12,16 @@ required_keys = [
   "DEFAULT_REPLY_TO_EMAIL",
   "TODOER_SUPPORT_EMAIL"
 ]
+
+if Rails.env.production?
+  production_required_keys = [
+    "POSTGRES_HOST",
+    "POSTGRES_USERNAME",
+    "POSTGRES_PASSWORD",
+    "WEB_CONCURRENCY"
+  ]
+
+  required_keys = required_keys + production_required_keys
+end
 
 Dotenv.require_keys(required_keys)
