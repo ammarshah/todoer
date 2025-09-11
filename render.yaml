@@ -46,5 +46,11 @@ services:
         fromDatabase:
           name: todoer_db
           property: connectionString
+      - key: POSTGRES_HOST
+        value: DUMMY
+      - key: POSTGRES_USERNAME
+        value: DUMMY
+      - key: POSTGRES_PASSWORD
+        value: DUMMY
       - key: WEB_CONCURRENCY
         value: 2
