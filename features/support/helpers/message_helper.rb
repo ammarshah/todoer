@@ -14,7 +14,7 @@ module MessageHelper
     "the email is already confirmed"                            => I18n.t("errors.messages.already_confirmed"),
     "I am logged in"                                            => I18n.t("devise.sessions.signed_in"),
     "the email is not confirmed"                                => "You have to confirm your email address before continuing. Resend me confirmation instructions.",
-    "the email or password is invalid"                          => "Invalid Email or Password",
+    "the email or password is invalid"                          => "Invalid email or password",
     "the confirmation instructions has been sent to my email"   => I18n.t("devise.confirmations.send_instructions"),
     "the reset password instructions has been sent to my email" => I18n.t("devise.passwords.send_instructions"),
     "the email is not found"                                    => "Email not found",
