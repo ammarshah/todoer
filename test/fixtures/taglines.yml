@@ -1,0 +1,4 @@
+default:
+  text: "What an awesome tagline!"
+  lang: "English"
+  lang_code: "en"
