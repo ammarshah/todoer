@@ -1,4 +1,6 @@
 module UserBuilder
+  DEFAULT_PASSWORD = "password123"
+
   def build_user(**attrs)
     User.new(default_user_attributes.merge(attrs))
   end
@@ -11,8 +13,8 @@ module UserBuilder
     {
       full_name: "John Doe",
       email: "john#{SecureRandom.hex(4)}@example.com",
-      password: "password123",
-      password_confirmation: "password123",
+      password: DEFAULT_PASSWORD,
+      password_confirmation: DEFAULT_PASSWORD,
       confirmed_at: DateTime.now
     }
   end

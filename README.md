@@ -40,6 +40,9 @@ $ bin/rails test
 
 # Use --seed option if you want to run tests with seed
 $ bin/rails test --seed YOUR_SEED
+
+# Run all tests (including system tests)
+$ bin/rails test:all
 ```
 
 > [!TIP]

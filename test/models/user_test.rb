@@ -130,10 +130,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "requires matching password confirmation" do
-    user = build_user(
-      password: "password",
-      password_confirmation: "PASSWORD"
-    )
+    user = build_user(password: "password", password_confirmation: "PASSWORD")
 
     assert_not user.valid?
     assert_equal :confirmation, user.errors.details[:password_confirmation].first[:error]
