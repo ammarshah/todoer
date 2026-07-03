@@ -10,21 +10,42 @@ Demo URL: https://todoer-9s1j.onrender.com/
 
 ## Prerequisites
 
-1. Install [PostgreSQL](https://gist.github.com/ammarshah/f0397c9c405df68e352256d58b1e84a7) database.
-
-2. Install [rbenv](https://gist.github.com/ammarshah/7e9226271ef3b8b49861b7865b642d2d) for easily managing multiple Ruby versions.
+1. Install [rbenv](https://gist.github.com/ammarshah/7e9226271ef3b8b49861b7865b642d2d) for easily managing multiple Ruby versions.
 
 ## Project Setup
 
-To setup this project, you'll want to clone and run the setup script for the repo.
+To set up this project, clone the repository and run the setup script:
 
 ```shell
 $ git clone git@github.com:ammarshah/todoer.git
 $ cd todoer
 $ rbenv install
-$ cp .env.template .env
 $ bin/setup
 ```
+
+## Rails Credentials
+
+The project's Rails master key (`config/master.key`) is **not** committed to the repository. Instead, an encrypted copy (`config/master.key.gpg`) is included.
+
+During `bin/setup`, you'll be prompted for the shared passphrase to decrypt the master key and create `config/master.key`.
+
+If you skip this step or enter an incorrect passphrase, you can decrypt it later by running:
+
+```shell
+$ bin/decrypt_master_key
+```
+
+> [!NOTE]
+> Obtain the shared passphrase from the project owner or a team member.
+
+> [!IMPORTANT]
+> If you update the Rails credentials and generate a new `config/master.key`, remember to encrypt it before committing:
+>
+> ```shell
+> $ bin/encrypt_master_key
+> ```
+>
+> This overwrites `config/master.key.gpg` with an encrypted copy of the current `config/master.key`. Share the new passphrase with the team through a secure channel.
 
 ## Run Development Server
 
@@ -48,6 +69,7 @@ $ bin/rails test:all
 > [!TIP]
 > To debug tests order dependency checkout [minitest-bisect](https://github.com/minitest/minitest-bisect) to get the minimum number of tests to run to reproduce the failure.
 
+<!--
 ## Deployment
 
 a. Build the image:
@@ -87,6 +109,11 @@ f. Finally, use `docker compose` command to run the required services:
 $ docker compose up -d
 ```
 
-Note: This will pull the latest (pre-built) image for each service, listed in `compose.yml`, from the Docker Hub registry and run the containers.
+> [!NOTE]
+> This will pull the latest (pre-built) image for each service, listed in `compose.yml`, from the Docker Hub registry and run the containers.
+
+> [!IMPORTANT]
+> Set the `APP_DOMAIN` environment variable to your application's public hostname (without the protocol), for example `todoer.example.com`. Rails uses this value when generating URLs in emails.
 
 The application is accessible at [http://your-server-ip](http://your-server-ip).
+-->
