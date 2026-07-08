@@ -113,7 +113,7 @@ $ docker compose up -d
 > This will pull the latest (pre-built) image for each service, listed in `compose.yml`, from the Docker Hub registry and run the containers.
 
 > [!IMPORTANT]
-> Set the `APP_DOMAIN` environment variable to your application's public hostname (without the protocol), for example `todoer.example.com`. Rails uses this value when generating URLs in emails.
+> Set the `APP_DOMAIN` environment variable to your application's public hostname (without the protocol), for example `app.example.com`. Rails uses this value when generating URLs in emails.
 
 The application is accessible at [http://your-server-ip](http://your-server-ip).
 -->
