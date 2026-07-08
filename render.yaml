@@ -15,5 +15,7 @@ services:
         sync: false
       - key: APP_DOMAIN
         value: todoer-9s1j.onrender.com
+      - key: SOLID_QUEUE_IN_PUMA
+        value: true
       - key: WEB_CONCURRENCY
         value: 2
