@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+MASTER_KEY="config/master.key"
+ENCRYPTED_MASTER_KEY="config/master.key.gpg"
+
+error() {
+  echo "ERROR: $1" >&2
+  exit 1
+}
+
+# Ensure GPG is installed.
+command -v gpg >/dev/null 2>&1 || error "gpg is not installed or not available in PATH."
+
+# Ensure the Rails master key exists.
+[[ -f "$MASTER_KEY" ]] || error "$MASTER_KEY does not exist."
+
+echo "Encrypting $MASTER_KEY..."
+
+gpg \
+  --symmetric \
+  --cipher-algo AES256 \
+  --output "$ENCRYPTED_MASTER_KEY" \
+  "$MASTER_KEY"
+
+echo
+echo "✔ Created $ENCRYPTED_MASTER_KEY"

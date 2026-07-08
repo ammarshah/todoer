@@ -1,9 +1,14 @@
-# START -> Create Taglines
-Tagline.delete_all
-ActiveRecord::Base.connection.execute("ALTER SEQUENCE taglines_id_seq RESTART WITH 1")
+# This file should ensure the existence of records required to run the application in every environment (production,
+# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-require 'csv'
-CSV.foreach(("#{Rails.root}/db/data/taglines.csv"), headers: true) do |row|
-  Tagline.create(row)
+# Create Taglines from a CSV file
+require "csv"
+
+Tagline.delete_all
+
+Tagline.connection.execute("DELETE FROM sqlite_sequence WHERE name='taglines'")
+
+CSV.foreach(Rails.root.join("db/data/taglines.csv"), headers: true) do |row|
+  Tagline.create!(row)
 end
-# END -> Create Taglines
