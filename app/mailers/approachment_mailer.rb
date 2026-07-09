@@ -1,5 +1,5 @@
 class ApproachmentMailer < ApplicationMailer
-  SUPPORT_EMAIL = "support.glitch555@simplelogin.com"
+  SUPPORT_EMAIL = "support@todoer.simplelogin.com"
 
   def notify_us(approachment)
     @approachment = approachment
