@@ -18,6 +18,6 @@ class ApproachmentsController < ApplicationController
   private
 
   def approachment_params
-    params.require(:approachment).permit(:name, :email, :subject, :message)
+    params.expect(approachment: [ :name, :email, :subject, :message ])
   end
 end
