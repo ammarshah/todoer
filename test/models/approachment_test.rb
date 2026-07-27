@@ -32,10 +32,9 @@ class ApproachmentTest < ActiveSupport::TestCase
     assert_equal :too_long, invalid.errors.details[:name].first[:error]
   end
 
-  test "squishes name on validation" do
+  test "squishes name" do
     approachment = build_approachment(name: "   John    Doe   ")
 
-    assert approachment.valid?
     assert_equal "John Doe", approachment.name
   end
 
@@ -96,10 +95,9 @@ class ApproachmentTest < ActiveSupport::TestCase
     end
   end
 
-  test "squishes email on validation" do
+  test "squishes email" do
     approachment = build_approachment(email: "   user@example.com   ")
 
-    assert approachment.valid?
     assert_equal "user@example.com", approachment.email
   end
 
@@ -122,10 +120,9 @@ class ApproachmentTest < ActiveSupport::TestCase
     assert_equal :too_long, invalid.errors.details[:subject].first[:error]
   end
 
-  test "squishes subject on validation" do
+  test "squishes subject" do
     approachment = build_approachment(subject: "   This   is   a   subject   ")
 
-    assert approachment.valid?
     assert_equal "This is a subject", approachment.subject
   end
 

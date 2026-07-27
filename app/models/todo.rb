@@ -8,14 +8,8 @@ class Todo < ApplicationRecord
 
   validates :completed, inclusion: { in: [ true, false ] }
 
-  before_validation :squish_title
+  normalizes :title, with: ->(title) { title.squish }
 
   scope :incomplete, -> { where(completed: false).order(position: :asc) }
   scope :completed,  -> { where(completed: true).order(position: :desc) }
-
-  private
-
-  def squish_title
-    self.title.to_s.squish!
-  end
 end

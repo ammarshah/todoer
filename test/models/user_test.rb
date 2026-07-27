@@ -32,6 +32,12 @@ class UserTest < ActiveSupport::TestCase
     assert_equal :too_long, invalid.errors.details[:full_name].first[:error]
   end
 
+  test "squishes full name" do
+    user = build_user(full_name: "    John Doe    ")
+
+    assert_equal "John Doe", user.full_name
+  end
+
   #
   # EMAIL
   #
@@ -117,6 +123,12 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not user.valid?
     assert_equal "can't be changed", user.errors.details[:email].first[:error]
+  end
+
+  test "strips and downcases email" do
+    user = build_user(email: "    JOHN.DOE@EXAMPLE.COM    ")
+
+    assert_equal "john.doe@example.com", user.email
   end
 
   #

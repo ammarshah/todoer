@@ -21,6 +21,9 @@ class User < ApplicationRecord
                         length:       { within: 8..70, allow_blank: true },
                         if:           :password_required?
 
+  normalizes :full_name, with: ->(full_name) { full_name.squish }
+  normalizes :email,     with: ->(email)     { email.strip.downcase }
+
   protected
 
   # Checks whether a password is needed or not. For validations only.

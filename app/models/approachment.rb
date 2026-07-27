@@ -14,16 +14,11 @@ class Approachment < ApplicationRecord
   validates :message, presence: true,
                       length: { maximum: 3000 }
 
-  before_validation :squish_fields
+  normalizes :name, :email, :subject, with: ->(field) { field.squish }
+
   after_create :notify_us
 
   private
-
-  def squish_fields
-    self.name.to_s.squish!
-    self.email.to_s.squish!
-    self.subject.to_s.squish!
-  end
 
   def notify_us
     ApproachmentMailer.notify_us(self).deliver_later

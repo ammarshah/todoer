@@ -30,10 +30,9 @@ class TodoTest < ActiveSupport::TestCase
     assert_equal :too_long, invalid.errors.details[:title].first[:error]
   end
 
-  test "squishes title on validation" do
+  test "squishes title" do
     todo = build_todo(title: "    Buy    bread    ")
 
-    assert todo.valid?
     assert_equal "Buy bread", todo.title
   end
 
