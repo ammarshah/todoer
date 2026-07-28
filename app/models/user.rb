@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  include EmailRegex
-
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :confirmable,
   :password_archivable
@@ -13,7 +11,7 @@ class User < ApplicationRecord
   validates :email, presence:   true,
                     uniqueness: { case_sensitive: false },
                     length:     { maximum: 150 },
-                    format:     { with: EMAIL_REGEX, allow_blank: true },
+                    format:     { with: EmailAddress::FORMAT, allow_blank: true },
                     immutable:  true
 
   validates :password,  presence:     true,

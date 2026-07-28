@@ -1,12 +1,10 @@
 class Approachment < ApplicationRecord
-  include EmailRegex
-
   validates :name,  presence: true,
                     length:   { maximum: 80 }
 
   validates :email, presence: true,
                     length:   { maximum: 150 },
-                    format:   { with: EMAIL_REGEX, allow_blank: true }
+                    format:   { with: EmailAddress::FORMAT, allow_blank: true }
 
   validates :subject, presence: true,
                       length: { maximum: 150 }
